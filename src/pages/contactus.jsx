@@ -50,13 +50,12 @@ function contactus() {
         <div className="w-full h-64 max-w-4xl mx-auto">
           <iframe
             className="w-full h-full rounded shadow-md"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d666.2424770402511!2d-97.4992126194694!3d25.858438711061805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f95228e71f123%3A0xd69b18a9360edda!2sPhot8can!5e0!3m2!1ses-419!2smx!4v1749594671010!5m2!1ses-419!2smx"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1514.7461686550155!2d-97.53372289190573!3d25.861935792701182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f939c341b717b%3A0x6938c700ff653bef!2sFraccionamiento%20Hacienda%20Quinta%20real!5e0!3m2!1ses-419!2smx!4v1749599637687!5m2!1ses-419!2smx"
             referrerPolicy="no-referrer-when-downgrade"
             sandbox="allow-same-origin allow-scripts allow-popups"
           ></iframe>
         </div>
       </section>
-      Í
     </>
   );
 }

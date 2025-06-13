@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
@@ -7,15 +7,26 @@ function Footer() {
         {/* About */}
         <div>
           <h4 className="font-semibold mb-2">Sobre HCO Tecnologías</h4>
-          <p>Automatización de procesos industriales y desarrollo de soluciones tecnológicas para empresas.</p>
+          <p>
+            Automatización de procesos industriales y desarrollo de soluciones
+            tecnológicas para empresas.
+          </p>
         </div>
 
         {/* Links */}
         <div>
           <h4 className="font-semibold mb-2">Enlaces</h4>
           <ul>
-            <li><a href="/aviso-de-privacidad" className="hover:text-blue-300">Aviso de privacidad</a></li>
-            <li><a href="/contacto" className="hover:text-blue-300">Contacto</a></li>
+            <li>
+              <a href="/aviso-de-privacidad" className="hover:text-blue-300">
+                Aviso de privacidad
+              </a>
+            </li>
+            <li>
+              <a href="/contacto" className="hover:text-blue-300">
+                Contacto
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -23,15 +34,38 @@ function Footer() {
         <div>
           <h4 className="font-semibold mb-2">Redes Sociales</h4>
           <ul className="flex justify-center sm:justify-start space-x-4">
-            <li><a href="#" className="hover:text-blue-300">Facebook</a></li>
-            <li><a href="#" className="hover:text-blue-300">LinkedIn</a></li>
-            <li><a href="#" className="hover:text-blue-300">WhatsApp</a></li>
+            <li>
+              <a
+                href="https://www.facebook.com/Photocan.mx/"
+                target="blank"
+                className="hover:text-gray-dark transition-all duration-300"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/phot8can/"
+                target="blank"
+                className="hover:text-gray-dark transition-all duration-300"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-dark">
+                WhatsApp
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="text-center text-xs mt-8">
-        <p>&copy; {new Date().getFullYear()} HCO Tecnologías. Todos los derechos reservados.</p>
+        <p>
+          &copy; {new Date().getFullYear()} HCO Tecnologías. Todos los derechos
+          reservados.
+        </p>
       </div>
     </footer>
   );

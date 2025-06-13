@@ -1,33 +1,97 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import About from "./about";
+import Showreel from "../components/showreel";
+import img01 from "../assets/images/machines/1S5A0138.jpeg";
+import img02 from "../assets/images/production/1S5A0155.jpeg";
+import img03 from "../assets/images/products/1S5A0224.jpeg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
+
+import HCOLogo from "../components/HCOLogo";
+import JeepLogo from "../assets/images/clients_logos/jeep-7.svg";
+import Romoeo from "../assets/images/clients_logos/alfaromeo.svg";
 
 function Home() {
-  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+  const imagenes = [
+    {
+      title: "Maquina 01",
+      route: img01,
+    },
+    {
+      title: "Produccion",
+      route: img02,
+    },
+    {
+      title: "Producto",
+      route: img03,
+    },
+  ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header Section */}
-      <header className="bg-blue-800 text-white p-10 text-center pt-40">
-        <div className="flex justify-center items-center space-x-4 mb-4"></div>
-        <h1 className="text-4xl font-bold text-blue">
-          Bienvenido a Tecnología Industrial HCO
-        </h1>
-        <p className="mt-2 text-lg text-blue">
-          Automatización de procesos industriales y de producción
-        </p>
-      </header>
+      <div
+        className="relative w-full h-144 align-middle justify-center flex mt-20"
+        data-aos="fade-up"
+      >
+        <header className="inset-0 z-10 flex flex-col items-center justify-center p-10 text-center text-blue gap-10">
+          <HCOLogo className="text-blue-600 h-44" />
+          <div>
+            <h1 className="text-4xl font-bold ">
+              Bienvenido a Tecnología Industrial HCO
+            </h1>
+            <p className="text-lg ">
+              Automatización de procesos industriales y de producción
+            </p>
+          </div>
+          <button
+            className="bg-blue px-5 py-2 rounded-full text-white hover:text-blue hover:bg-white transition-colors duration-150"
+            onClick={() => document.getElementById("a")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Ver mas <span className="text-xs">&#9660;</span>
+          </button>
+        </header>
+      </div>
 
-      {/* Carousel Section */}
-      <section className="my-10 px-6">
-        <h2 className="text-2xl font-semibold text-center mb-6">
-          Nuestros Proyectos
+      <section className="my-10 px-6" data-aos="fade-up">
+        <h2 className="text-2xl font-semibold text-center">
+          Nuestros Clientes
         </h2>
-        <div className="relative w-full max-w-4xl mx-auto h-64 bg-gray-200 rounded-lg shadow-md overflow-hidden flex items-center justify-center text-gray-700">
-          {/* Reemplazar con un componente de carrusel real si se desea */}
-          <p>(Aquí va el carrusel de imágenes que vamos a poner xd)</p>
+        <div className="flex items-center justify-center gap-40 my-10">
+          <div className="flex flex-col items-center gap-10">
+            <img src={JeepLogo} alt="JeepLogo" className="size-32" />
+            <button
+              className="bg-white px-5 py-2 rounded-full text-blue"
+              onClick={() => navigate("/services?categoria=clientes&item=jeep")}
+            >
+              Ver mas <span className="text-xs">&#9660;</span>
+            </button>
+          </div>
+          <div className="flex flex-col items-center gap-10">
+            <img src={Romoeo} alt="AlphaRomeoLogo" className="size-32" />
+            <button
+              className="bg-white px-5 py-2 rounded-full text-blue"
+              onClick={() => navigate("/services?categoria=clientes&item=alhpa_romeo")}
+            >
+              Ver mas <span className="text-xs">&#9660;</span>
+            </button>
+          </div>
         </div>
       </section>
-      <About />
+      <section id="a">
+        <About />
+        <div className="overflow-hidden">
+          <Showreel imagenes={imagenes} duration="1000" />
+        </div>
+      </section>
     </div>
   );
 }

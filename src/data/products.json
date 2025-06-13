@@ -1,0 +1,257 @@
+{
+  "ATORNILLADORES": {
+    "descripcion_categoria": "Dispositivos utilizados para atornillar o desatornillar tornillos con precisión industrial.",
+    "productos": [
+      {
+        "nombre": "ATLAS COPCO",
+        "descripcion_producto": "Herramientas industriales de atornillado de alta precisión.",
+        "url": ""
+      },
+      {
+        "nombre": "ASG",
+        "descripcion_producto": "Sistemas de atornillado automatizados y manuales.",
+        "url": ""
+      },
+      {
+        "nombre": "DESOUTTER",
+        "descripcion_producto": "Equipos avanzados para aplicaciones de ensamblaje.",
+        "url": ""
+      }
+    ]
+  },
+  "PLC": {
+    "descripcion_categoria": "Controladores lógicos programables usados en sistemas de automatización industrial.",
+    "productos": [
+      {
+        "nombre": "ALLEN BRADLEY",
+        "descripcion_producto": "Controladores robustos y versátiles de Rockwell Automation.",
+        "url": ""
+      },
+      {
+        "nombre": "KEYENCE",
+        "descripcion_producto": "PLC compactos y rápidos con conectividad avanzada.",
+        "url": ""
+      },
+      {
+        "nombre": "PANASONIC",
+        "descripcion_producto": "Sistemas PLC confiables y fáciles de programar.",
+        "url": ""
+      },
+      {
+        "nombre": "SIEMENS",
+        "descripcion_producto": "Líder global en automatización con la familia SIMATIC.",
+        "url": ""
+      }
+    ]
+  },
+  "PANTALLAS": {
+    "descripcion_categoria": "Interfaces hombre-máquina (HMI) para visualizar y controlar procesos industriales.",
+    "productos": [
+      {
+        "nombre": "DOPSOFT",
+        "descripcion_producto": "Software para HMI Delta Electronics.",
+        "url": ""
+      },
+      {
+        "nombre": "GPPROEX",
+        "descripcion_producto": "Plataforma para programación de pantallas Pro-face.",
+        "url": ""
+      },
+      {
+        "nombre": "EZAUTOMATION",
+        "descripcion_producto": "Pantallas HMI de bajo costo con alta funcionalidad.",
+        "url": ""
+      },
+      {
+        "nombre": "PANELBUILDER",
+        "descripcion_producto": "Software Allen Bradley para paneles HMI antiguos.",
+        "url": ""
+      },
+      {
+        "nombre": "BLUEOPENSTUDIO",
+        "descripcion_producto": "Entorno SCADA/HMI de Indusoft.",
+        "url": ""
+      },
+      {
+        "nombre": "PROFACE",
+        "descripcion_producto": "Pantallas industriales robustas y confiables.",
+        "url": ""
+      },
+      {
+        "nombre": "ASUS",
+        "descripcion_producto": "Monitores industriales adaptados a aplicaciones HMI.",
+        "url": ""
+      },
+      {
+        "nombre": "DELTA",
+        "descripcion_producto": "Pantallas HMI para integración con PLCs Delta.",
+        "url": ""
+      }
+    ]
+  },
+  "NEUMATICO": {
+    "descripcion_categoria": "Componentes que funcionan con aire comprimido para control de movimiento.",
+    "productos": [
+      {
+        "nombre": "SMC",
+        "descripcion_producto": "Líder mundial en automatización neumática.",
+        "url": ""
+      },
+      {
+        "nombre": "FESTO",
+        "descripcion_producto": "Soluciones neumáticas y eléctricas innovadoras.",
+        "url": ""
+      }
+    ]
+  },
+  "SENSORES": {
+    "descripcion_categoria": "Dispositivos que detectan condiciones físicas y las convierten en señales eléctricas.",
+    "productos": [
+      {
+        "nombre": "BANNER",
+        "descripcion_producto": "Sensores ópticos, ultrasónicos y más.",
+        "url": ""
+      },
+      {
+        "nombre": "KEYENCE",
+        "descripcion_producto": "Alta precisión en sensores de presencia y medición.",
+        "url": ""
+      },
+      {
+        "nombre": "SMC",
+        "descripcion_producto": "Sensores de presión y flujo para sistemas neumáticos.",
+        "url": ""
+      },
+      {
+        "nombre": "BALLUF",
+        "descripcion_producto": "Sensores inductivos y RFID de alto rendimiento.",
+        "url": ""
+      },
+      {
+        "nombre": "OMRON",
+        "descripcion_producto": "Sensores versátiles para múltiples aplicaciones industriales.",
+        "url": ""
+      }
+    ]
+  },
+  "ROBOCILINDROS": {
+    "descripcion_categoria": "Actuadores eléctricos que permiten movimientos precisos y repetitivos.",
+    "productos": [
+      {
+        "nombre": "IAI",
+        "descripcion_producto": "Robocilindros eléctricos para automatización precisa.",
+        "url": ""
+      },
+      {
+        "nombre": "FESTO",
+        "descripcion_producto": "Actuadores eléctricos modulares y eficientes.",
+        "url": ""
+      },
+      {
+        "nombre": "DELTA",
+        "descripcion_producto": "Sistemas de posicionamiento controlado por servo.",
+        "url": ""
+      }
+    ]
+  },
+  "SISTEMAS DE VISION": {
+    "descripcion_categoria": "Tecnologías que permiten la inspección visual automatizada.",
+    "productos": [
+      {
+        "nombre": "KEYENCE",
+        "descripcion_producto": "Sistemas compactos con algoritmos de visión integrados.",
+        "url": ""
+      },
+      {
+        "nombre": "COGNEX",
+        "descripcion_producto": "Sistemas de visión robustos para inspección industrial.",
+        "url": ""
+      }
+    ]
+  },
+  "ESCANERES": {
+    "descripcion_categoria": "Dispositivos para lectura de códigos de barras, QR y datos visuales.",
+    "productos": [
+      {
+        "nombre": "KEYENCE",
+        "descripcion_producto": "Escáneres industriales con alta velocidad de lectura.",
+        "url": ""
+      },
+      {
+        "nombre": "COGNEX",
+        "descripcion_producto": "Lectores de código de alto rendimiento.",
+        "url": ""
+      },
+      {
+        "nombre": "ZEBRA",
+        "descripcion_producto": "Escáneres confiables para entornos industriales.",
+        "url": ""
+      },
+      {
+        "nombre": "VEXIN",
+        "descripcion_producto": "Soluciones de escaneo compactas y eficientes.",
+        "url": ""
+      }
+    ]
+  },
+  "RELEVADORES": {
+    "descripcion_categoria": "Interruptores eléctricos operados electromagnéticamente para control de circuitos.",
+    "productos": [
+      {
+        "nombre": "OMRON",
+        "descripcion_producto": "Relevadores compactos y confiables.",
+        "url": ""
+      },
+      {
+        "nombre": "FINDER",
+        "descripcion_producto": "Componentes de control de alta durabilidad.",
+        "url": ""
+      },
+      {
+        "nombre": "ALLEN BRADLEY",
+        "descripcion_producto": "Relevadores industriales con integración a PLC.",
+        "url": ""
+      },
+      {
+        "nombre": "WEIDMULLER",
+        "descripcion_producto": "Relevadores modulares para control de señal.",
+        "url": ""
+      },
+      {
+        "nombre": "SCHNEIDER",
+        "descripcion_producto": "Automatización eléctrica con alta eficiencia.",
+        "url": ""
+      }
+    ]
+  },
+  "ROBOTS": {
+    "descripcion_categoria": "Brazos robóticos industriales para automatización de tareas repetitivas.",
+    "productos": [
+      {
+        "nombre": "JAKA",
+        "descripcion_producto": "Robots colaborativos compactos.",
+        "url": ""
+      },
+      {
+        "nombre": "FANUC",
+        "descripcion_producto": "Robots industriales de alto desempeño.",
+        "url": ""
+      },
+      {
+        "nombre": "NACHI",
+        "descripcion_producto": "Robots versátiles para manufactura automatizada.",
+        "url": ""
+      },
+      {
+        "nombre": "ABB",
+        "descripcion_producto": "Soluciones robóticas innovadoras.",
+        "url": ""
+      },
+      {
+        "nombre": "STAUBLI",
+        "descripcion_producto": "Robots para industrias de precisión y alta velocidad.",
+        "url": ""
+      }
+    ]
+  }
+}

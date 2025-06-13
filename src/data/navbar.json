@@ -1,0 +1,77 @@
+[
+  { "title": "Inicio", "index": "/" },
+  { "title": "Nosotros", "index": "/about" },
+  {
+    "title": "Servicios",
+    "index": [
+      {
+        "title": "Estaciones automáticas",
+        "index": [
+          {
+            "title": "Estaciones de prensado automático",
+            "path": "/services?categoria=automatizacion&item=prensado"
+          },
+          {
+            "title": "Estaciones de engrasado automático",
+            "path": "/services?categoria=automatizacion&item=engrasado"
+          },
+          {
+            "title": "Estaciones de escaneado automático",
+            "path": "/services?categoria=automatizacion&item=escaneado"
+          },
+          {
+            "title": "Estaciones de atornillado automático",
+            "path": "/services?categoria=automatizacion&item=atornillado"
+          },
+          {
+            "title": "Estaciones de descarga automática",
+            "path": "/services?categoria=automatizacion&item=descarga"
+          },
+          {
+            "title": "Estaciones multifuncionales",
+            "path": "/services?categoria=automatizacion&item=multifuncional"
+          }
+        ]
+      },
+      {
+        "title": "Estaciones manuales",
+        "path": "/services?categoria=manuales"
+      },
+      {
+        "title": "Líneas de ensamble",
+        "path": "/services?categoria=ensamble"
+      },
+      {
+        "title": "Programación industrial",
+        "index": [
+          {
+            "title": "Programación de controladores",
+            "path": "/services?categoria=programacion&item=plc"
+          },
+          {
+            "title": "Programación de pantallas",
+            "path": "/services?categoria=programacion&item=pantallas"
+          }
+        ]
+      },
+      {
+        "title": "Diseño e ingeniería",
+        "index": [
+          {
+            "title": "Diseños eléctricos y neumáticos",
+            "path": "/services?categoria=ingenieria&item=electroneumatico"
+          },
+          {
+            "title": "Diseños mecánicos 3D",
+            "path": "/services?categoria=ingenieria&item=mecanico3d"
+          }
+        ]
+      },
+      {
+        "title": "Maquinados y tratamientos térmicos",
+        "path": "/services?categoria=maquinados"
+      }
+    ]
+  },
+  { "title": "Contactos", "index": "/info" }
+]

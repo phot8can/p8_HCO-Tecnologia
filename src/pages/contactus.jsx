@@ -2,8 +2,9 @@ import React from "react";
 
 function contactus() {
   return (
-    <>
+    <div className="my-32"  >
       {/* Contact Form */}
+      <div />
       <section className="my-10 px-6 max-w-4xl mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-6">Contáctanos</h2>
         <form className="space-y-4">
@@ -56,7 +57,7 @@ function contactus() {
           ></iframe>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

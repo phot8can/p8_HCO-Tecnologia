@@ -1,68 +1,97 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "/HCO_Logo.svg";
+import navbar from "../data/navbar.json";
 
 function Navbar() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState(null);
   const navigate = useNavigate();
+
+  const obj_nav = navbar;
+
   return (
-    <nav className="bg-blue text-white p-4 flex justify-center items-center shadow-md">
+    <nav className="bg-blue text-white p-4 flex justify-center items-center shadow-md z-50">
       <div className="flex items-center gap-6">
-        <img
-          className="h-6 object-contain invert brightness-0"
-          src={Logo}
-          alt="Logo"
-          onClick={() => navigate("/")}
-        />
-        <div
-          className="cursor-pointer hover:text-blue-300"
-          onClick={() => navigate("/")}
-        >
-          Inicio
-        </div>
-        <div
-          className="cursor-pointer hover:text-blue-300"
-          onClick={() => navigate("/about")}
-        >
-          Nosotros
-        </div>
-        <div
-          className="relative cursor-pointer"
-          onClick={() => setIsServicesOpen(true)}
-        >
-          <div className="hover:text-blue-300">Servicios</div>
-          {isServicesOpen && (
-            <div
-              className="absolute bg-blue mt-2 p-2 rounded shadow-lg text-white"
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
+        {window.location.pathname !== "/" && (
+          <img
+            className="h-6 object-contain invert brightness-0"
+            src={Logo}
+            alt="Logo"
+            onClick={() => navigate("/")}
+          />
+        )}
+
+        {obj_nav.map((item, idx) => {
+          if (Array.isArray(item.index)) {
+            return (
               <div
-                className="px-4 py-2 hover:bg-blue-100"
-                onClick={() => navigate("/services?categoria=automatizacion&item=")}
+                key={idx}
+                className="relative cursor-pointer"
+                onMouseEnter={() => setHoveredMenu(idx)}
               >
-                Automatización
+                <div className="hover:text-blue transition-colors duration-100">
+                  {item.title}
+                </div>
+                {hoveredMenu === idx && (
+                  <div
+                    className="absolute bg-blue mt-2 p-2 rounded shadow-lg text-white z-10 min-w-max"
+                    onMouseLeave={() => setHoveredMenu(null)}
+                  >
+                    {item.index.map((subItem, subIdx) => {
+                      if (Array.isArray(subItem.index)) {
+                        return (
+                          <div key={subIdx} className="relative group">
+                            <div className="px-4 py-2 hover:bg-white  hover:text-blue flex items-center justify-between gap-2">
+                              <span>{subItem.title}</span>
+                              <span className="text-xs">&#9656;</span>
+                            </div>
+                            <div className="absolute left-full top-0 ml-1 hidden group-hover:block bg-blue p-2 rounded shadow-lg z-20">
+                              {subItem.index.map((thirdItem, thirdIdx) => (
+                                <div
+                                  key={thirdIdx}
+                                  className="px-4 py-2 hover:bg-white hover:text-blue"
+                                  onClick={() => {
+                                    navigate(thirdItem.path);
+                                    setHoveredMenu(null);
+                                  }}
+                                >
+                                  {thirdItem.title}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      } else {
+                        return (
+                          <div
+                            key={subIdx}
+                            className="px-4 py-2 hover:bg-white hover:text-blue"
+                            onClick={() => {
+                              navigate(subItem.path);
+                              setHoveredMenu(null);
+                            }}
+                          >
+                            {subItem.title}
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                )}
               </div>
+            );
+          } else {
+            return (
               <div
-                className="px-4 py-2 hover:bg-blue-100"
-                onClick={() => navigate("/services/robotica")}
+                key={idx}
+                className="cursor-pointer hover:text-blue transition-colors duration-100"
+                onClick={() => navigate(item.index)}
               >
-                Robótica
+                {item.title}
               </div>
-              <div
-                className="px-4 py-2 hover:bg-blue-100"
-                onClick={() => navigate("/services/mantenimiento")}
-              >
-                Mantenimiento
-              </div>
-            </div>
-          )}
-        </div>
-        <div
-          className="cursor-pointer hover:text-blue-300"
-          onClick={() => navigate("/info")}
-        >
-          Contactos
-        </div>
+            );
+          }
+        })}
       </div>
     </nav>
   );

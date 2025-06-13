@@ -27,7 +27,7 @@ function Navbar() {
               <div
                 key={idx}
                 className="relative cursor-pointer"
-                onMouseEnter={() => setHoveredMenu(idx)}
+                onClick={() => setHoveredMenu(idx)}
               >
                 <div className="hover:text-blue transition-colors duration-100">
                   {item.title}

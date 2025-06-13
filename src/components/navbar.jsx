@@ -84,7 +84,7 @@ function Navbar() {
             return (
               <div
                 key={idx}
-                className="cursor-pointer hover:text-blue transition-colors duration-100"
+                className="cursor-pointer hover:text-gray-dark transition-colors duration-100"
                 onClick={() => navigate(item.index)}
               >
                 {item.title}

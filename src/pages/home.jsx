@@ -61,7 +61,7 @@ function Home() {
         </header>
       </div>
 
-      <section className="my-10 px-6" data-aos="fade-up">
+      {/* <section className="my-10 px-6" data-aos="fade-up">
         <h2 className="text-2xl font-semibold text-center">
           Nuestros Clientes
         </h2>
@@ -85,7 +85,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
       <section id="a">
         <About />
         <div className="overflow-hidden">

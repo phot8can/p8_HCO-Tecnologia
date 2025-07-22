@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import About from "./about";
 import Showreel from "../components/showreel";
 import img01 from "../assets/images/machines/1S5A0138.jpeg";
@@ -29,6 +29,24 @@ function Home() {
     },
   ];
 
+  const features = [
+    {
+      title: "Automatización industrial",
+      description:
+        "Estaciones automáticas y manuales que incrementan la productividad.",
+    },
+    {
+      title: "Diseño e ingeniería",
+      description:
+        "Desarrollamos maquinaria y proyectos personalizados a la medida.",
+    },
+    {
+      title: "Programación y control",
+      description:
+        "Integramos PLC y HMI para un control eficiente de tus procesos.",
+    },
+  ];
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -38,28 +56,56 @@ function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Hero */}
       <div
-        className="relative w-full h-144 align-middle justify-center flex mt-20"
+        className="relative h-screen flex items-center justify-center text-center text-white"
+        style={{ backgroundImage: `url(${img02})` }}
         data-aos="fade-up"
       >
-        <header className="inset-0 z-10 flex flex-col items-center justify-center p-10 text-center text-blue gap-10">
-          <HCOLogo className="text-blue-600 h-44" />
-          <div>
-            <h1 className="text-4xl font-bold ">
-              Bienvenido a Tecnología Industrial HCO
-            </h1>
-            <p className="text-lg ">
-              Automatización de procesos industriales y de producción
-            </p>
+        <div className="absolute inset-0 bg-blue opacity-80" />
+        <header className="relative z-10 flex flex-col items-center gap-6 px-4">
+          <HCOLogo className="h-40 text-white" />
+          <h1 className="text-4xl font-bold">Tecnología Industrial HCO</h1>
+          <p className="text-lg max-w-xl">
+            Automatización de procesos industriales y de producción
+          </p>
+          <div className="flex gap-4 mt-4">
+            <button
+              className="bg-white text-blue px-6 py-2 rounded-full font-semibold hover:bg-blue hover:text-white transition"
+              onClick={() => navigate("/services")}
+            >
+              Servicios
+            </button>
+            <button
+              className="bg-blue border border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-blue transition"
+              onClick={() => document.getElementById("info")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Contáctanos
+            </button>
           </div>
-          <button
-            className="bg-blue px-5 py-2 rounded-full text-white hover:text-blue hover:bg-white transition-colors duration-150"
-            onClick={() => document.getElementById("a")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Ver mas <span className="text-xs">&#9660;</span>
-          </button>
         </header>
       </div>
+      {/* Features */}
+      <section className="py-16 bg-bg" data-aos="fade-up">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-blue mb-10">
+            Soluciones Integrales
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((f, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-lg shadow text-center"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-blue">
+                  {f.title}
+                </h3>
+                <p className="text-gray-700 text-sm">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* <section className="my-10 px-6" data-aos="fade-up">
         <h2 className="text-2xl font-semibold text-center">
@@ -86,7 +132,7 @@ function Home() {
           </div>
         </div>
       </section> */}
-      <section id="a">
+      <section id="info">
         <About />
         <div className="overflow-hidden">
           <Showreel imagenes={imagenes} duration="1000" />

@@ -9,8 +9,7 @@ import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 
 import HCOLogo from "../components/HCOLogo";
-import JeepLogo from "../assets/images/clients_logos/jeep-7.svg";
-import Romoeo from "../assets/images/clients_logos/alfaromeo.svg";
+
 
 function Home() {
   const navigate = useNavigate();

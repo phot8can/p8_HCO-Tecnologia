@@ -17,17 +17,16 @@ function enterprice_values() {
             Nuestra misión
           </h2>
           <p className="text-gray-700 mb-4">
-            En HCO, Tecnología Industrial, nuestra misión es ser el principal
-            aliado en la automatización industrial, proporcionando soluciones
-            innovadoras y de alta calidad que optimicen los procesos de
-            producción de nuestros clientes.
+            Nuestra misión es impulsar la competitividad industrial mediante
+            soluciones de automatización confiables y soporte personalizado,
+            desde el diseño hasta la puesta en marcha.
           </p>
-          <p className="text-gray-700">
+          {/* <p className="text-gray-700">
             Nos comprometemos a ofrecer un servicio integral que abarca desde el
             diseño y la integración de tecnologías avanzadas hasta la
             fabricación de maquinaria. Brindamos soporte técnico personalizado y
             continuo para asegurar eficiencia y confiabilidad.
-          </p>
+          </p> */}
         </div>
       </section>
 
@@ -38,15 +37,15 @@ function enterprice_values() {
             Nuestra visión
           </h2>
           <p className="text-gray-700 mb-4">
-            Nuestra visión es ser reconocidos como el principal proveedor de
-            automatización industrial en nuestra ciudad, ofreciendo soluciones
-            tecnológicas que transformen los procesos productivos.
+            En HCO, buscamos expandir nuestra presencia en el mercado,
+            consolidándonos como un referente de excelencia, innovación y
+            compromiso con la satisfacción total de nuestros clientes.
           </p>
-          <p className="text-gray-700">
+          {/* <p className="text-gray-700">
             Buscamos expandir nuestra presencia en el mercado, consolidándonos
             como un referente de excelencia, innovación y compromiso con la
             satisfacción total del cliente.
-          </p>
+          </p> */}
         </div>
         <img
           src={img01}
@@ -61,20 +60,22 @@ function enterprice_values() {
           Nuestros valores
         </h2>
         <div className="grid md:grid-cols-3 gap-10 text-center">
-          {/* Compromiso */}
+          {/* Equipo */}
           <div className="bg-white rounded-md shadow-lg flex flex-col items-center overflow-hidden">
             <div className="h-1/2 overflow-hidden bg-blue">
               <img
                 src={img01}
-                alt="Compromiso"
+                alt="Equipo"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">Compromiso</h3>
+              <h3 className="text-lg font-semibold">Equipo</h3>
               <p className="text-sm">
-                Dedicación total a cada proyecto, cumpliendo plazos y
-                garantizando calidad sin comprometer objetivos.
+                El trabajo en equipo es la base sobre la cual trabajamos con
+                comunicación abierta y respeto, sumando nuestras fortalezas para
+                aprovechar al máximo las habilidades individuales y alcanzar
+                soluciones más innovadoras con eficiencia y excelencia.
               </p>
             </div>
           </div>
@@ -93,28 +94,31 @@ function enterprice_values() {
                 Innovación
               </h3>
               <p className="text-sm">
-                Buscamos ideas nuevas para mejorar procesos y aplicar
-                tecnologías de vanguardia en automatización.
+                La innovación es nuestro motor para explorar tecnologías
+                emergentes y metodologías creativas, transformando ideas en
+                soluciones eficientes que anticipan y satisfacen las necesidades
+                de nuestros clientes.
               </p>
             </div>
           </div>
 
-          {/* Trabajo en equipo */}
+          {/* Integridad*/}
           <div className="bg-white rounded-md shadow-lg flex flex-col items-center overflow-hidden">
             <div className="h-1/2 overflow-hidden bg-blue">
               <img
                 src={img03}
-                alt="Trabajo en equipo"
+                alt="Integridad"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Trabajo en equipo
+                Integridad
               </h3>
               <p className="text-sm">
-                Valoramos la colaboración, comunicación y el aprovechamiento de
-                fortalezas individuales para el éxito conjunto.
+                La integridad es el principio que guía todas nuestras acciones,
+                asegurando honestidad, transparencia y coherencia en cada
+                acción.
               </p>
             </div>
           </div>

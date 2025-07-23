@@ -12,14 +12,14 @@ function Showreel({ imagenes, duration }) {
   }, [imagenes.length]);
 
   return (
-    <div className="relative w-full h-144 bg-gray-200  shadow-md overflow-hidden flex items-center justify-center text-gray-700">
+    <div className="absolute inset-0 h-full w-full overflow-hidden">
       {imagenes.map((imagen, i) => (
         <img
           key={i}
           src={imagen.route}
           alt={imagen.title}
-          className={`absolute object-cover  transition-all duration-${duration} ease-in-out transform ${
-            i === index ? "opacity-100 translate-y-2" : "opacity-0 translate-y-0"
+          className={`h-full w-full object-cover absolute transition-all duration-${duration} ease-in-out transform ${
+            i === index ? "opacity-100 scale-100" : "opacity-0 scale-105"
           }`}
         />
       ))}

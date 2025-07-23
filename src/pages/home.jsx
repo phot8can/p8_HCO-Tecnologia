@@ -4,10 +4,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import Enterprice_values from "@components/enterprice_values";
 
 import HCOLogo from "@components/HCOLogo";
-import Inteva_Logo from "@assets/images/clients_logos/inteva.svg"
-import Merit_Logo from "@assets/images/clients_logos/Merit.svg"
+import Inteva_Logo from "@assets/images/clients_logos/inteva.svg";
+import Merit_Logo from "@assets/images/clients_logos/Merit.svg";
+
+import { GiRobotGrab } from "react-icons/gi";
+import { MdOutlineDesignServices } from "react-icons/md";
+import { MdAutoMode } from "react-icons/md";
 
 function Home() {
   const navigate = useNavigate();
@@ -15,57 +21,52 @@ function Home() {
   const features = [
     {
       title: "Automatización industrial",
+      icon: <MdAutoMode />,
       description:
         "Estaciones automáticas y manuales que incrementan la productividad.",
     },
     {
       title: "Diseño e ingeniería",
+      icon: <MdOutlineDesignServices />,
       description:
         "Desarrollamos maquinaria y proyectos personalizados a la medida.",
     },
     {
       title: "Programación y control",
+      icon: <GiRobotGrab />,
       description:
         "Integramos PLC y HMI para un control eficiente de tus procesos.",
     },
   ];
 
+  const [showreelImg, setShowreelImg] = useState([]);
+
   useEffect(() => {
+    const loadImages = async () => {
+      const importers = import.meta.glob(
+        "@assets/images/general/*.{jpg,jpeg,png,svg,webp}",
+        { eager: false }
+      );
+
+      const images = await Promise.all(
+        Object.values(importers).map((importFn) => importFn())
+      );
+
+      setShowreelImg(
+        images.map((mod, index) => ({
+          title: `Imagen ${index + 1}`,
+          route: mod.default,
+        }))
+      );
+    };
+
+    loadImages();
+
     AOS.init({
       duration: 1000,
       once: true,
     });
   }, []);
-
-
-const [showreelImg, setShowreelImg] = useState([]);
-
-useEffect(() => {
-  const loadImages = async () => {
-    const importers = import.meta.glob(
-      "@assets/images/general/*.{jpg,jpeg,png,svg,webp}",
-      { eager: false }
-    );
-
-    const images = await Promise.all(
-      Object.values(importers).map((importFn) => importFn())
-    );
-
-    setShowreelImg(
-      images.map((mod, index) => ({
-        title: `Imagen ${index + 1}`,
-        route: mod.default,
-      }))
-    );
-  };
-
-  loadImages();
-  AOS.init({
-    duration: 1000,
-    once: true,
-  });
-}, []);
-
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -81,22 +82,35 @@ useEffect(() => {
           <p className="text-lg max-w-xl">
             Automatización de procesos industriales y de producción
           </p>
-          <button
-            className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition bottom-20 absolute text-center flex items-center justify-center gap-2"
-            onClick={() =>
-              document
-                .getElementById("solutions")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            <FaChevronDown /> Ver mas
-          </button>
+          <div className="bottom-20 absolute w-full flex justify-center items-center gap-10">
+            <button
+              className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition text-center flex items-center justify-center gap-2"
+              onClick={() => navigate("/info")}
+            >
+              <IoChatbubblesOutline /> Contactanos
+            </button>
+            <button
+              className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition text-center flex items-center justify-center gap-2"
+              onClick={() =>
+                document
+                  .getElementById("solutions")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              <FaChevronDown /> Ver mas
+            </button>
+          </div>
         </header>
       </div>
       {/* Features */}
-      <section className="py-16 bg-bg" data-aos="fade-up" id="solutions">
+      <div id="solutions"></div>
+      <section className="py-16 bg-bg" data-aos="fade-up">
+        <div class="absolute h-full w-full bg-#fff -z-10">
+          <div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        </div>
+
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-blue mb-10">
+          <h2 className="text-4xl font-bold text-center text-blue mb-10">
             Soluciones Integrales
           </h2>
           <p className="text-lg text-center mx-auto mb-8">
@@ -110,11 +124,16 @@ useEffect(() => {
             {features.map((f, idx) => (
               <div
                 key={idx}
-                className= "bg-slate-50 p-6 rounded-lg shadow text-center"
+                className="bg-slate-50 p-6 rounded-lg shadow text-center"
               >
-                <h3 className="text-lg font-semibold mb-2 text-blue">
-                  {f.title}
-                </h3>
+                <div className="flex flex-col justify-center align-middle">
+                  <div className="text-blue text-3xl mb-2 flex justify-center">
+                    {f.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 text-blue ">
+                    {f.title}
+                  </h3>
+                </div>
                 <p className="text-gray-700 text-sm">{f.description}</p>
               </div>
             ))}
@@ -122,16 +141,28 @@ useEffect(() => {
         </div>
       </section>
 
+      <Enterprice_values />
+
       <section className="my-10 px-6" data-aos="fade-up">
-        <h2 className="text-2xl font-semibold text-center">
+        <h2 className="text-4xl font-semibold text-center">
           Nuestros Clientes
         </h2>
         <div className="flex items-center justify-center gap-40 my-10">
           <div className="flex flex-col items-center gap-10">
-            <img alt="JeepLogo" className="size-64" src={Inteva_Logo} loading="lazy" />
+            <img
+              alt="JeepLogo"
+              className="size-64"
+              src={Inteva_Logo}
+              loading="lazy"
+            />
           </div>
           <div className="flex flex-col items-center gap-10">
-            <img alt="AlphaRomeoLogo" className="size-64" src={Merit_Logo} loading="lazy" />
+            <img
+              alt="AlphaRomeoLogo"
+              className="size-64"
+              src={Merit_Logo}
+              loading="lazy"
+            />
             {/* <button
               className="bg-white px-5 py-2 rounded-full text-blue"
               onClick={() =>
@@ -143,10 +174,7 @@ useEffect(() => {
           </div>
         </div>
       </section>
-      <section
-        className="py-16 bg-white text-blue"
-        data-aos="fade-up"
-      >
+      <section className="py-16 bg-white text-blue" data-aos="fade-up">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Contáctanos</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -161,14 +189,40 @@ useEffect(() => {
               </p>
               <ul className="text-gray-700 text-sm space-y-2">
                 <li>
-                  <strong>Teléfono:</strong> +52 123 456 7890
+                  <strong>Teléfono:</strong>{" "}
+                  <a
+                    href="tel:+528682990165"
+                    className="text-blue hover:underline"
+                  >
+                    +52 (868) 299 0165
+                  </a>
+                  {" , "}
+                  <a
+                    href="tel:+528681619773"
+                    className="text-blue hover:underline"
+                  >
+                    +52 (868) 161 9773
+                  </a>
                 </li>
                 <li>
-                  <strong>Email:</strong> contacto@hco.com
+                  <strong>Email:</strong>{" "}
+                  <a
+                    href="mailto:tecnologiaindustrial.hco@gmail.com"
+                    className="text-blue hover:underline"
+                  >
+                    tecnologiaindustrial.hco@gmail.com
+                  </a>
                 </li>
                 <li>
-                  <strong>Dirección:</strong> Calle Industrial 123, Monterrey,
-                  NL
+                  <strong>Dirección:</strong>{" "}
+                  <a
+                    href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue hover:underline"
+                  >
+                    Hacienda Quinta Real, H. Matamoros, Tam. MX. CP 87345
+                  </a>
                 </li>
               </ul>
             </div>

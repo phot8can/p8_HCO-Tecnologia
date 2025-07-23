@@ -1,7 +1,7 @@
-const imageModules = import.meta.glob("@assets/images/valores/*.webp", { eager: false });
+const imageModules = import.meta.glob("@assets/images/valores/*.webp", {
+  eager: false,
+});
 import { useEffect, useState } from "react";
-import { FaCompass } from "react-icons/fa6";
-import { TbTargetArrow } from "react-icons/tb";
 
 function enterprice_values() {
   const [valoresImg, setValoresImg] = useState({});
@@ -21,46 +21,6 @@ function enterprice_values() {
   }, []);
   return (
     <>
-      {/* Misión */}
-      <section
-        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
-        data-aos="fade-up"
-      >
-        <div className="flex justify-center items-center w-full h-full">
-          <FaCompass className="text-blue-900 text-8xl  text-slate-500" />
-        </div>
-        <div>
-          <h2 className="text-4xl font-bold text-blue-900 mb-6  text-slate-500">
-            Nuestra misión
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            Nuestra misión es impulsar la competitividad industrial mediante
-            soluciones de automatización confiables y soporte personalizado,
-            desde el diseño hasta la puesta en marcha.
-          </p>
-        </div>
-      </section>
-
-      {/* Visión */}
-      <section
-        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
-        data-aos="fade-up"
-      >
-        <div>
-          <h2 className="text-4xl font-bold text-blue-900 mb-6 text-slate-500">
-            Nuestra visión
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            En HCO, buscamos expandir nuestra presencia en el mercado,
-            consolidándonos como un referente de excelencia, innovación y
-            compromiso con la satisfacción total de nuestros clientes.
-          </p>
-        </div>
-        <div className="flex justify-center items-center w-full h-full">
-          <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" />
-        </div>
-      </section>
-
       {/* Valores */}
       <section
         className="my-28 px-6 lg:px-16 max-w-6xl mx-auto"
@@ -73,12 +33,12 @@ function enterprice_values() {
           {/* Equipo */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
-            <img
-              src={valoresImg.equipo || ""}
-              alt="Equipo"
-              loading="lazy"
-              className="w-full h-full object-cover rounded-t-md"
-            />
+              <img
+                src={valoresImg.equipo || ""}
+                alt="Equipo"
+                loading="lazy"
+                className="w-full h-full object-cover rounded-t-md"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3">Equipo</h3>
@@ -94,12 +54,12 @@ function enterprice_values() {
           {/* Innovación */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/2 overflow-hidden bg-blue-900">
-            <img
-              src={valoresImg.innovacion || ""}
-              alt="Innovación"
-              loading="lazy"
-              className="w-full h-full object-cover rounded-t-md"
-            />
+              <img
+                src={valoresImg.innovacion || ""}
+                alt="Innovación"
+                loading="lazy"
+                className="w-full h-full object-cover rounded-t-md"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3 text-gray-900">
@@ -117,12 +77,12 @@ function enterprice_values() {
           {/* Integridad*/}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
-            <img
-              src={valoresImg.integridad || ""}
-              alt="Integridad"
-              loading="lazy"
-              className="w-full h-full object-cover rounded-t-md"
-            />
+              <img
+                src={valoresImg.integridad || ""}
+                alt="Integridad"
+                loading="lazy"
+                className="w-full h-full object-cover rounded-t-md"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3 text-gray-900">

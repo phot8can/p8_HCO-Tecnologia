@@ -1,75 +1,26 @@
-import img01 from "@assets/images/machines/1S5A0138.jpeg";
-import img02 from "@assets/images/production/1S5A0155.jpeg";
-import equipo from "@assets/images/valores/equipo.jpg";
-import integridad from "@assets/images/valores/integridad.jpg";
-import innovacion from "@assets/images/valores/innovacion.jpg";
-import { FaCompass } from "react-icons/fa6";
-import { TbTargetArrow } from "react-icons/tb";
+const imageModules = import.meta.glob("@assets/images/valores/*.webp", {
+  eager: false,
+});
+import { useEffect, useState } from "react";
 
 function enterprice_values() {
+  const [valoresImg, setValoresImg] = useState({});
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const loaded = {};
+      for (const path in imageModules) {
+        const mod = await imageModules[path]();
+        if (path.includes("equipo")) loaded.equipo = mod.default;
+        if (path.includes("integridad")) loaded.integridad = mod.default;
+        if (path.includes("innovacion")) loaded.innovacion = mod.default;
+      }
+      setValoresImg(loaded);
+    };
+    loadImages();
+  }, []);
   return (
     <>
-      {/* Misión */}
-      <section
-        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
-        data-aos="fade-up"
-      >
-        {/* <img
-          src={img02}
-          alt="Misión"
-          className="rounded-xl shadow-md w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-        /> */}
-        <div className="flex justify-center items-center w-full h-full">
-          <FaCompass className="text-blue-900 text-8xl  text-slate-500" />
-        </div>
-        <div>
-          <h2 className="text-4xl font-bold text-blue-900 mb-6  text-slate-500">
-            Nuestra misión
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            Nuestra misión es impulsar la competitividad industrial mediante
-            soluciones de automatización confiables y soporte personalizado,
-            desde el diseño hasta la puesta en marcha.
-          </p>
-          {/* <p className="text-gray-700">
-            Nos comprometemos a ofrecer un servicio integral que abarca desde el
-            diseño y la integración de tecnologías avanzadas hasta la
-            fabricación de maquinaria. Brindamos soporte técnico personalizado y
-            continuo para asegurar eficiencia y confiabilidad.
-          </p> */}
-        </div>
-      </section>
-
-      {/* Visión */}
-      <section
-        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
-        data-aos="fade-up"
-      >
-        <div>
-          <h2 className="text-4xl font-bold text-blue-900 mb-6 text-slate-500">
-            Nuestra visión
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            En HCO, buscamos expandir nuestra presencia en el mercado,
-            consolidándonos como un referente de excelencia, innovación y
-            compromiso con la satisfacción total de nuestros clientes.
-          </p>
-          {/* <p className="text-gray-700">
-            Buscamos expandir nuestra presencia en el mercado, consolidándonos
-            como un referente de excelencia, innovación y compromiso con la
-            satisfacción total del cliente.
-          </p> */}
-        </div>
-        {/* <img
-          src={img01}
-          alt="Visión"
-          className="rounded-xl shadow-md w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-        /> */}
-        <div className="flex justify-center items-center w-full h-full">
-          <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" />
-        </div>
-      </section>
-
       {/* Valores */}
       <section
         className="my-28 px-6 lg:px-16 max-w-6xl mx-auto"
@@ -83,8 +34,9 @@ function enterprice_values() {
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
               <img
-                src={equipo}
+                src={valoresImg.equipo || ""}
                 alt="Equipo"
+                loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"
               />
             </div>
@@ -103,8 +55,9 @@ function enterprice_values() {
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/2 overflow-hidden bg-blue-900">
               <img
-                src={innovacion}
+                src={valoresImg.innovacion || ""}
                 alt="Innovación"
+                loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"
               />
             </div>
@@ -125,8 +78,9 @@ function enterprice_values() {
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
               <img
-                src={integridad}
+                src={valoresImg.integridad || ""}
                 alt="Integridad"
+                loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"
               />
             </div>

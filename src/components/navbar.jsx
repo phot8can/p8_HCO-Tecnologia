@@ -17,6 +17,7 @@ function Navbar() {
             className="h-6 object-contain invert brightness-0"
             src={Logo}
             alt="Logo"
+            loading="lazy"
             onClick={() => navigate("/")}
           />
         )}

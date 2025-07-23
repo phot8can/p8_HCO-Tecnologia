@@ -4,8 +4,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Enterprice_Values from "../components/enterprice_values";
 import { FaUserTie, FaBuilding, FaCogs, FaTools } from "react-icons/fa";
-
-
+import { FaCompass } from "react-icons/fa6";
+import { TbTargetArrow } from "react-icons/tb";
 
 function about() {
   useEffect(() => {
@@ -18,9 +18,15 @@ function about() {
   const location = useLocation();
   return (
     <>
+      <div class="absolute h-full w-full bg-#fff">
+        <div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+      </div>
       {/* Info Section */}
-      <div className="mt-32"/>
-      <section className="my-10 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <div className="mt-32" />
+      <section
+        className="my-10 px-6 max-w-4xl mx-auto text-center"
+        data-aos="fade-up"
+      >
         <h1 className="text-3xl font-bold text-center mb-12">
           ¿Quiénes somos?
         </h1>
@@ -30,7 +36,46 @@ function about() {
           estaciones automatizadas.
         </p>
       </section>
-      {location.pathname === "/about" && <Enterprice_Values  />}
+           {/* Misión */}
+      <section
+        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
+        data-aos="fade-up"
+      >
+        <div className="flex justify-center items-center w-full h-full">
+          <FaCompass className="text-blue-900 text-8xl  text-slate-500" />
+        </div>
+        <div>
+          <h2 className="text-4xl font-bold text-blue-900 mb-6  text-slate-500">
+            Nuestra misión
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            Nuestra misión es impulsar la competitividad industrial mediante
+            soluciones de automatización confiables y soporte personalizado,
+            desde el diseño hasta la puesta en marcha.
+          </p>
+        </div>
+      </section>
+
+      {/* Visión */}
+      <section
+        className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
+        data-aos="fade-up"
+      >
+        <div>
+          <h2 className="text-4xl font-bold text-blue-900 mb-6 text-slate-500">
+            Nuestra visión
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            En HCO, buscamos expandir nuestra presencia en el mercado,
+            consolidándonos como un referente de excelencia, innovación y
+            compromiso con la satisfacción total de nuestros clientes.
+          </p>
+        </div>
+        <div className="flex justify-center items-center w-full h-full">
+          <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" />
+        </div>
+      </section>
+      {location.pathname === "/about" && <Enterprice_Values />}
 
       <hr className="text-gray-light" />
 

@@ -16,6 +16,7 @@ function Showreel({ imagenes, duration }) {
       {imagenes.map((imagen, i) => (
         <img
           key={i}
+          loading="lazy"
           src={imagen.route}
           alt={imagen.title}
           className={`h-full w-full object-cover absolute transition-all duration-${duration} ease-in-out transform ${

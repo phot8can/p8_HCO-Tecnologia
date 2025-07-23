@@ -1,8 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Showreel from "@components/showreel";
-import img01 from "@assets/images/machines/1S5A0138.jpeg";
-import img02 from "@assets/images/production/1S5A0155.jpeg";
-import img03 from "@assets/images/products/1S5A0224.jpeg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
@@ -41,17 +38,33 @@ function Home() {
   }, []);
 
 
-const bg_images_url = Object.values(
-  import.meta.glob("@assets/images/EDITS2.0/*.{jpg,jpeg,png,svg}", {
-    eager: true,
-    import: "default",
-  })
-);
+const [showreelImg, setShowreelImg] = useState([]);
 
-const showreel_img = bg_images_url.map((image, index) => ({
-  title: `Imagen ${index + 1}`,
-  route: image,
-}));
+useEffect(() => {
+  const loadImages = async () => {
+    const importers = import.meta.glob(
+      "@assets/images/general/*.{jpg,jpeg,png,svg,webp}",
+      { eager: false }
+    );
+
+    const images = await Promise.all(
+      Object.values(importers).map((importFn) => importFn())
+    );
+
+    setShowreelImg(
+      images.map((mod, index) => ({
+        title: `Imagen ${index + 1}`,
+        route: mod.default,
+      }))
+    );
+  };
+
+  loadImages();
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+}, []);
 
 
   return (
@@ -59,7 +72,7 @@ const showreel_img = bg_images_url.map((image, index) => ({
       {/* Hero */}
       <div className="relative h-screen text-white">
         <div className="absolute inset-0 z-0 " data-aos="fade-up">
-          <Showreel imagenes={showreel_img.length > 0 ? showreel_img : []} duration="1000"/>
+          <Showreel imagenes={showreelImg} duration="1000" />
           <div className="absolute inset-0 bg-blue opacity-80" />
         </div>
         <header className="relative z-10 flex flex-col items-center justify-center h-full gap-6 px-4 text-center">
@@ -115,10 +128,10 @@ const showreel_img = bg_images_url.map((image, index) => ({
         </h2>
         <div className="flex items-center justify-center gap-40 my-10">
           <div className="flex flex-col items-center gap-10">
-            <img alt="JeepLogo" className="size-64" src={Inteva_Logo} />
+            <img alt="JeepLogo" className="size-64" src={Inteva_Logo} loading="lazy" />
           </div>
           <div className="flex flex-col items-center gap-10">
-            <img alt="AlphaRomeoLogo" className="size-64" src={Merit_Logo} />
+            <img alt="AlphaRomeoLogo" className="size-64" src={Merit_Logo} loading="lazy" />
             {/* <button
               className="bg-white px-5 py-2 rounded-full text-blue"
               onClick={() =>

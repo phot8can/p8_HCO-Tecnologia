@@ -1,12 +1,24 @@
-import img01 from "@assets/images/machines/1S5A0138.jpeg";
-import img02 from "@assets/images/production/1S5A0155.jpeg";
-import equipo from "@assets/images/valores/equipo.jpg";
-import integridad from "@assets/images/valores/integridad.jpg";
-import innovacion from "@assets/images/valores/innovacion.jpg";
+const imageModules = import.meta.glob("@assets/images/valores/*.webp", { eager: false });
+import { useEffect, useState } from "react";
 import { FaCompass } from "react-icons/fa6";
 import { TbTargetArrow } from "react-icons/tb";
 
 function enterprice_values() {
+  const [valoresImg, setValoresImg] = useState({});
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const loaded = {};
+      for (const path in imageModules) {
+        const mod = await imageModules[path]();
+        if (path.includes("equipo")) loaded.equipo = mod.default;
+        if (path.includes("integridad")) loaded.integridad = mod.default;
+        if (path.includes("innovacion")) loaded.innovacion = mod.default;
+      }
+      setValoresImg(loaded);
+    };
+    loadImages();
+  }, []);
   return (
     <>
       {/* Misión */}
@@ -14,11 +26,6 @@ function enterprice_values() {
         className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
         data-aos="fade-up"
       >
-        {/* <img
-          src={img02}
-          alt="Misión"
-          className="rounded-xl shadow-md w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-        /> */}
         <div className="flex justify-center items-center w-full h-full">
           <FaCompass className="text-blue-900 text-8xl  text-slate-500" />
         </div>
@@ -31,12 +38,6 @@ function enterprice_values() {
             soluciones de automatización confiables y soporte personalizado,
             desde el diseño hasta la puesta en marcha.
           </p>
-          {/* <p className="text-gray-700">
-            Nos comprometemos a ofrecer un servicio integral que abarca desde el
-            diseño y la integración de tecnologías avanzadas hasta la
-            fabricación de maquinaria. Brindamos soporte técnico personalizado y
-            continuo para asegurar eficiencia y confiabilidad.
-          </p> */}
         </div>
       </section>
 
@@ -54,17 +55,7 @@ function enterprice_values() {
             consolidándonos como un referente de excelencia, innovación y
             compromiso con la satisfacción total de nuestros clientes.
           </p>
-          {/* <p className="text-gray-700">
-            Buscamos expandir nuestra presencia en el mercado, consolidándonos
-            como un referente de excelencia, innovación y compromiso con la
-            satisfacción total del cliente.
-          </p> */}
         </div>
-        {/* <img
-          src={img01}
-          alt="Visión"
-          className="rounded-xl shadow-md w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-        /> */}
         <div className="flex justify-center items-center w-full h-full">
           <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" />
         </div>
@@ -82,11 +73,12 @@ function enterprice_values() {
           {/* Equipo */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
-              <img
-                src={equipo}
-                alt="Equipo"
-                className="w-full h-full object-cover rounded-t-md"
-              />
+            <img
+              src={valoresImg.equipo || ""}
+              alt="Equipo"
+              loading="lazy"
+              className="w-full h-full object-cover rounded-t-md"
+            />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3">Equipo</h3>
@@ -102,11 +94,12 @@ function enterprice_values() {
           {/* Innovación */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/2 overflow-hidden bg-blue-900">
-              <img
-                src={innovacion}
-                alt="Innovación"
-                className="w-full h-full object-cover rounded-t-md"
-              />
+            <img
+              src={valoresImg.innovacion || ""}
+              alt="Innovación"
+              loading="lazy"
+              className="w-full h-full object-cover rounded-t-md"
+            />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3 text-gray-900">
@@ -124,11 +117,12 @@ function enterprice_values() {
           {/* Integridad*/}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
-              <img
-                src={integridad}
-                alt="Integridad"
-                className="w-full h-full object-cover rounded-t-md"
-              />
+            <img
+              src={valoresImg.integridad || ""}
+              alt="Integridad"
+              loading="lazy"
+              className="w-full h-full object-cover rounded-t-md"
+            />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3 text-gray-900">

@@ -1,64 +1,26 @@
-import { FaPhone } from "react-icons/fa6";
-import { MdOutlineAlternateEmail } from "react-icons/md";
+import { useEffect } from "react";
+import ContactUs_form from "../components/contactUs_form";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function contactus() {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
   return (
     <>
-      <div class="absolute h-full w-full bg-#fff">
-        <div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+      <div className="absolute h-full w-full bg-#fff">
+        <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
       <div className="my-48">
         {/* Contact Form */}
         <section className="my-10 px-10 max-w-7xl mx-auto" data-aos="fade-up">
-          <h2 className="text-3xl font-bold text-center mb-12">Contáctanos</h2>
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold flex items-center gap-2">
-                ¿Tienes un proyecto en mente?
-              </h3>
-              <p className="text-gray-700 text-lg">
-                Estamos listos para ayudarte a automatizar tus procesos
-                industriales. Contáctanos llenando el formulario o vía directa.
-              </p>
-              <div className="space-y-4 text-gray-700">
-                <p className="flex items-center gap-2">
-                  <FaPhone className="text-blue-600" />
-                  <span>
-                    <strong>Tel:</strong> +52 (868) 299 0165, +52 (868) 161 9773
-                  </span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <MdOutlineAlternateEmail className="text-blue-600" />
-                  <span>
-                    <strong>Email:</strong> tecnologiaindustrial.hco@gmail.com
-                  </span>
-                </p>
-              </div>
-            </div>
-            <form className="bg-gray-100 p-10 rounded-xl shadow space-y-6 bg-slate-50">
-              <input
-                type="text"
-                placeholder="Nombre"
-                className="w-full px-5 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue"
-              />
-              <input
-                type="email"
-                placeholder="Correo electrónico"
-                className="w-full px-5 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue"
-              />
-              <textarea
-                rows="5"
-                placeholder="Mensaje"
-                className="w-full px-5 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue"
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-blue text-white py-3 rounded font-semibold hover:bg-white hover:text-blue border border-blue transition"
-              >
-                Enviar mensaje
-              </button>
-            </form>
-          </div>
+          <ContactUs_form/>
         </section>
         {/* Map Section */}
         <section className="my-10 px-6">

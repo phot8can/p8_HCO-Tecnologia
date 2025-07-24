@@ -31,10 +31,10 @@ function enterprice_values() {
         </h2>
         <div className="grid md:grid-cols-3 gap-12 text-center">
           {/* Equipo */}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
+          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
               <img
-                src={valoresImg.equipo || ""}
+                src={valoresImg.equipo}
                 alt="Equipo"
                 loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"
@@ -52,10 +52,10 @@ function enterprice_values() {
           </div>
 
           {/* Innovación */}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
+          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
             <div className="max-h-1/2 overflow-hidden bg-blue-900">
               <img
-                src={valoresImg.innovacion || ""}
+                src={valoresImg.innovacion}
                 alt="Innovación"
                 loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"
@@ -75,10 +75,10 @@ function enterprice_values() {
           </div>
 
           {/* Integridad*/}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300 hover:scale-105">
+          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
               <img
-                src={valoresImg.integridad || ""}
+                src={valoresImg.integridad}
                 alt="Integridad"
                 loading="lazy"
                 className="w-full h-full object-cover rounded-t-md"

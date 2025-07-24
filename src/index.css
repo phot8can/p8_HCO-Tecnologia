@@ -3,3 +3,17 @@
 @tailwind utilities;
 
 
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-slow-scroll {
+    animation: scroll 60s linear infinite;
+  }
+}

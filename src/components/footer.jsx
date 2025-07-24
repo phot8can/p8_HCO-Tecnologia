@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <footer className="bg-blue text-white px-8 py-10 border-t border-blue-900 shadow-inner w-full mt-auto">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm text-center sm:text-left">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-center md:text-left">
           {/* About */}
           <div>
             <h4 className="font-semibold mb-2">Sobre HCO Tecnologías</h4>
@@ -67,17 +67,20 @@ function Footer() {
             &copy; {new Date().getFullYear()} HCO Tecnologías. Todos los
             derechos reservados.
           </p>
-          <div className="text-[8px] cursor-default text-white flex justify-end items-center gap-1">
+          <div className="text-[8px] cursor-default text-white flex flex-col md:flex-row justify-center md:justify-end items-center gap-1 mt-4 md:mt-0">
             <p>POWERED BY</p>
-            <div className="w-10 flex justify-center align-middle mb-[0.9px]">
-              <img
-                src={p8_logo}
-                className="w-full h-auto object-contain cursor-pointer "
-                alt="P8 Logo"
-                onClick={() => {
-                  window.open("https://www.facebook.com/Photocan.mx", "_blank");
-                }}
-              />
+              <div className="w-10 h-full flex items-center justify-center">
+                <img
+                  src={p8_logo}
+                  className="w-full h-auto object-contain cursor-pointer "
+                  alt="P8 Logo"
+                  onClick={() => {
+                    window.open(
+                      "https://www.facebook.com/Photocan.mx",
+                      "_blank"
+                    );
+                  }}
+                />
             </div>
             <p>2025</p>
           </div>

@@ -23,8 +23,8 @@ function contactus() {
           <ContactUs_form/>
         </section>
         {/* Map Section */}
-        <section className="my-10 px-6">
-          <h2 className="text-2xl font-semibold text-center mb-6">Ubicación</h2>
+        <section className="my-10 px-6 mt-20">
+          {/* <h2 className="text-2xl font-semibold text-center mb-6">Ubicación</h2> */}
           <div className="w-full h-64 max-w-4xl mx-auto justify-center flex flex-col gap-5">
             <iframe
               className="w-full h-full rounded shadow-md"

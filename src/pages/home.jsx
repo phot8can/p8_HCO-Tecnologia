@@ -147,7 +147,7 @@ function Home() {
 
       <Enterprice_values />
 
-      <section className="my-10 px-6" data-aos="fade-up">
+      <section className="my-10 px-6 bg-bl" data-aos="fade-up">
         <h2 className="text-4xl font-semibold text-center">
           Nuestros Clientes
         </h2>

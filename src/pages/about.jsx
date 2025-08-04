@@ -27,7 +27,7 @@ function about() {
         className="my-10 px-6 max-w-4xl mx-auto text-center"
         data-aos="fade-up"
       >
-        <h1 className="text-3xl font-bold text-center mb-12">
+        <h1 className="text-5xl font-bold text-center mb-12">
           ¿Quiénes somos?
         </h1>
         <p className="text-gray-700 text-lg">
@@ -80,15 +80,15 @@ function about() {
       <hr className="text-gray-light" />
 
       {/* Nuestro Equipo */}
-      <section className="py-16 bg-bg text-blue mb-20" data-aos="fade-up">
+      {/* <section className="py-16 bg-bg text-blue mb-20" data-aos="fade-up">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
             Nuestro Equipo
           </h2>
 
-          <div className="space-y-12">
+          <div className="space-y-12"> */}
             {/* Dirección General */}
-            <div>
+            {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaUserTie className="text-blue" /> Dirección General
               </h3>
@@ -106,10 +106,10 @@ function about() {
                   <p>Administración Empresarial</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Departamento de Administración */}
-            <div>
+            {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaBuilding className="text-blue" /> Departamento de
                 Administración
@@ -132,10 +132,10 @@ function about() {
                   <p>Administración Empresarial</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Departamento de Ingeniería */}
-            <div>
+            {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaCogs className="text-blue" /> Departamento de Ingeniería
               </h3>
@@ -165,10 +165,10 @@ function about() {
                   <p>Ingeniero de Control</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Departamento de Producción */}
-            <div>
+            {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaTools className="text-blue" /> Departamento de Producción
               </h3>
@@ -185,7 +185,7 @@ function about() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

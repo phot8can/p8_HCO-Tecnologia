@@ -29,7 +29,8 @@ function enterprice_values() {
         <h2 className="text-4xl font-bold text-center text-blue-900 mb-10 text-slate-500">
           Nuestros valores
         </h2>
-        <div className="grid md:grid-cols-3 gap-12 text-center">
+        <div className="grid md:grid-cols-3 gap-12 text-center" 
+          onContextMenu={(e) => e.preventDefault()}>
           {/* Equipo */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
@@ -37,7 +38,13 @@ function enterprice_values() {
                 src={valoresImg.equipo}
                 alt="Equipo"
                 loading="lazy"
-                className="w-full h-full object-cover rounded-t-md"
+                className="w-full h-full object-contain select-none rounded-t-md"
+                style={{
+                  WebkitUserDrag: "none",
+                  KhtmlUserDrag: "none",
+                  MozUserDrag: "none",
+                  OUserDrag: "none",
+                }}
               />
             </div>
             <div className="p-6">
@@ -58,7 +65,13 @@ function enterprice_values() {
                 src={valoresImg.innovacion}
                 alt="Innovación"
                 loading="lazy"
-                className="w-full h-full object-cover rounded-t-md"
+                className="w-full h-full object-contain select-none rounded-t-md"
+                style={{
+                  WebkitUserDrag: "none",
+                  KhtmlUserDrag: "none",
+                  MozUserDrag: "none",
+                  OUserDrag: "none",
+                }}
               />
             </div>
             <div className="p-6">
@@ -81,7 +94,13 @@ function enterprice_values() {
                 src={valoresImg.integridad}
                 alt="Integridad"
                 loading="lazy"
-                className="w-full h-full object-cover rounded-t-md"
+                className="w-full h-full object-contain select-none rounded-t-md"
+                style={{
+                  WebkitUserDrag: "none",
+                  KhtmlUserDrag: "none",
+                  MozUserDrag: "none",
+                  OUserDrag: "none",
+                }}
               />
             </div>
             <div className="p-6">

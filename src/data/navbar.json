@@ -5,71 +5,64 @@
     "title": "Servicios",
     "index": [
       {
-        "title": "Estaciones automáticas",
-        "index": [
-          {
-            "title": "Estaciones de prensado automático",
-            "path": "/services?categoria=automatizacion&item=prensado"
-          },
-          {
-            "title": "Estaciones de engrasado automático",
-            "path": "/services?categoria=automatizacion&item=engrasado"
-          },
-          {
-            "title": "Estaciones de escaneado automático",
-            "path": "/services?categoria=automatizacion&item=escaneado"
-          },
-          {
-            "title": "Estaciones de atornillado automático",
-            "path": "/services?categoria=automatizacion&item=atornillado"
-          },
-          {
-            "title": "Estaciones de descarga automática",
-            "path": "/services?categoria=automatizacion&item=descarga"
-          },
-          {
-            "title": "Estaciones multifuncionales",
-            "path": "/services?categoria=automatizacion&item=multifuncional"
-          }
-        ]
+        "title": "Lineas de ensamble",
+        "description": "Automatización de procesos industriales y de producción",
+        "path": "/services?categoria=LineadeEnsamble",
+        "sources": "Linea_Ensamble"
+      },
+      {
+        "title": "Indexadoras de diversas posiciones",
+        "description": "Máquinas indexadoras para posicionar piezas en diferentes ángulos",
+        "path": "/services?categoria=IndexadorasDiverasPosiciones",
+        "sources": "Index_Diversas_posiciones"
+      },
+      {
+        "title": "Prensas automáticasautomáticas",
+        "description": "Prensas automáticas para procesos de ensamblaje y fabricación",
+        "path": "/services?categoria=PrensasAutomaticas",
+        "sources": "Prensas_Automaticas"
+      },
+      {
+        "title": "Engrasadoras",
+        "description": "Sistemas automáticos de engrasado para maquinaria industrial",
+        "path": "/services?categoria=Engrasadoras",
+        "sources": "Engrasadoras"
+      },
+      {
+        "title": "Atornilladoras con dispensado automático",
+        "description": "Sistemas de atornillado con dispensado automático de tornillos",
+        "path": "/services?categoria=AtornilladorasAutomaticas",
+        "sources": "Atornilladoras_Automaticas"
+      },
+      {
+        "title": "Escaneo automático",
+        "description": "Sistemas de escaneo automático para control de calidad",
+        "path": "/services?categoria=EscanajeAutomatico",
+        "sources": "Escanaje_Automatico"
+      },
+      {
+        "title": "Estaciones de descarga automática",
+        "description": "Sistemas automáticos de descarga de piezas",
+        "path": "/services?categoria=EstacionesDescargaAutomaticas",
+        "sources": "Estaciones_Descarga_Automaticas"
       },
       {
         "title": "Estaciones manuales",
-        "path": "/services?categoria=manuales"
+        "description": "Estaciones de trabajo manuales para ensamblaje y control de calidad",
+        "path": "/services?categoria=EstacionesManuales",
+        "sources": "Estaciones_Manuales"
       },
       {
-        "title": "Líneas de ensamble",
-        "path": "/services?categoria=ensamble"
+        "title": "Bowl Feeder con vibrador lineal simple o doble",
+        "description": "Sistemas de alimentación de piezas con vibradores lineales",
+        "path": "/services?categoria=BowlFeederVibradorLineal",
+        "sources": "Bowl_Feeder_Vibrador_Lineal"
       },
       {
-        "title": "Programación industrial",
-        "index": [
-          {
-            "title": "Programación de controladores",
-            "path": "/services?categoria=programacion&item=plc"
-          },
-          {
-            "title": "Programación de pantallas",
-            "path": "/services?categoria=programacion&item=pantallas"
-          }
-        ]
-      },
-      {
-        "title": "Diseño e ingeniería",
-        "index": [
-          {
-            "title": "Diseños eléctricos y neumáticos",
-            "path": "/services?categoria=ingenieria&item=electroneumatico"
-          },
-          {
-            "title": "Diseños mecánicos 3D",
-            "path": "/services?categoria=ingenieria&item=mecanico3d"
-          }
-        ]
-      },
-      {
-        "title": "Maquinados y tratamientos térmicos",
-        "path": "/services?categoria=maquinados"
+        "title": "Maquinados, rectificados y tratamientos térmicos de piezas industriales",
+        "description": "Servicios de maquinado, rectificado y tratamientos térmicos para piezas industriales",
+        "path": "/services?categoria=MaquinadosRectificadosTratamientosTermicos",
+        "sources": "Maquinados_Rectificados_Termicos"
       }
     ]
   },

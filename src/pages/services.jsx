@@ -1,69 +1,121 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import products from "../data/products.json";
+import navbar from "@data/navbar.json";
+import Showreel from "@components/showreel";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Services() {
+  const [showreelImg, setShowreelImg] = useState([]);
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const categoria = queryParams.get("categoria");
-  const item = queryParams.get("item");
+  const [queryParams, setQueryParams] = useState("");
 
-  const normalizedItem = item?.toUpperCase();
-  const matchedCategory = Object.entries(products).find(([key]) =>
-    key.toUpperCase().includes(normalizedItem || "")
-  );
+  const [title, setTitle] = useState("Cargando Titulo...");
+  const [description, setDescription] = useState("Cargando Descripción...");
+  const [ruta, setRuta] = useState("");
 
-  const matchedCategoryName = matchedCategory?.[0];
-  const matchedData = matchedCategory?.[1];
+  useEffect(() => {
+    const categoriaParam =
+      new URLSearchParams(location.search).get("categoria") || "";
+    setQueryParams(categoriaParam);
+
+    function deepSearch(obj, key) {
+      if (typeof obj !== "object" || obj === null) return null;
+      if (
+        Object.values(obj).some(
+          (val) =>
+            typeof val === "string" &&
+            val.toLowerCase().includes(key.toLowerCase())
+        )
+      ) {
+        return obj;
+      }
+      for (const value of Object.values(obj)) {
+        if (Array.isArray(value)) {
+          for (const item of value) {
+            const found = deepSearch(item, key);
+            if (found) return found;
+          }
+        } else if (typeof value === "object") {
+          const found = deepSearch(value, key);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+
+    const matchedItem = deepSearch(navbar, categoriaParam);
+
+    if (matchedItem) {
+      setTitle(matchedItem.title);
+      setDescription(matchedItem.description);
+      setRuta(matchedItem.sources);
+    } else {
+      setTitle("Cargando Titulo...");
+      setDescription("Cargando Descripción...");
+      setRuta("");
+    }
+
+    setShowreelImg([]);
+
+    const allImporters = import.meta.glob(
+      "@assets/images/proveedores/*/*.{jpg,jpeg,png,svg,webp}",
+      { eager: false }
+    );
+
+    const importers = Object.entries(allImporters).filter(([path]) =>
+      path.includes(`/proveedores/${ruta}/`)
+    );
+
+    const loadImages = async () => {
+      for (const [, importFn] of importers) {
+        const mod = await importFn();
+        setShowreelImg((prev) => [
+          ...prev,
+          {
+            title: `Imagen ${prev.length + 1}`,
+            route: mod.default,
+          },
+        ]);
+      }
+    };
+    loadImages();
+  }, [location.search]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   return (
-    <div className="my-32 mb-96">
-      <h1 className="text-2xl font-bold mb-4">Información del servicio</h1>
-      {categoria && (
-        <p className="text-lg mb-2">
-          <strong>Categoría:</strong> {categoria}
-        </p>
-      )}
-      {categoria != "clientes" ? (
-        <>
-          {item && (
-            <p className="text-lg mb-4">
-              <strong>Item:</strong> {item}
-            </p>
-          )}
-          {matchedData ? (
-            <div>
-              <h2 className="text-xl font-semibold">{matchedCategoryName}</h2>
-              <p className="mb-2">{matchedData.descripcion_categoria}</p>
-              <ul className="list-disc ml-6">
-                {matchedData.productos.map((producto, idx) => (
-                  <li key={idx}>
-                    <strong>{producto.nombre}:</strong>{" "}
-                    {producto.descripcion_producto}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <p className="text-red-500">
-              No se encontraron productos relacionados.
-            </p>
-          )}
-        </>
-      ) : (
-        <>
-          <div className="mt-36">
-            <h1 className="text-3xl">
-              Ciente: <b>{item}</b>
-            </h1>
-            <h2 className="text-2xl">
-              Aqui puede hablar sobre la historia o productos que se le fabrican
-              a {item.toUpperCase()}.
-            </h2>
+    <>
+      <div className="relative h-screen text-white">
+        <header
+          className=" flex h-full"
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          <div className="absolute inset-0 -z-9" data-aos="fade-up">
+            <Showreel imagenes={showreelImg} duration={1500} intervalo={4} />
+            <div className="absolute inset-0 bg-blue opacity-100" />
           </div>
-        </>
-      )}
-    </div>
+          <div className="z-0 relative flex flex-col items-center justify-center gap-6 px-4 text-center w-full">
+            {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
+            <div className="my-32 mb-96 flex flex-col max-w-80 justify-center align-middle text-center">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-white drop-shadow-lg line-clamp-2 break-words">
+                {title}
+              </h1>
+              <p className="text-base md:text-lg text-gray-300 max-w-xl mx-auto drop-shadow-sm line-clamp-2 break-words">
+                {description}
+              </p>
+              <div className="space-y-8 w-full"></div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </>
   );
 }
 

@@ -8,8 +8,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import Enterprice_values from "@components/enterprice_values";
 import ContactUs_form from "@components/contactUs_form";
 import Providers from "@components/providers";
-
-import HCOLogo from "@components/HCOLogo";
+import HCO_new from "/LogoHCO_new.svg";
 import Inteva_Logo from "@assets/images/clients_logos/inteva.svg";
 import Merit_Logo from "@assets/images/clients_logos/Merit.svg";
 
@@ -71,25 +70,35 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col cursor-default">
       {/* Hero */}
       <div className="relative h-screen text-white">
-        <header className=" bg-blue flex h-full">
+        <header
+          className=" bg-blue flex h-full"
+          onContextMenu={(e) => e.preventDefault()}
+        >
           <div className="absolute inset-0 -z-9" data-aos="fade-up">
-            <Showreel imagenes={showreelImg} duration="1000" />
+            <Showreel imagenes={showreelImg} duration={1500} intervalo={2.5} />
             <div className="absolute inset-0 bg-blue opacity-80" />
           </div>
           <div className="z-0 relative flex flex-col items-center justify-center gap-6 px-4 text-center w-full">
-            <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-white" />
-            <h1 className="text-4xl font-bold">Tecnología Industrial HCO</h1>
-            <p className="text-lg max-w-xl">
+            <img
+              src={HCO_new}
+              alt="aaa"
+              className="h-24 md:h-40 lg:h-52 w-auto max-w-full text-red-500"
+            />
+            {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
+            <p className="text-lg max-w-xl text-gray">
               Automatización de procesos industriales y de producción
             </p>
           </div>
           <div className="bottom-20 absolute w-full flex justify-center items-center gap-10">
             <button
               className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition text-center flex items-center justify-center gap-2"
-              onClick={() => navigate("/info")}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                navigate("/info");
+              }}
             >
               <IoChatbubblesOutline /> Contáctanos
             </button>
@@ -151,21 +160,36 @@ function Home() {
         <h2 className="text-4xl font-semibold text-center">
           Nuestros Clientes
         </h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-40 my-10">
+        <div
+          className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-40 my-10"
+          onContextMenu={(e) => e.preventDefault()}
+        >
           <div className="flex flex-col items-center gap-10">
             <img
               alt="JeepLogo"
-              className="w-40 h-24 md:w-64 md:h-40"
               src={Inteva_Logo}
               loading="lazy"
+              className="w-40 h-24 md:w-64 md:h-40 object-contain select-none"
+              style={{
+                WebkitUserDrag: "none",
+                KhtmlUserDrag: "none",
+                MozUserDrag: "none",
+                OUserDrag: "none",
+              }}
             />
           </div>
           <div className="flex flex-col items-center gap-10">
             <img
               alt="AlphaRomeoLogo"
-              className="w-40 h-24 md:w-64 md:h-40"
               src={Merit_Logo}
               loading="lazy"
+              className="w-40 h-24 md:w-64 md:h-40 object-contain select-none"
+              style={{
+                WebkitUserDrag: "none",
+                KhtmlUserDrag: "none",
+                MozUserDrag: "none",
+                OUserDrag: "none",
+              }}
             />
           </div>
         </div>

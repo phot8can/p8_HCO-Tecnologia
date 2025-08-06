@@ -15,16 +15,17 @@ function Providers({ colorFondo }) {
         { eager: false }
       );
 
-      const images = await Promise.all(
-        Object.values(importers).map((importFn) => importFn())
-      );
-
-      setShowreelImg(
-        images.map((mod, index) => ({
-          title: `Imagen ${index + 1}`,
-          route: mod.default,
-        }))
-      );
+      for (const importFn of Object.values(importers)) {
+        importFn().then((mod) => {
+          setShowreelImg((prev) => [
+            ...prev,
+            {
+              title: `Imagen ${prev.length + 1}`,
+              route: mod.default,
+            },
+          ]);
+        });
+      }
     };
 
     loadImages();
@@ -37,7 +38,7 @@ function Providers({ colorFondo }) {
 
   return (
     <>
-      <section className="max-w-5xl mx-auto px-6 my-10" data-aos="fade-up">
+      <section className="max-w-5xl mx-auto px-6 my-10" data-aos="fade-up"  onContextMenu={(e) => e.preventDefault()}>
         <h2 className="text-4xl font-semibold text-center">
           Nuestros Proveedores
         </h2>

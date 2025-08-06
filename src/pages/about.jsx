@@ -3,9 +3,11 @@ import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Enterprice_Values from "../components/enterprice_values";
-import { FaUserTie, FaBuilding, FaCogs, FaTools } from "react-icons/fa";
-import { FaCompass } from "react-icons/fa6";
-import { TbTargetArrow } from "react-icons/tb";
+// import { FaUserTie, FaBuilding, FaCogs, FaTools } from "react-icons/fa";
+// import { FaCompass } from "react-icons/fa6";
+// import { TbTargetArrow } from "react-icons/tb";
+import FotoMision from "@assets/images/valores/integridad.webp";
+import FotoVision from "@assets/images/general/1S5A7710.webp";
 
 function about() {
   useEffect(() => {
@@ -17,7 +19,7 @@ function about() {
 
   const location = useLocation();
   return (
-    <>
+    <div>
       <div className="absolute h-full w-full bg-#fff">
         <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
@@ -36,13 +38,27 @@ function about() {
           estaciones automatizadas.
         </p>
       </section>
-           {/* Misión */}
+      {/* Misión */}
       <section
         className="my-20 px-6 lg:px-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"
         data-aos="fade-up"
       >
-        <div className="flex justify-center items-center w-full h-full">
-          <FaCompass className="text-blue-900 text-8xl  text-slate-500" />
+        <div
+          className="flex justify-center items-center w-full h-3/4 overflow-hidden"
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          {/* <FaCompass className="text-blue-900 text-8xl  text-slate-500" /> */}
+          <img
+            src={FotoMision}
+            alt="Mision"
+            className="object-contain select-none"
+            style={{
+              WebkitUserDrag: "none",
+              KhtmlUserDrag: "none",
+              MozUserDrag: "none",
+              OUserDrag: "none",
+            }}
+          />
         </div>
         <div>
           <h2 className="text-4xl font-bold text-blue-900 mb-6  text-slate-500">
@@ -71,8 +87,22 @@ function about() {
             compromiso con la satisfacción total de nuestros clientes.
           </p>
         </div>
-        <div className="flex justify-center items-center w-full h-full">
-          <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" />
+        <div
+          className="flex justify-center items-center w-full h-3/4 overflow-hidden"
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          {/* <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" /> */}
+          <img
+            src={FotoVision}
+            alt="Vision"
+            className="object-contain select-none"
+            style={{
+              WebkitUserDrag: "none",
+              KhtmlUserDrag: "none",
+              MozUserDrag: "none",
+              OUserDrag: "none",
+            }}
+          />
         </div>
       </section>
       {location.pathname === "/about" && <Enterprice_Values />}
@@ -87,8 +117,8 @@ function about() {
           </h2>
 
           <div className="space-y-12"> */}
-            {/* Dirección General */}
-            {/* <div>
+      {/* Dirección General */}
+      {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaUserTie className="text-blue" /> Dirección General
               </h3>
@@ -108,8 +138,8 @@ function about() {
               </div>
             </div> */}
 
-            {/* Departamento de Administración */}
-            {/* <div>
+      {/* Departamento de Administración */}
+      {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaBuilding className="text-blue" /> Departamento de
                 Administración
@@ -134,8 +164,8 @@ function about() {
               </div>
             </div> */}
 
-            {/* Departamento de Ingeniería */}
-            {/* <div>
+      {/* Departamento de Ingeniería */}
+      {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaCogs className="text-blue" /> Departamento de Ingeniería
               </h3>
@@ -167,8 +197,8 @@ function about() {
               </div>
             </div> */}
 
-            {/* Departamento de Producción */}
-            {/* <div>
+      {/* Departamento de Producción */}
+      {/* <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <FaTools className="text-blue" /> Departamento de Producción
               </h3>
@@ -186,7 +216,7 @@ function about() {
           </div>
         </div>
       </section> */}
-    </>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-const imageModules = import.meta.glob("@assets/images/valores/*.webp", {
+const imageModules = import.meta.glob("@assets/images/valores/*.png", {
   eager: false,
 });
 import { useEffect, useState } from "react";

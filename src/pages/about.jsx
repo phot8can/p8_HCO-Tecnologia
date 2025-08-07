@@ -7,7 +7,7 @@ import Enterprice_Values from "../components/enterprice_values";
 // import { FaCompass } from "react-icons/fa6";
 // import { TbTargetArrow } from "react-icons/tb";
 import FotoMision from "@assets/images/valores/integridad.webp";
-import FotoVision from "@assets/images/general/1S5A7710.webp";
+import FotoVision from "@assets/images/valores/8.webp";
 
 function about() {
   useEffect(() => {
@@ -44,7 +44,7 @@ function about() {
         data-aos="fade-up"
       >
         <div
-          className="flex justify-center items-center w-full h-3/4 overflow-hidden"
+          className="flex justify-center items-center w-full h-full overflow-hidden"
           onContextMenu={(e) => e.preventDefault()}
         >
           {/* <FaCompass className="text-blue-900 text-8xl  text-slate-500" /> */}
@@ -88,7 +88,7 @@ function about() {
           </p>
         </div>
         <div
-          className="flex justify-center items-center w-full h-3/4 overflow-hidden"
+          className="flex justify-center items-center w-full h-full overflow-hidden"
           onContextMenu={(e) => e.preventDefault()}
         >
           {/* <TbTargetArrow className="text-blue-900 text-9xl  text-slate-500" /> */}

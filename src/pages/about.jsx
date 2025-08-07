@@ -6,8 +6,8 @@ import Enterprice_Values from "../components/enterprice_values";
 // import { FaUserTie, FaBuilding, FaCogs, FaTools } from "react-icons/fa";
 // import { FaCompass } from "react-icons/fa6";
 // import { TbTargetArrow } from "react-icons/tb";
-import FotoMision from "@assets/images/valores/integridad.png";
-import FotoVision from "@assets/images/valores/8.png";
+import FotoMision from "@assets/images/valores/integridad.webp";
+import FotoVision from "@assets/images/valores/8.webp";
 
 function about() {
   useEffect(() => {

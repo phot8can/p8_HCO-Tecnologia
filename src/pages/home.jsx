@@ -12,7 +12,7 @@ import HCO_new from "/LogoHCO_new.svg";
 import Inteva_Logo from "@assets/images/clients_logos/inteva.svg";
 import Merit_Logo from "@assets/images/clients_logos/Merit.svg";
 import Noise from "@assets/images/fx/Ruido.webp";
-import NoiseGradiant from "@assets/images/fx/Ruido_Degradado.webp";
+import NoiseGradiant from "@assets/images/fx/Ruido_degradado.webp";
 
 import { GiRobotGrab } from "react-icons/gi";
 import { MdOutlineDesignServices } from "react-icons/md";

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import products from "../data/products.json";
 import navbar from "@data/navbar.json";
 import Showreel from "@components/showreel";
 import AOS from "aos";
@@ -15,92 +14,91 @@ function Services() {
   const [description, setDescription] = useState("Cargando Descripción...");
   const [ruta, setRuta] = useState("");
 
-useEffect(() => {
-  const categoriaParam =
-    new URLSearchParams(location.search).get("categoria") || "";
-  setQueryParams(categoriaParam);
+  useEffect(() => {
+    const categoriaParam =
+      new URLSearchParams(location.search).get("categoria") || "";
+    setQueryParams(categoriaParam);
 
-  function deepSearch(obj, key) {
-    if (typeof obj !== "object" || obj === null) return null;
-    if (
-      Object.values(obj).some(
-        (val) =>
-          typeof val === "string" &&
-          val.toLowerCase().includes(key.toLowerCase())
-      )
-    ) {
-      return obj;
-    }
-    for (const value of Object.values(obj)) {
-      if (Array.isArray(value)) {
-        for (const item of value) {
-          const found = deepSearch(item, key);
+    function deepSearch(obj, key) {
+      if (typeof obj !== "object" || obj === null) return null;
+      if (
+        Object.values(obj).some(
+          (val) =>
+            typeof val === "string" &&
+            val.toLowerCase().includes(key.toLowerCase())
+        )
+      ) {
+        return obj;
+      }
+      for (const value of Object.values(obj)) {
+        if (Array.isArray(value)) {
+          for (const item of value) {
+            const found = deepSearch(item, key);
+            if (found) return found;
+          }
+        } else if (typeof value === "object") {
+          const found = deepSearch(value, key);
           if (found) return found;
         }
-      } else if (typeof value === "object") {
-        const found = deepSearch(value, key);
-        if (found) return found;
       }
+      return null;
     }
-    return null;
-  }
 
-  const matchedItem = deepSearch(navbar, categoriaParam);
+    const matchedItem = deepSearch(navbar, categoriaParam);
 
-  if (matchedItem) {
-    setTitle(matchedItem.title);
-    setDescription(matchedItem.description);
-    setRuta(matchedItem.sources);
-  } else {
-    setTitle("Cargando Titulo...");
-    setDescription("Cargando Descripción...");
-    setRuta("");
-  }
-}, [location]);
+    if (matchedItem) {
+      setTitle(matchedItem.title);
+      setDescription(matchedItem.description);
+      setRuta(matchedItem.sources);
+    } else {
+      setTitle("Cargando Titulo...");
+      setDescription("Cargando Descripción...");
+      setRuta("");
+    }
+  }, [location]);
 
-useEffect(() => {
-  AOS.init({
-    duration: 1000,
-    once: true,
-  });
-}, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
-useEffect(() => {
-  if (!ruta) {
-    setShowreelImg([]);
-    return;
-  }
-
-  const loadImages = async () => {
-    try {
-      const importers = import.meta.glob(
-        "/src/assets/images/servicios/**",
-        { eager: false }
-      );
-
-      const filteredImporters = Object.entries(importers).filter(([path]) =>
-        path.includes(`/src/assets/images/servicios/${ruta}/`)
-      );
-
-      const images = await Promise.all(
-        filteredImporters.map(([_, importFn]) => importFn())
-      );
-
-      const formattedImages = images.map((mod, index) => ({
-        title: `Imagen ${index + 1}`,
-        route: mod.default,
-      }));
-
-      console.log(formattedImages);
-      setShowreelImg(formattedImages);
-    } catch (error) {
-      console.error("Error loading images:", error);
+  useEffect(() => {
+    if (!ruta) {
       setShowreelImg([]);
+      return;
     }
-  };
 
-  loadImages();
-}, [ruta]);
+    const loadImages = async () => {
+      try {
+        const importers = import.meta.glob("/src/assets/images/servicios/**", {
+          eager: false,
+        });
+
+        const filteredImporters = Object.entries(importers).filter(([path]) =>
+          path.includes(`/src/assets/images/servicios/${ruta}/`)
+        );
+
+        const images = await Promise.all(
+          filteredImporters.map(([_, importFn]) => importFn())
+        );
+
+        const formattedImages = images.map((mod, index) => ({
+          title: `Imagen ${index + 1}`,
+          route: mod.default,
+        }));
+
+        console.log(formattedImages);
+        setShowreelImg(formattedImages);
+      } catch (error) {
+        console.error("Error loading images:", error);
+        setShowreelImg([]);
+      }
+    };
+
+    loadImages();
+  }, [ruta]);
 
   return (
     <>

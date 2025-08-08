@@ -7,7 +7,7 @@ import {
   FaPhone,
 } from "react-icons/fa";
 
-import NoiseGradiant from "@assets/images/fx/Ruido_Degradado.webp";
+import NoiseGradiant from "@assets/images/fx/Ruido_degradado.webp";
 
 function Footer() {
   return (

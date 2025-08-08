@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "/HCO_Logo.svg";

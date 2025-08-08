@@ -29,20 +29,12 @@ function Providers({ colorFondo }) {
     };
 
     loadImages();
-
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
   }, []);
 
   return (
     <>
-      <section className="max-w-5xl mx-auto px-6 my-10" data-aos="fade-up"  onContextMenu={(e) => e.preventDefault()}>
-        <h2 className="text-4xl font-semibold text-center">
-          Nuestros Proveedores
-        </h2>
-        <div className="relative w-full overflow-hidden my-10">
+      <section onContextMenu={(e) => e.preventDefault()}>
+        <div className="relative w-full overflow-hidden">
           <div
             className="absolute left-0 top-0 h-full w-32 pointer-events-none z-10"
             style={{ backgroundImage: `linear-gradient(to right, ${colorFondo}, transparent)` }}

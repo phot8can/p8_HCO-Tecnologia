@@ -22,15 +22,13 @@ function enterprice_values() {
   return (
     <>
       {/* Valores */}
-      <section
-        className="my-28 px-6 lg:px-16 max-w-6xl mx-auto"
-        data-aos="fade-up"
-      >
-        <h2 className="text-4xl font-bold text-center text-blue-900 mb-10 text-slate-500">
-          Nuestros valores
-        </h2>
-        <div className="grid md:grid-cols-3 gap-12 text-center" 
-          onContextMenu={(e) => e.preventDefault()}>
+      <section className=" lg:px-16 max-w-6xl mx-auto  text-center" data-aos="fade-up">
+        <h2 className="text-5xl font-bold text-blue mb-2 ">Nuestros valores</h2>
+        <p className="text-xl text-gray-700 mb-12">Our values</p>
+        <div
+          className="grid md:grid-cols-3 gap-12"
+          onContextMenu={(e) => e.preventDefault()}
+        >
           {/* Equipo */}
           <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
             <div className="max-h-1/4 overflow-hidden bg-blue-900">
@@ -48,7 +46,7 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3">Equipo</h3>
+              <h3 className="text-3xl font-semibold mb-3">Equipo</h3>
               <p className="text-gray-700 text-lg leading-relaxed">
                 El trabajo en equipo es la base sobre la cual trabajamos con
                 comunicación abierta y respeto, sumando nuestras fortalezas para
@@ -75,7 +73,7 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-3xl font-semibold mb-3 text-gray-900">
                 Innovación
               </h3>
               <p className="text-gray-700 text-lg leading-relaxed">
@@ -104,7 +102,7 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-3xl font-semibold mb-3 text-gray-900">
                 Integridad
               </h3>
               <p className="text-gray-700 text-lg leading-relaxed">

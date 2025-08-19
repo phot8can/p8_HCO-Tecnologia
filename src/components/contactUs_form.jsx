@@ -37,7 +37,7 @@ function contactUs_form({ textColor = "text-white" }) {
               </li>
             </ul>
           </div>
-          <form className="bg-slate-50 bg-opacity-50 p-6 rounded-md shadow space-y-4">
+          <form className="bg-slate-50 bg-opacity-95 p-6 rounded-md shadow space-y-4">
             <input
               type="text"
               placeholder="Nombre"

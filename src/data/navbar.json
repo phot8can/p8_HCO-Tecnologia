@@ -5,62 +5,86 @@
     "title": "Servicios",
     "index": [
       {
-        "title": "Lineas de ensamble",
-        "description": "Automatización de procesos industriales y de producción",
-        "path": "/services?categoria=LineadeEnsamble",
-        "sources": "Linea_Ensamble"
+        "title": "Líneas de ensamble",
+        "description": "Diseño e integración de líneas de ensamble automatizadas para optimizar tiempos de ciclo y calidad.",
+        "path": "/services?categoria=LineasDeEnsamble",
+        "sources": "Lineas_Ensamble"
       },
       {
         "title": "Indexadoras de diversas posiciones",
-        "description": "Máquinas indexadoras para posicionar piezas en diferentes ángulos",
-        "path": "/services?categoria=IndexadorasDiverasPosiciones",
-        "sources": "Index_Diversas_posiciones"
+        "description": "Mesas indexadoras para posicionamiento preciso en múltiples estaciones de trabajo.",
+        "path": "/services?categoria=IndexadorasDiversasPosiciones",
+        "sources": "Index_Diversas_Posiciones"
       },
       {
-        "title": "Prensas automáticasautomáticas",
-        "description": "Prensas automáticas para procesos de ensamblaje y fabricación",
+        "title": "Prensas automáticas",
+        "description": "Prensas automáticas para procesos de ensamblaje y conformado con control de fuerza y carrera.",
         "path": "/services?categoria=PrensasAutomaticas",
         "sources": "Prensas_Automaticas"
       },
       {
-        "title": "Engrasadoras",
-        "description": "Sistemas automáticos de engrasado para maquinaria industrial",
-        "path": "/services?categoria=Engrasadoras",
-        "sources": "Engrasadoras"
+        "title": "Ensamble de foil automático a PCB con robot",
+        "description": "Celdas robotizadas para ensamble de foil a PCB con control de visión y trazabilidad.",
+        "path": "/services?categoria=EnsambleFoilAPCBRobot",
+        "sources": "Ensamble_Foil_PCB_ST50"
+      },
+      {
+        "title": "Carga automática de stud, rivet, forkbolt y detent",
+        "description": "Sistemas de alimentación y carga automática de elementos de fijación: stud, rivet, forkbolt y detent.",
+        "path": "/services?categoria=CargaAutomaticaElementosFijacion",
+        "sources": "Carga_Stud_Rivet_Forkbolt_Detent"
+      },
+      {
+        "title": "Dosificado automático de rivet, pick and place con dosificado automático de stud, robot ABB pick and place para forkbolt y detent",
+        "description": "Celdas de dosificado y manipulación: rivet y stud con pick and place; integración de robot ABB para manejo de forkbolt y detent.",
+        "path": "/services?categoria=DosificadoRivetStudPickAndPlaceABB",
+        "sources": "Dosificado_Rivet_Stud_ABB"
       },
       {
         "title": "Atornilladoras con dispensado automático",
-        "description": "Sistemas de atornillado con dispensado automático de tornillos",
-        "path": "/services?categoria=AtornilladorasAutomaticas",
+        "description": "Sistemas de atornillado con alimentadores automáticos y control de par/ángulo.",
+        "path": "/services?categoria=AtornilladorasDispensadoAutomatico",
         "sources": "Atornilladoras_Automaticas"
       },
       {
-        "title": "Escaneo automático",
-        "description": "Sistemas de escaneo automático para control de calidad",
-        "path": "/services?categoria=EscanajeAutomatico",
-        "sources": "Escanaje_Automatico"
+        "title": "Engrasadoras automáticas con dispensado automático por bowl feeder",
+        "description": "Estaciones de lubricación con dosificación precisa y alimentación por bowl feeder.",
+        "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
+        "sources": "Engrasadoras_Bowl_Feeder"
       },
       {
         "title": "Estaciones de descarga automática",
-        "description": "Sistemas automáticos de descarga de piezas",
-        "path": "/services?categoria=EstacionesDescargaAutomaticas",
-        "sources": "Estaciones_Descarga_Automaticas"
+        "description": "Sistemas automáticos de descarga y evacuación de piezas al final de línea.",
+        "path": "/services?categoria=EstacionesDescargaAutomatica",
+        "sources": "Estaciones_Descarga_Automatica"
+      },
+      {
+        "title": "Escaneo automático",
+        "description": "Estaciones de escaneo y verificación por visión artificial para control de calidad.",
+        "path": "/services?categoria=EscaneoAutomatico",
+        "sources": "Escaneo_Automatico"
       },
       {
         "title": "Estaciones manuales",
-        "description": "Estaciones de trabajo manuales para ensamblaje y control de calidad",
+        "description": "Puestos ergonómicos para operaciones manuales con poka-yoke y trazabilidad.",
         "path": "/services?categoria=EstacionesManuales",
         "sources": "Estaciones_Manuales"
       },
       {
-        "title": "Bowl Feeder con vibrador lineal simple o doble",
-        "description": "Sistemas de alimentación de piezas con vibradores lineales",
+        "title": "Pick and place",
+        "description": "Celdas de pick and place con actuadores o robots para alimentación, transferencia y ensamblaje.",
+        "path": "/services?categoria=PickAndPlace",
+        "sources": "Pick_and_Place"
+      },
+      {
+        "title": "Bowl feeder con vibrador lineal simple o doble",
+        "description": "Sistemas de alimentación por bowl feeder con vibrador lineal simple o doble para piezas pequeñas.",
         "path": "/services?categoria=BowlFeederVibradorLineal",
         "sources": "Bowl_Feeder_Vibrador_Lineal"
       },
       {
         "title": "Maquinados, rectificados y tratamientos térmicos de piezas industriales",
-        "description": "Servicios de maquinado, rectificado y tratamientos térmicos para piezas industriales",
+        "description": "Servicios de maquinado CNC, rectificado de precisión y tratamientos térmicos conforme a especificación.",
         "path": "/services?categoria=MaquinadosRectificadosTratamientosTermicos",
         "sources": "Maquinados_Rectificados_Termicos"
       }

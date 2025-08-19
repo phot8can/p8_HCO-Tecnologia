@@ -16,22 +16,6 @@ function contactUs_form({ textColor = "text-white" }) {
             </p>
             <ul className="text-gray-400 text-sm space-y-2">
               <li>
-                <strong>Teléfono:</strong>{" "}
-                <a
-                  href="tel:+528682990165"
-                  className={`${textColor} hover:underline`}
-                >
-                  +52 (868) 299 0165
-                </a>
-                {" , "}
-                <a
-                  href="tel:+528681619773"
-                  className={`${textColor} hover:underline`}
-                >
-                  +52 (868) 161 9773
-                </a>
-              </li>
-              <li>
                 <strong>Email:</strong>{" "}
                 <a
                   href="mailto:tecnologiaindustrial.hco@gmail.com"
@@ -53,7 +37,7 @@ function contactUs_form({ textColor = "text-white" }) {
               </li>
             </ul>
           </div>
-          <form className="bg-slate-50 bg-opacity-50 p-6 rounded-md shadow space-y-4">
+          <form className="bg-slate-50 bg-opacity-95 p-6 rounded-md shadow space-y-4">
             <input
               type="text"
               placeholder="Nombre"

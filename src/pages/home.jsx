@@ -451,10 +451,6 @@ function Home() {
 
       <hr className="text-[#d6d6d6]" />
 
-      <div className="relative py-32 bg-white">
-        <Enterprice_values />
-      </div>
-      <hr className="text-[#d6d6d6]" />
       {/* Manufacturing Capacity */}
       <section className="relative py-28 px-6" data-aos="fade-up">
         <div className="absolute inset-0 -z-10">
@@ -501,7 +497,7 @@ function Home() {
         </h2>
         <Providers colorFondo="rgba(255, 255, 255, 1)" />
       </section>
-            <hr className="text-[#d6d6d6]" />
+      <hr className="text-[#d6d6d6]" />
       <section className="py-16 bg-white text-blue" data-aos="fade-up">
         <ContactUs_form textColor="#0000" />
       </section>

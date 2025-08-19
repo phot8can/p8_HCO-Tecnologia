@@ -13,8 +13,10 @@ function Footer() {
   return (
     <>
       <footer className="bg-blue text-white w-full mt-auto border-t border-blue-900/60 relative isolate">
-        <div className="absolute inset-0 -z-10 pointer-events-none select-none" aria-hidden="true">
-
+        <div
+          className="absolute inset-0 -z-10 pointer-events-none select-none"
+          aria-hidden="true"
+        >
           {/* Noise layer on top */}
           <div
             className="absolute inset-0 w-full h-full bg-no-repeat bg-top bg-[length:100%_auto] z-10 opacity-50"
@@ -47,6 +49,15 @@ function Footer() {
               </h4>
               <ul className="space-y-2 text-white/80">
                 <li className="flex items-start gap-3">
+                  <FaEnvelope className="mt-1 shrink-0" />{" "}
+                  <a
+                    href="mailto:tecnologiaindustrial.hco@gmail.com"
+                    className={`hover:underline`}
+                  >
+                    tecnologiaindustrial.hco@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
                   <FaMapMarkerAlt className="mt-1 shrink-0" />{" "}
                   <a
                     href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
@@ -55,27 +66,6 @@ function Footer() {
                     className={` hover:underline`}
                   >
                     H. Matamoros, Tam. MX.
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <FaPhone className="mt-1 shrink-0" />{" "}
-                  <div>
-                    <a href="tel:+528682990165" className={`hover:underline`}>
-                      +52 (868) 299 0165
-                    </a>
-                    <span className="mx-2" aria-hidden="true">•</span>
-                    <a href="tel:+528681619773" className={` hover:underline`}>
-                      +52 (868) 161 9773
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <FaEnvelope className="mt-1 shrink-0" />{" "}
-                  <a
-                    href="mailto:tecnologiaindustrial.hco@gmail.com"
-                    className={`hover:underline`}
-                  >
-                    tecnologiaindustrial.hco@gmail.com
                   </a>
                 </li>
               </ul>
@@ -137,7 +127,7 @@ function Footer() {
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-md text-white/80">
             <p className="order-2 md:order-1">
-              &copy; {new Date().getFullYear()} HCO Tecnologías. Todos los
+              &copy; {new Date().getFullYear()} Tecnología Industrial HCO. Todos los
               derechos reservados.
             </p>
             <div className="order-1 md:order-2 flex items-center gap-1">

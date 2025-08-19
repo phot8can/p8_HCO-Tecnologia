@@ -57,7 +57,7 @@ function about() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10 md:mb-12">
               ¿Quiénes somos?
             </h1>
-            <p className="text-gray-300 text-base sm:text-lg text-center max-w-3xl mx-auto">
+            <p className="text-gray-300 text-base sm:text-2xl text-center max-w-6xl font-semibold mx-auto">
               Somos una empresa orgullosamente mexicana, de Ingeniería
               especializada en automatización industrial, enfocada en el diseño
               y fabricación de estaciones automatizadas.

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
-import Logo from "/HCO_Logo.svg";
+import LogoNew from "/LogoHCO_new.svg";
 import navbar from "@data/navbar.json";
 
 function Navbar() {
@@ -20,8 +20,8 @@ function Navbar() {
         {location.pathname !== "/" ? (
           <div className={`flex items-center gap-6`}>
             <img
-              className="h-6 object-contain invert brightness-0 cursor-pointer"
-              src={Logo}
+              className="h-6 object-contain cursor-pointer"
+              src={LogoNew}
               alt="Logo"
               loading="lazy"
               onClick={() => {

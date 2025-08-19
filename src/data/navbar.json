@@ -35,7 +35,7 @@
         "sources": "Carga_Stud_Rivet_Forkbolt_Detent"
       },
       {
-        "title": "Dosificado automático de rivet, pick and place con dosificado automático de stud, robot ABB pick and place para forkbolt y detent",
+        "title": "Dosificado automático de stud, pick and place con robot ABB para forkbolt y detent",
         "description": "Celdas de dosificado y manipulación: rivet y stud con pick and place; integración de robot ABB para manejo de forkbolt y detent.",
         "path": "/services?categoria=DosificadoRivetStudPickAndPlaceABB",
         "sources": "Dosificado_Rivet_Stud_ABB"

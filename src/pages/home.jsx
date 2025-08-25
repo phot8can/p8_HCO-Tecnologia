@@ -189,7 +189,7 @@ function Home() {
               Automatización de procesos industriales y de producción
             </p>
           </div>
-          <div className="bottom-20 absolute w-full flex justify-center items-center gap-10">
+          <div className="bottom-32 absolute w-full flex justify-center items-center gap-10">
             <button
               className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition text-center flex items-center justify-center gap-2"
               onClick={() => {

@@ -66,11 +66,10 @@ function Services() {
       setRuta(matchedItem.sources);
       setSubtitulo(matchedService?.subtitle || "Subtitulo no disponible");
       setDescripcion(matchedService?.overview || "Descripción no disponible");
-      setOferta(matchedService?.offerings || ["Oferta no disponible"]
-      );
-      setBeneficios( matchedService?.benefits || ["Beneficios no disponibles"]
-      );
-      setAplicaciones(matchedService?.applications || ["Aplicaciones no disponibles"]
+      setOferta(matchedService?.offerings || ["Oferta no disponible"]);
+      setBeneficios(matchedService?.benefits || ["Beneficios no disponibles"]);
+      setAplicaciones(
+        matchedService?.applications || ["Aplicaciones no disponibles"]
       );
     } else {
       setTitle("Cargando Titulo...");
@@ -161,16 +160,6 @@ function Services() {
     </ul>
   );
 
-  const RenderParagraphs = ({ text, className = "text-gray-700" }) => (
-    <div className="space-y-3">
-      {toLines(text).map((t, i) => (
-        <p key={i} className={`${className} leading-relaxed`}>
-          {t}
-        </p>
-      ))}
-    </div>
-  );
-
   const scrollToInfo = (offset = 0) => {
     const el = document.getElementById("info");
     if (!el) return;
@@ -191,19 +180,18 @@ function Services() {
           </div>
           <div className="z-0 relative flex flex-col items-center justify-center text-center w-full h-full">
             {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
-            <div className=" flex flex-col max-w-2xl justify-center align-middle text-center">
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-white drop-shadow-lg  break-words">
+            <div className=" flex flex-col max-w-4xl justify-center align-middle text-center bg-blue/25 backdrop-blur-sm p-10 rounded-lg shadow-sm border border-white/20">
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-white drop-shadow-lg  break-words">
                 {title}
               </h1>
-              <p className="text-base md:text-lg text-gray-300 max-w-xl mx-auto drop-shadow-sm line-clamp-2 break-words">
+              <p className="text-base md:text-lg text-gray-300 mx-auto drop-shadow-sm line-clamp-2 break-words">
                 {description}
               </p>
-              <div className="space-y-8 w-full"></div>
             </div>
             <div className="bottom-40 absolute w-full flex justify-center items-center">
               <div className="flex items-center gap-3">
                 <button
-                  className="bg-white/80 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
+                  className="bg-white/90 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
                   onClick={() => scrollToInfo(140)}
                   title="Subir ligeramente más"
                 >
@@ -221,7 +209,7 @@ function Services() {
         {/* Industrial header strip */}
         <div className="relative mb-8">
           <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
-          <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-slate-900 text-slate-100 rounded-md shadow">
+          <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-blue text-slate-100 rounded-md shadow">
             <HiOutlineBolt className="h-5 w-5" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               Ficha técnica

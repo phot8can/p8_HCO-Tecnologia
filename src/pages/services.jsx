@@ -23,9 +23,9 @@ function Services() {
   const [ruta, setRuta] = useState("");
   const [subtitulo, setSubtitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [oferta, setOferta] = useState("");
-  const [beneficios, setBeneficios] = useState("");
-  const [aplicaciones, setAplicaciones] = useState("");
+  const [oferta, setOferta] = useState([]);
+  const [beneficios, setBeneficios] = useState([]);
+  const [aplicaciones, setAplicaciones] = useState([]);
 
   useEffect(() => {
     const categoriaParam =
@@ -64,40 +64,13 @@ function Services() {
       setTitle(matchedItem.title);
       setDescription(matchedItem.description);
       setRuta(matchedItem.sources);
-      setSubtitulo(
-        Array.isArray(matchedService?.subtitle)
-          ? matchedService.subtitle.join(", ")
-          : typeof matchedService?.subtitle === "object"
-          ? Object.values(matchedService.subtitle).join(", ")
-          : matchedService?.subtitle || "Subtitulo no disponible"
+      setSubtitulo(matchedService?.subtitle || "Subtitulo no disponible");
+      setDescripcion(matchedService?.overview || "Descripción no disponible");
+      setOferta(matchedService?.offerings || ["Oferta no disponible"]
       );
-      setDescripcion(
-        Array.isArray(matchedService?.overview)
-          ? matchedService.overview.join(", ")
-          : typeof matchedService?.overview === "object"
-          ? Object.values(matchedService.overview).join(", ")
-          : matchedService?.overview || "Descripción no disponible"
+      setBeneficios( matchedService?.benefits || ["Beneficios no disponibles"]
       );
-      setOferta(
-        Array.isArray(matchedService?.offerings)
-          ? matchedService.offerings.join(", ")
-          : typeof matchedService?.offerings === "object"
-          ? Object.values(matchedService.offerings).join(", ")
-          : matchedService?.offerings || "Oferta no disponible"
-      );
-      setBeneficios(
-        Array.isArray(matchedService?.benefits)
-          ? matchedService.benefits.join(", ")
-          : typeof matchedService?.benefits === "object"
-          ? Object.values(matchedService.benefits).join(", ")
-          : matchedService?.benefits || "Beneficios no disponibles"
-      );
-      setAplicaciones(
-        Array.isArray(matchedService?.applications)
-          ? matchedService.applications.join(", ")
-          : typeof matchedService?.applications === "object"
-          ? Object.values(matchedService.applications).join(", ")
-          : matchedService?.applications || "Aplicaciones no disponibles"
+      setAplicaciones(matchedService?.applications || ["Aplicaciones no disponibles"]
       );
     } else {
       setTitle("Cargando Titulo...");
@@ -142,8 +115,6 @@ function Services() {
           title: `Imagen ${index + 1}`,
           route: mod.default,
         }));
-
-        console.log(formattedImages);
         setShowreelImg(formattedImages);
       } catch (error) {
         console.error("Error loading images:", error);
@@ -243,7 +214,10 @@ function Services() {
           </div>
         </header>
       </div>
-      <section className="mx-auto max-w-6xl px-4 md:px-6 my-20 scroll-mt-24" id="info">
+      <section
+        className="mx-auto max-w-6xl px-4 md:px-6 my-20 scroll-mt-24"
+        id="info"
+      >
         {/* Industrial header strip */}
         <div className="relative mb-8">
           <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
@@ -268,10 +242,11 @@ function Services() {
                   {subtitulo || "Resumen del servicio"}
                 </h2>
                 <div className="mt-4">
-                  <RenderParagraphs
-                    text={descripcion}
-                    className="text-slate-300"
-                  />
+                  <div className="space-y-3">
+                    <p className={`"text-slate-300" leading-relaxed`}>
+                      {descripcion}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

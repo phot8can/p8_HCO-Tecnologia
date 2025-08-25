@@ -99,7 +99,7 @@
     ]
   },
   {
-    "path": "/services?categoria=DosificadoRivetStudPickAndPlaceABB",
+    "path": "/services?categoria=DosificadoRivetStud",
     "title": "Dosificado y Manipulación con Robot ABB",
     "subtitle": "Dosificado de rivet y stud, pick and place para forkbolt y detent",
     "overview": "Celdas de dosificado y manipulación con integración de robot ABB para manejo preciso de elementos de fijación.",

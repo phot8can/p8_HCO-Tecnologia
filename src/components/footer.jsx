@@ -127,7 +127,7 @@ function Footer() {
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-md text-white/80">
             <p className="order-2 md:order-1">
-              &copy; {new Date().getFullYear()} Tecnología Industrial HCO. Todos los
+              &copy; {new Date().getFullYear()} HCO Tecnología Industrial. Todos los
               derechos reservados.
             </p>
             <div className="order-1 md:order-2 flex items-center gap-1">

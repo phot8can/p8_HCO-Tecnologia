@@ -5,6 +5,13 @@ import services from "@data/services.json";
 import Showreel from "@components/showreel";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {
+  HiOutlineClipboardList,
+  HiOutlineBadgeCheck,
+  HiOutlineCube,
+} from "react-icons/hi";
+import { HiOutlineBolt } from "react-icons/hi2";
+import { FaChevronDown } from "react-icons/fa";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
@@ -151,33 +158,54 @@ function Services() {
     if (Array.isArray(val)) return val;
     const s = (val ?? "").toString();
     // Primero intenta detectar saltos de línea reales "\n"
-    const byNewline = s.split(/\r?\n/).map(t => t.trim()).filter(Boolean);
+    const byNewline = s
+      .split(/\r?\n/)
+      .map((t) => t.trim())
+      .filter(Boolean);
     if (byNewline.length > 1) return byNewline;
     // Si no hay, intenta separar por comas
-    const byComma = s.split(/\s*,\s*/).map(t => t.trim()).filter(Boolean);
+    const byComma = s
+      .split(/\s*,\s*/)
+      .map((t) => t.trim())
+      .filter(Boolean);
     if (byComma.length > 1) return byComma;
     // Retorna el string tal cual en un arreglo para render uniforme
     return s ? [s] : [];
   };
 
-  const RenderList = ({ items }) => (
+  const RenderList = ({
+    items,
+    className = "text-gray-700",
+    dotClassName = "bg-blue-600",
+  }) => (
     <ul className="mt-3 space-y-2">
       {toLines(items).map((it, i) => (
         <li key={i} className="flex items-start gap-3">
-          <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 flex-shrink-0" />
-          <span className="text-gray-700">{it}</span>
+          <span
+            className={`mt-2 h-2 w-2 rounded-full flex-shrink-0 ${dotClassName}`}
+          />
+          <span className={className}>{it}</span>
         </li>
       ))}
     </ul>
   );
 
-  const RenderParagraphs = ({ text }) => (
+  const RenderParagraphs = ({ text, className = "text-gray-700" }) => (
     <div className="space-y-3">
       {toLines(text).map((t, i) => (
-        <p key={i} className="text-gray-700 leading-relaxed">{t}</p>
+        <p key={i} className={`${className} leading-relaxed`}>
+          {t}
+        </p>
       ))}
     </div>
   );
+
+  const scrollToInfo = (offset = 0) => {
+    const el = document.getElementById("info");
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -201,39 +229,115 @@ function Services() {
               </p>
               <div className="space-y-8 w-full"></div>
             </div>
+            <div className="bottom-40 absolute w-full flex justify-center items-center">
+              <div className="flex items-center gap-3">
+                <button
+                  className="bg-white/80 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
+                  onClick={() => scrollToInfo(140)}
+                  title="Subir ligeramente más"
+                >
+                  <FaChevronDown /> Ver más
+                </button>
+              </div>
+            </div>
           </div>
         </header>
       </div>
-      <hr className="my-10"/>
-        <section className="mx-auto max-w-6xl px-4 md:px-6 my-20">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* Resumen */}
-            <article className="lg:col-span-3 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-6 md:p-8 shadow-sm">
-              <h2 className="text-xl md:text-2xl font-semibold text-gray-900">{subtitulo || "Resumen del servicio"}</h2>
-              <div className="mt-4">
-                <RenderParagraphs text={descripcion} />
-              </div>
-            </article>
-
-            {/* Oferta */}
-            <article className="rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-6 md:p-8 shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900">Oferta</h3>
-              <RenderList items={oferta} />
-            </article>
-
-            {/* Beneficios */}
-            <article className="rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-6 md:p-8 shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900">Beneficios</h3>
-              <RenderList items={beneficios} />
-            </article>
-
-            {/* Aplicaciones */}
-            <article className="rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-6 md:p-8 shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900">Aplicaciones</h3>
-              <RenderList items={aplicaciones} />
-            </article>
+      <section className="mx-auto max-w-6xl px-4 md:px-6 my-20 scroll-mt-24" id="info">
+        {/* Industrial header strip */}
+        <div className="relative mb-8">
+          <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
+          <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-slate-900 text-slate-100 rounded-md shadow">
+            <HiOutlineBolt className="h-5 w-5" />
+            <span className="text-sm font-semibold tracking-wide uppercase">
+              Ficha técnica
+            </span>
           </div>
-        </section>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* Resumen */}
+          <article className="lg:col-span-3 relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/90 text-slate-100 p-6 md:p-8 shadow-2xl">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_30%_10%,rgba(148,163,184,0.12),transparent)]" />
+            <div className="relative flex items-start gap-4" data-aos="fade-up">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 shadow-inner">
+                <HiOutlineClipboardList className="h-6 w-6" />
+              </div>
+              <div className="min-w-0">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+                  {subtitulo || "Resumen del servicio"}
+                </h2>
+                <div className="mt-4">
+                  <RenderParagraphs
+                    text={descripcion}
+                    className="text-slate-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* Oferta */}
+          <article
+            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
+            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
+            <div className="relative flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
+                <HiOutlineBolt className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Oferta</h3>
+            </div>
+            <RenderList
+              items={oferta}
+              className="text-slate-300"
+              dotClassName="bg-emerald-500"
+            />
+          </article>
+
+          {/* Beneficios */}
+          <article
+            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
+            <div className="relative flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
+                <HiOutlineBadgeCheck className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Beneficios</h3>
+            </div>
+            <RenderList
+              items={beneficios}
+              className="text-slate-300"
+              dotClassName="bg-sky-500"
+            />
+          </article>
+
+          {/* Aplicaciones */}
+          <article
+            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
+            <div className="relative flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
+                <HiOutlineCube className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Aplicaciones</h3>
+            </div>
+            <RenderList
+              items={aplicaciones}
+              className="text-slate-300"
+              dotClassName="bg-amber-500"
+            />
+          </article>
+        </div>
+      </section>
       {/* <hr className="my-10"/> */}
     </>
   );

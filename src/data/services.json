@@ -8,7 +8,7 @@
     "overview": "Diseñamos y fabricamos líneas de ensamble personalizadas, combinando ingeniería de precisión y automatización avanzada. Abarcamos desde el diseño conceptual hasta el soporte post‑instalación.",
     "offerings": [
       "Diseño modular y escalable para nuevos modelos o ampliaciones de capacidad",
-      "Integración de PLCs, sistemas de visión, sensores y robótica",
+      "Integración de PLCs, sistemas de visión, Sensores y robótica",
       "Automatización de estaciones clave para reducir errores y tiempos de ciclo",
       "Proyectos llave en mano alineados al flujo operativo de tu planta"
     ],
@@ -19,8 +19,8 @@
       "Acompañamiento técnico durante todo el ciclo del proyecto"
     ],
     "applications": [
-      "Líneas de producción automotrices, electrónicas y de bienes de consumo",
-      "Integración con estaciones de inspección, ensamble y empaque"
+      "Líneas de producción automotrices, Electrónicas y de bienes de consumo",
+      "Integración con estaciones de inspección, Ensamble y empaque"
     ]
   },
   {
@@ -29,9 +29,9 @@
     "subtitle": "Precisión, sincronización y eficiencia para procesos repetitivos",
     "overview": "Sistemas de indexado rotativo multiposición para automatizar secuencias repetitivas con exactitud milimétrica y alto rendimiento.",
     "offerings": [
-      "Diseños adaptables en número de posiciones, velocidad y accionamiento (neumático, servo, eléctrico o mecánico)",
-      "Integración con sensores, PLCs, actuadores y robots",
-      "Alta precisión para ensamble, inspección o marcado láser",
+      "Diseños adaptables en número de posiciones, Velocidad y accionamiento (Neumático, Servo Eléctrico o mecánico)",
+      "Integración con sensores, PLCs, Actuadores y robots",
+      "Alta precisión para ensamble, Inspección o marcado láser",
       "Construcción robusta para ciclos continuos"
     ],
     "benefits": [
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "path": "/services?categoria=DosificadoRivetStudPickAndPlaceABB",
+    "path": "/services?categoria=DosificadoRivetStud",
     "title": "Dosificado y Manipulación con Robot ABB",
     "subtitle": "Dosificado de rivet y stud, pick and place para forkbolt y detent",
     "overview": "Celdas de dosificado y manipulación con integración de robot ABB para manejo preciso de elementos de fijación.",

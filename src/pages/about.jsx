@@ -3,11 +3,8 @@ import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Enterprice_Values from "../components/enterprice_values";
-// import { FaUserTie, FaBuilding, FaCogs, FaTools } from "react-icons/fa";
-// import { FaCompass } from "react-icons/fa6";
-// import { TbTargetArrow } from "react-icons/tb";
-import FotoMision from "@assets/images/valores/integridad.webp";
-import FotoVision from "@assets/images/valores/8.webp";
+import FotoMision from "@assets/images/valores/5.png";
+import FotoVision from "@assets/images/valores/8.png";
 import BG_Gradient from "@assets/images/fx/BG_Grradient.webp";
 import Noise from "@assets/images/fx/Ruido.webp";
 

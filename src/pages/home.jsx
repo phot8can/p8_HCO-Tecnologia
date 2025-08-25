@@ -5,7 +5,6 @@ import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 import { IoChatbubblesOutline } from "react-icons/io5";
-import Enterprice_values from "@components/enterprice_values";
 import ContactUs_form from "@components/contactUs_form";
 import Providers from "@components/providers";
 import HCO_new from "/LogoHCO_new.svg";
@@ -39,26 +38,6 @@ import { GiGears } from "react-icons/gi";
 function Home() {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      title: "Automatización industrial",
-      icon: <MdAutoMode />,
-      description:
-        "Estaciones automáticas y manuales que incrementan la productividad.",
-    },
-    {
-      title: "Diseño e ingeniería",
-      icon: <MdOutlineDesignServices />,
-      description:
-        "Desarrollamos maquinaria y proyectos personalizados a la medida.",
-    },
-    {
-      title: "Programación y control",
-      icon: <GiRobotGrab />,
-      description:
-        "Integramos PLC y HMI para un control eficiente de tus procesos.",
-    },
-  ];
 
   const enterpriseSolutions = [
     {
@@ -210,7 +189,7 @@ function Home() {
               Automatización de procesos industriales y de producción
             </p>
           </div>
-          <div className="bottom-20 absolute w-full flex justify-center items-center gap-10">
+          <div className="bottom-32 absolute w-full flex justify-center items-center gap-10">
             <button
               className="bg-white hover:bg-blue border hover:border-white px-6 py-2 rounded-full font-semibold hover:text-white text-blue transition text-center flex items-center justify-center gap-2"
               onClick={() => {

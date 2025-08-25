@@ -8,13 +8,13 @@
         "title": "Líneas de ensamble",
         "description": "Diseño e integración de líneas de ensamble automatizadas para optimizar tiempos de ciclo y calidad.",
         "path": "/services?categoria=LineasDeEnsamble",
-        "sources": "Lineas_Ensamble"
+        "sources": "Linea_Ensamble"
       },
       {
         "title": "Indexadoras de diversas posiciones",
         "description": "Mesas indexadoras para posicionamiento preciso en múltiples estaciones de trabajo.",
         "path": "/services?categoria=IndexadorasDiversasPosiciones",
-        "sources": "Index_Diversas_Posiciones"
+        "sources": "Index_Diversas_posiciones"
       },
       {
         "title": "Prensas automáticas",
@@ -26,19 +26,19 @@
         "title": "Ensamble de foil automático a PCB con robot",
         "description": "Celdas robotizadas para ensamble de foil a PCB con control de visión y trazabilidad.",
         "path": "/services?categoria=EnsambleFoilAPCBRobot",
-        "sources": "Ensamble_Foil_PCB_ST50"
+        "sources": "Ensamble_De_Foil"
       },
       {
         "title": "Carga automática de stud, rivet, forkbolt y detent",
         "description": "Sistemas de alimentación y carga automática de elementos de fijación: stud, rivet, forkbolt y detent.",
         "path": "/services?categoria=CargaAutomaticaElementosFijacion",
-        "sources": "Carga_Stud_Rivet_Forkbolt_Detent"
+        "sources": "Carga_Automatica_Stud"
       },
       {
         "title": "Dosificado automático de stud, pick and place con robot ABB para forkbolt y detent",
         "description": "Celdas de dosificado y manipulación: rivet y stud con pick and place; integración de robot ABB para manejo de forkbolt y detent.",
-        "path": "/services?categoria=DosificadoRivetStudPickAndPlaceABB",
-        "sources": "Dosificado_Rivet_Stud_ABB"
+        "path": "/services?categoria=DosificadoRivetStud",
+        "sources": "Dosificado_Automatico_Stud"
       },
       {
         "title": "Atornilladoras con dispensado automático",
@@ -50,19 +50,19 @@
         "title": "Engrasadoras automáticas con dispensado automático por bowl feeder",
         "description": "Estaciones de lubricación con dosificación precisa y alimentación por bowl feeder.",
         "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
-        "sources": "Engrasadoras_Bowl_Feeder"
+        "sources": "Engrasadoras"
       },
       {
         "title": "Estaciones de descarga automática",
         "description": "Sistemas automáticos de descarga y evacuación de piezas al final de línea.",
         "path": "/services?categoria=EstacionesDescargaAutomatica",
-        "sources": "Estaciones_Descarga_Automatica"
+        "sources": "Estaciones_Descarga_Automaticas"
       },
       {
         "title": "Escaneo automático",
         "description": "Estaciones de escaneo y verificación por visión artificial para control de calidad.",
         "path": "/services?categoria=EscaneoAutomatico",
-        "sources": "Escaneo_Automatico"
+        "sources": "Escanaje_Automatico"
       },
       {
         "title": "Estaciones manuales",
@@ -74,7 +74,7 @@
         "title": "Pick and place",
         "description": "Celdas de pick and place con actuadores o robots para alimentación, transferencia y ensamblaje.",
         "path": "/services?categoria=PickAndPlace",
-        "sources": "Pick_and_Place"
+        "sources": "Pick_N_Place"
       },
       {
         "title": "Bowl feeder con vibrador lineal simple o doble",

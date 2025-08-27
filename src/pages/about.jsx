@@ -51,9 +51,12 @@ function about() {
           data-aos="fade-up"
         >
           <div className="my-8 sm:my-10 px-4 sm:px-6 md:px-8 lg:px-10 max-w-7xl mx-auto text-white">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10 md:mb-12">
-              ¿Quiénes somos?
-            </h1>
+            <div className="flex gap-2 flex-col justify-center items-center mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center ">
+                ¿Quiénes somos?
+              </h1>
+              <p className="text-xl text-white mb-12">About Us</p>
+            </div>
             <p className="text-gray-300 text-base sm:text-2xl text-center max-w-6xl font-semibold mx-auto">
               Somos una empresa orgullosamente mexicana, de Ingeniería
               especializada en automatización industrial, enfocada en el diseño
@@ -84,9 +87,12 @@ function about() {
             />
           </div>
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-              Nuestra misión
-            </h2>
+            <div className="flex gap-2 flex-col">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Nuestra misión
+              </h2>
+              <p className="text-xl text-white mb-12">Our Mission</p>
+            </div>
             <p className="text-white text-base sm:text-lg leading-relaxed mb-4">
               Nuestra misión es impulsar la competitividad industrial mediante
               soluciones de automatización confiables y soporte personalizado,
@@ -101,9 +107,12 @@ function about() {
           data-aos="fade-up"
         >
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-              Nuestra visión
-            </h2>
+            <div className="flex gap-2 flex-col">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Nuestra visión
+              </h2>
+              <p className="text-xl text-white mb-12">Our Vision</p>
+            </div>
             <p className="text-white text-base sm:text-lg leading-relaxed mb-4">
               En HCO, buscamos expandir nuestra presencia en el mercado,
               consolidándonos como un referente de excelencia, innovación y

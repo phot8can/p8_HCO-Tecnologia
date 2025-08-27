@@ -34,7 +34,7 @@ function Footer() {
             {/* About */}
             <div>
               <h4 className="text-base font-semibold mb-3 tracking-wide">
-                Sobre HCO Tecnologías
+                Sobre HCO
               </h4>
               <p className="text-white/80 leading-relaxed">
                 Automatización de procesos industriales y desarrollo de

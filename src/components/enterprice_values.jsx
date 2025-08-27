@@ -114,7 +114,7 @@ function enterprice_values() {
           </div>
         </div>
 
-        <p className="text-center text-gray-600 mt-14 max-w-3xl mx-auto text-base">
+        <p className="text-center text-gray-600 mt-14 max-w-3xl text-xl mx-auto">
           Estos valores nos impulsan a ofrecer lo mejor en cada proyecto,
           asegurando cumplir con las expectativas de nuestros clientes.
         </p>

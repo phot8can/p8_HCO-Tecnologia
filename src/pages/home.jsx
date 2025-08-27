@@ -38,7 +38,6 @@ import { GiGears } from "react-icons/gi";
 function Home() {
   const navigate = useNavigate();
 
-
   const enterpriseSolutions = [
     {
       titleEs: "Ingeniería y diseño mecánico 3D (SolidWorks)",
@@ -342,9 +341,12 @@ function Home() {
           />
         </picture>
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white">
-            Nuestros Clientes
-          </h2>
+          <div className="justify-center text-center flex gap-2 flex-col">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-white">
+              Nuestros Clientes
+            </h2>
+            <p className="text-xl text-white mb-12">Our Clients</p>
+          </div>
           <p className="text-base md:text-lg text-white/90 max-w-3xl text-center">
             En HCO hemos desarrollado soluciones integrales que impactan de
             forma positiva en la productividad, calidad y eficiencia de nuestros
@@ -471,9 +473,12 @@ function Home() {
       </section>
       <hr className="text-[#d6d6d6]" />
       <section className="py-32 flex gap-10 flex-col" data-aos="fade-up">
-        <h2 className="text-5xl font-bold text-center text-black ">
-          Nuestros Proveedores
-        </h2>
+        <div className="justify-center text-center flex gap-2 flex-col">
+          <h2 className="text-5xl font-bold text-center text-black ">
+            Nuestros Proveedores
+          </h2>
+          <p className="text-xl text-black mb-12">Our Clients</p>
+        </div>
         <Providers colorFondo="rgba(255, 255, 255, 1)" />
       </section>
       <hr className="text-[#d6d6d6]" />

@@ -14,7 +14,7 @@ function Navbar() {
   const obj_nav = navbar;
 
   return (
-    <nav className="bg-blue/95 backdrop-blur supports-[backdrop-filter]:backdrop-blur text-white p-4 md:px-6 shadow-sm sticky top-0 z-50 border-b border-blue">
+    <nav className="bg-blue/95 backdrop-blur supports-[backdrop-filter]:backdrop-blur text-white p-4 md:px-6 shadow-sm sticky top-0 z-50 border-b border-blue scroll overflow-visible">
       <div className="flex justify-between items-center gap-5">
         {/* md:justify-center  */}
         {location.pathname !== "/" ? (
@@ -36,7 +36,7 @@ function Navbar() {
           </>
         )}
         <button
-          className="md:hidden text-slate-700 text-2xl"
+          className="md:hidden text-white text-2xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
@@ -55,7 +55,7 @@ function Navbar() {
                   </div>
                   {hoveredMenu === idx && (
                     <div
-                      className="absolute left-0 top-full mt-3 bg-white border border-slate-200 rounded-md shadow-xl text-slate-700 z-10 w-72 overflow-hidden -translate-x-1/2"
+                      className="absolute left-0 top-full mt-3 bg-white border border-slate-200 rounded-md shadow-xl text-blue z-10 w-72 overflow-hidden -translate-x-1/2 max-h-[90vh] overflow-y-auto overscroll-contain"
                       onMouseLeave={() => setHoveredMenu(null)}
                     >
                       {item.index.map((subItem, subIdx) => {
@@ -66,7 +66,7 @@ function Navbar() {
                                 <span className="text-xs">&#9666;</span>
                                 <span>{subItem.title}</span>
                               </div>
-                              <div className="absolute right-full top-0 ml-2 hidden group-hover:block bg-white  p-2 rounded-xl shadow-xl z-20">
+                              <div className="absolute right-full top-0 ml-2 hidden group-hover:block bg-white p-2 rounded-xl shadow-xl z-20 max-h-[60vh] overflow-y-auto overscroll-contain">
                                 {subItem.index.map((thirdItem, thirdIdx) => (
                                   <div
                                     key={thirdIdx}
@@ -122,12 +122,12 @@ function Navbar() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="flex flex-col gap-2 mt-4 md:hidden divide-y divide-slate-200">
+        <div className="flex flex-col gap-2 mt-4 md:hidden divide-y divide-slate-200 pr-2 -mr-2 max-h-[calc(100dvh-64px)] overflow-y-auto overscroll-contain">
           {obj_nav.map((item, idx) => (
             <div key={idx}>
               {Array.isArray(item.index) ? (
                 <details className="cursor-pointer">
-                  <summary className="text-slate-700 hover:text-teal-700">
+                  <summary className="text-white py-5">
                     {item.title}
                   </summary>
                   <div className="ml-4 mt-2 flex flex-col divide-y divide-slate-200">
@@ -139,7 +139,7 @@ function Navbar() {
                             {subItem.index.map((thirdItem, thirdIdx) => (
                               <div
                                 key={thirdIdx}
-                                className="py-3 text-slate-700 hover:text-teal-700"
+                                className="py-3 text-white hover:text-white focus:outline-none"
                                 onClick={() => {
                                   window.scrollTo({
                                     top: 0,
@@ -157,7 +157,7 @@ function Navbar() {
                       ) : (
                         <div
                           key={subIdx}
-                          className="py-3 text-slate-700 hover:text-teal-700"
+                          className="text-white hover:text-teal-700 py-5 focus:outline-none"
                           onClick={() => {
                             window.scrollTo({ top: 0, behavior: "smooth" });
                             navigate(subItem.path);
@@ -172,7 +172,7 @@ function Navbar() {
                 </details>
               ) : (
                 <div
-                  className="cursor-pointer text-slate-700 hover:text-teal-700"
+                  className="cursor-pointer text-white py-5 focus:outline-none"
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                     navigate(item.index);

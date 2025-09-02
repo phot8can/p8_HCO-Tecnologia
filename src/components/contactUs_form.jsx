@@ -2,26 +2,34 @@ import { useEffect, useRef, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 function contactUs_form({ textColor = "text-white" }) {
-  const apiFormKey = import.meta.env.VITE_API_FORM_KEY;
-  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY; // v2 Checkbox
+  const apiFormKey = import.meta.env.VITE_API_FORM;
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE; // v2 Checkbox
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const honeypotRef = useRef(null);
 
-  // Carga segura de reCAPTCHA si aún no está presente
-  // useEffect(() => {
-  //   if (
-  //     document.querySelector(
-  //       'script[src^="https://www.google.com/recaptcha/api.js"]'
-  //     )
-  //   )
-  //     return;
-  //   const s = document.createElement("script");
-  //   s.src = "https://www.google.com/recaptcha/api.js";
-  //   s.async = true;
-  //   s.defer = true;
-  //   document.body.appendChild(s);
-  // }, []);
+  const recaptchaRef = useRef(null);
+
+  let checkIntervalId = null;
+
+  const ensureRecaptcha = () => {
+    if (window.grecaptcha && recaptchaRef.current) {
+      if (!recaptchaRef.current.hasChildNodes()) {
+        window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: recaptchaSiteKey,
+        });
+        clearInterval(checkIntervalId);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkIntervalId = setInterval(() => {
+      ensureRecaptcha();
+    }, 1000);
+    return () => clearInterval(checkIntervalId);
+  }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -191,11 +199,12 @@ function contactUs_form({ textColor = "text-white" }) {
               required
               minLength={2}
               maxLength={2000}
-              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue"
+              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue max-h-48 resize-y min-h-20"
             />
 
             {/* reCAPTCHA v2 (checkbox). StaticForms lo requiere. */}
             <div
+              ref={recaptchaRef}
               className="g-recaptcha justify-center flex"
               data-sitekey={recaptchaSiteKey}
             />

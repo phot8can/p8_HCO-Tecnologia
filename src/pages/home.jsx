@@ -409,7 +409,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-12 w-full">
+          {/* <div className="mt-12 w-full">
             <div className="flex flex-wrap items-center justify-center gap-20 opacity-90">
               <img
                 src={Inteva_Logo}
@@ -426,7 +426,7 @@ function Home() {
                 decoding="async"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

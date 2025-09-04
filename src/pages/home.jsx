@@ -477,7 +477,7 @@ function Home() {
           <h2 className="text-5xl font-bold text-center text-black ">
             Nuestros Proveedores
           </h2>
-          <p className="text-xl text-black mb-12">Our Clients</p>
+          <p className="text-xl text-black mb-12">Our Providers</p>
         </div>
         <Providers colorFondo="rgba(255, 255, 255, 1)" />
       </section>

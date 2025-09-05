@@ -12,6 +12,7 @@ import {
 } from "react-icons/hi";
 import { HiOutlineBolt } from "react-icons/hi2";
 import { FaChevronDown } from "react-icons/fa";
+import testVideo from "@assets/video/test.mp4";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
@@ -174,40 +175,66 @@ function Services() {
           className=" flex h-full"
           onContextMenu={(e) => e.preventDefault()}
         >
-          <div className="absolute inset-0 -z-9" data-aos="fade-up">
-            <Showreel imagenes={showreelImg} duration={1500} intervalo={2} />
-            <div className="absolute inset-0 bg-blue opacity-40" />
-          </div>
-          <div className="z-0 relative flex flex-col items-center justify-center text-center w-full h-full">
-            {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
-            <div className=" flex flex-col max-w-4xl justify-center align-middle text-center bg-blue/25 backdrop-blur-sm p-10 rounded-lg shadow-sm border border-white/20">
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-white drop-shadow-lg  break-words">
-                {title}
-              </h1>
-              <p className="text-base md:text-lg text-gray-300 mx-auto drop-shadow-sm line-clamp-2 break-words">
-                {description}
-              </p>
+          <div>
+            <div className="absolute inset-0 -z-9 max-h-56" data-aos="fade-up">
+              <Showreel imagenes={showreelImg} duration={1500} intervalo={2} />
+              <div className="absolute inset-0 bg-blue opacity-40" />
             </div>
-            <div className="bottom-40 absolute w-full flex justify-center items-center">
-              <div className="flex items-center gap-3">
-                <button
-                  className="bg-white/90 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
-                  onClick={() => scrollToInfo(140)}
-                  title="Subir ligeramente más"
-                >
-                  <FaChevronDown /> Ver más
-                </button>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 w-full h-full items-center gap-8 px-10"
+              data-aos="fade-up"
+            >
+              <div className="block">
+                <div className="mb-8">
+                  <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
+                </div>
+                <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-black">
+                  {title}
+                </h1>
+                <p className="text-base md:text-lg drop-shadow-sm break-words text-black/50">
+                  {description}
+                </p>
               </div>
+              <div className="flex items-center justify-center px-4">
+                <div className="w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-black/10">
+                  <video
+                    src={testVideo}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    // controls
+                    preload="metadata"
+                    className="h-full w-full object-cover"
+                    controlsList="nodownload noplaybackrate"
+                  >
+                    Tu navegador no soporta la etiqueta de video.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
+          <div className="bottom-32 absolute w-full flex justify-center items-center">
+            <div className="flex items-center gap-3">
+              <button
+                className="bg-white/90 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
+                onClick={() => scrollToInfo(140)}
+                title="Subir ligeramente más"
+              >
+                <FaChevronDown /> Ver más
+              </button>
             </div>
           </div>
         </header>
       </div>
+      <hr className="text-[#d6d6d6]" />
       <section
-        className="mx-auto max-w-6xl px-4 md:px-6 my-20 scroll-mt-24"
+        className="mx-auto max-w-7xl px-6 md:px-8 my-24 scroll-mt-24"
         id="info"
       >
         {/* Industrial header strip */}
-        <div className="relative mb-8">
+        <div className="relative mb-12">
           <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
           <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-blue text-slate-100 rounded-md shadow">
             <HiOutlineBolt className="h-5 w-5" />
@@ -217,88 +244,157 @@ function Services() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-          {/* Resumen */}
-          <article className="lg:col-span-3 relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/90 text-slate-100 p-6 md:p-8 shadow-2xl">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_30%_10%,rgba(148,163,184,0.12),transparent)]" />
-            <div className="relative flex items-start gap-4" data-aos="fade-up">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 shadow-inner">
-                <HiOutlineClipboardList className="h-6 w-6" />
-              </div>
-              <div className="min-w-0">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                  {subtitulo || "Resumen del servicio"}
-                </h2>
-                <div className="mt-4">
-                  <div className="space-y-3">
-                    <p className={`"text-slate-300" leading-relaxed`}>
-                      {descripcion}
-                    </p>
-                  </div>
+        {/* Bloque 1: Imagen izquierda / texto derecha */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20">
+          {/* Imagen */}
+          <div className="lg:col-span-6 order-1">
+            <div
+              className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 bg-slate-800/40 bg-center bg-cover"
+              style={{
+                backgroundImage: showreelImg?.[0]?.route
+                  ? `url(${showreelImg[0].route})`
+                  : undefined,
+              }}
+            >
+              {!showreelImg?.[0]?.route && (
+                <div className="h-full w-full bg-[radial-gradient(60%_40%_at_30%_10%,rgba(148,163,184,0.12),transparent)]" />
+              )}
+            </div>
+          </div>
+
+          {/* Texto */}
+          <div className="lg:col-span-6 order-2 flex flex-col items-start justify-start text-left">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
+              {subtitulo || "Resumen del servicio"}
+            </h2>
+            <p className="text-slate-500 font-semibold mb-6">Overview</p>
+            <p className="text-lg leading-relaxed text-slate-700">
+              {descripcion}
+            </p>
+          </div>
+        </div>
+
+        {/* Bloque 2: Texto izquierda / imagen derecha */}
+        <div className="block gap-10 items-start mb-8">
+          {/* Texto */}
+          <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-start text-left">
+            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-6">
+              Detalles del servicio
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {/* Oferta */}
+              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
+                <div className="relative aspect-[4/3] bg-slate-100">
+                  <div
+                    className="absolute inset-0 bg-center bg-cover"
+                    style={{
+                      backgroundImage: showreelImg?.[2]?.route
+                        ? `url(${showreelImg[2].route})`
+                        : undefined,
+                    }}
+                  />
+                  {!showreelImg?.[2]?.route && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
+                        <HiOutlineBolt className="h-10 w-10 text-slate-700" />
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
                 </div>
-              </div>
-            </div>
-          </article>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
+                      <HiOutlineBolt className="h-4 w-4 text-slate-700" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-slate-900">
+                      Oferta
+                    </h4>
+                  </div>
+                  <RenderList
+                    items={oferta}
+                    className="text-slate-700"
+                    dotClassName="bg-emerald-500"
+                  />
+                </div>
+              </article>
 
-          {/* Oferta */}
-          <article
-            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
-            <div className="relative flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
-                <HiOutlineBolt className="h-5 w-5" />
-              </div>
-              <h3 className="text-xl font-semibold">Oferta</h3>
-            </div>
-            <RenderList
-              items={oferta}
-              className="text-slate-300"
-              dotClassName="bg-emerald-500"
-            />
-          </article>
+              {/* Beneficios */}
+              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
+                <div className="relative aspect-[4/3] bg-slate-100">
+                  <div
+                    className="absolute inset-0 bg-center bg-cover"
+                    style={{
+                      backgroundImage: showreelImg?.[3]?.route
+                        ? `url(${showreelImg[3].route})`
+                        : undefined,
+                    }}
+                  />
+                  {!showreelImg?.[3]?.route && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
+                        <HiOutlineBadgeCheck className="h-10 w-10 text-slate-700" />
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
+                      <HiOutlineBadgeCheck className="h-4 w-4 text-slate-700" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-slate-900">
+                      Beneficios
+                    </h4>
+                  </div>
+                  <RenderList
+                    items={beneficios}
+                    className="text-slate-700"
+                    dotClassName="bg-sky-500"
+                  />
+                </div>
+              </article>
 
-          {/* Beneficios */}
-          <article
-            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
-            <div className="relative flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
-                <HiOutlineBadgeCheck className="h-5 w-5" />
-              </div>
-              <h3 className="text-xl font-semibold">Beneficios</h3>
+              {/* Aplicaciones */}
+              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
+                <div className="relative aspect-[4/3] bg-slate-100">
+                  <div
+                    className="absolute inset-0 bg-center bg-cover"
+                    style={{
+                      backgroundImage: showreelImg?.[4]?.route
+                        ? `url(${showreelImg[4].route})`
+                        : undefined,
+                    }}
+                  />
+                  {!showreelImg?.[4]?.route && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
+                        <HiOutlineCube className="h-10 w-10 text-slate-700" />
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
+                      <HiOutlineCube className="h-4 w-4 text-slate-700" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-slate-900">
+                      Aplicaciones
+                    </h4>
+                  </div>
+                  <RenderList
+                    items={aplicaciones}
+                    className="text-slate-700"
+                    dotClassName="bg-amber-500"
+                  />
+                </div>
+              </article>
             </div>
-            <RenderList
-              items={beneficios}
-              className="text-slate-300"
-              dotClassName="bg-sky-500"
-            />
-          </article>
-
-          {/* Aplicaciones */}
-          <article
-            className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100 p-6 md:p-8 shadow-xl"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(120deg,transparent_0%,transparent_40%,rgba(100,116,139,0.15)_40%,rgba(100,116,139,0.15)_60%,transparent_60%,transparent_100%)]" />
-            <div className="relative flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-600 bg-slate-800">
-                <HiOutlineCube className="h-5 w-5" />
-              </div>
-              <h3 className="text-xl font-semibold">Aplicaciones</h3>
-            </div>
-            <RenderList
-              items={aplicaciones}
-              className="text-slate-300"
-              dotClassName="bg-amber-500"
-            />
-          </article>
+          </div>
         </div>
       </section>
       {/* <hr className="my-10"/> */}

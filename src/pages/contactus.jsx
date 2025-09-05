@@ -78,7 +78,7 @@ function contactus() {
           <h2 className="text-2xl font-semibold text-center mb-6 text-white">
             Ubicación
           </h2>
-          <div className="w-full max-w-5xl mx-auto justify-center flex flex-col gap-4 sm:gap-5">
+          <div className="w-full max-w-7xl mx-auto justify-center flex flex-col gap-4 sm:gap-5">
             <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[24rem]">
               <iframe
                 title="Mapa de ubicación de Photocan"

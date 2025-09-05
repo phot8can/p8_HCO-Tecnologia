@@ -90,7 +90,7 @@ function contactUs_form({ textColor = "text-white" }) {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto ">
+      <div className="max-w-7xl mx-auto ">
         <h2 className={`text-5xl font-bold mb-2 ${textColor} text-center`}>
           Contáctanos
         </h2>

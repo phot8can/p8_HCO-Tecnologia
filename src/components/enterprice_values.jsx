@@ -22,7 +22,10 @@ function enterprice_values() {
   return (
     <>
       {/* Valores */}
-      <section className=" lg:px-16 max-w-6xl mx-auto  text-center" data-aos="fade-up">
+      <section
+        className=" lg:px-16 max-w-7xl mx-auto  text-center"
+        data-aos="fade-up"
+      >
         <h2 className="text-5xl font-bold text-blue mb-2 ">Nuestros valores</h2>
         <p className="text-xl text-gray-700 mb-12">Our values</p>
         <div
@@ -46,7 +49,8 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-3xl font-semibold mb-3">Equipo</h3>
+              <h3 className="text-3xl font-semibold text-gray-900">Equipo</h3>
+              <p className="text-xl text-black/50 mb-5">Team</p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 El trabajo en equipo es la base sobre la cual trabajamos con
                 comunicación abierta y respeto, sumando nuestras fortalezas para
@@ -73,9 +77,10 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-3xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-3xl font-semibold text-gray-900">
                 Innovación
               </h3>
+              <p className="text-xl text-black/50 mb-5">Innovation</p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 La innovación es nuestro motor para explorar tecnologías
                 emergentes y metodologías creativas, transformando ideas en
@@ -102,9 +107,10 @@ function enterprice_values() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-3xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-3xl font-semibold text-gray-900">
                 Integridad
               </h3>
+              <p className="text-xl text-black/50 mb-5">Integrity</p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 La integridad es el principio que guía todas nuestras acciones,
                 asegurando honestidad, transparencia y coherencia en cada

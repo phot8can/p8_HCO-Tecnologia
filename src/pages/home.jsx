@@ -227,7 +227,7 @@ function Home() {
             Soluciones Integrales
           </h2>
           <p className="text-xl text-gray-700 mb-12">Integral solutions</p>
-          <p className="text-lg text-center mx-auto mb-8 max-w-3xl">
+          <p className="text-lg text-center mx-auto mb-8 max-w-7xl">
             Ofrecemos un servicio completo que abarca desde el diseño,
             fabricación de líneas de producción, hasta la integración de
             tecnologías innovadoras y la modificación de equipos existentes,
@@ -347,7 +347,7 @@ function Home() {
             </h2>
             <p className="text-xl text-white mb-12">Our Clients</p>
           </div>
-          <p className="text-base md:text-lg text-white/90 max-w-3xl text-center">
+          <p className="text-base md:text-lg text-white/90 max-w-7xl text-center">
             En HCO hemos desarrollado soluciones integrales que impactan de
             forma positiva en la productividad, calidad y eficiencia de nuestros
             clientes, adaptándonos a sus necesidades específicas y garantizando
@@ -437,7 +437,7 @@ function Home() {
         <div className="absolute inset-0 -z-10">
           <div className="h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
         </div>
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-5xl font-bold text-blue mb-2">
             Capacidad de fabricación
           </h2>

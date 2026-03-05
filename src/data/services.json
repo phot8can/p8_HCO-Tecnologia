@@ -1,9 +1,7 @@
-
-
 [
   {
     "path": "/services?categoria=LineasDeEnsamble",
-    "title": "Líneas de Ensamble",
+    "title": "Líneas de ensamblaje",
     "subtitle": "Soluciones personalizadas para una producción eficiente, segura y escalable",
     "overview": "Diseñamos y fabricamos líneas de ensamble personalizadas, combinando ingeniería de precisión y automatización avanzada. Abarcamos desde el diseño conceptual hasta el soporte post‑instalación.",
     "offerings": [
@@ -25,6 +23,7 @@
   },
   {
     "path": "/services?categoria=IndexadorasDiversasPosiciones",
+    "video": "@assets/img_services/Indexadoras/104.mp4",
     "title": "Indexadoras de Diversas Posiciones",
     "subtitle": "Precisión, sincronización y eficiencia para procesos repetitivos",
     "overview": "Sistemas de indexado rotativo multiposición para automatizar secuencias repetitivas con exactitud milimétrica y alto rendimiento.",
@@ -40,13 +39,12 @@
       "Ahorro en tiempo de ciclo y menor intervención manual",
       "Mayor control, seguridad y trazabilidad"
     ],
-    "applications": [
-      "Ensamble, inspección, marcado, operaciones secuenciales"
-    ]
+    "applications": ["Ensamble, inspección, marcado, operaciones secuenciales"]
   },
   {
     "path": "/services?categoria=PrensasAutomaticas",
-    "title": "Prensas Automáticas",
+    "video": "@assets/img_services/Prensadoras/149_072.mp4",
+    "title": "Prensdoras",
     "subtitle": "Fuerza controlada y precisión repetible para procesos exigentes",
     "overview": "Prensas automáticas personalizadas con integración de control para garantizar fuerza controlada, repetitividad y sincronización con tu línea.",
     "offerings": [
@@ -60,13 +58,12 @@
       "Mayor eficiencia y velocidad",
       "Ahorro operativo al reducir intervención manual"
     ],
-    "applications": [
-      "Prensado, remachado y ensamblaje en líneas automatizadas"
-    ]
+    "applications": ["Prensado, remachado y ensamblaje en líneas automatizadas"]
   },
   {
     "path": "/services?categoria=EnsambleFoilAPCBRobot",
-    "title": "Ensamble de Foil a PCB con Robot",
+    "video": "@assets/img_services/Ensambladoras/130.mp4",
+    "title": "Ensambladoras",
     "subtitle": "Integración robotizada de foil a PCB con visión y trazabilidad",
     "overview": "Celdas robotizadas para ensamble de foil a PCB con control de visión y registro de proceso.",
     "offerings": [
@@ -77,13 +74,11 @@
       "Calidad constante y reducción de retrabajos",
       "Automatización segura y repetible"
     ],
-    "applications": [
-      "Electrónica y subensambles de PCB"
-    ]
+    "applications": ["Electrónica y subensambles de PCB"]
   },
   {
     "path": "/services?categoria=CargaAutomaticaElementosFijacion",
-    "title": "Carga Automática de Stud, Rivet, Forkbolt y Detent",
+    "title": "Carga",
     "subtitle": "Alimentación y carga automática de elementos de fijación",
     "overview": "Sistemas de alimentación y carga automática para studs, remaches, forkbolts y detents, integrables a líneas existentes.",
     "offerings": [
@@ -94,13 +89,11 @@
       "Menor intervención manual y mayor ritmo de producción",
       "Disminución de errores y paros por falta de suministro"
     ],
-    "applications": [
-      "Automotriz, metalmecánica y ensambles seriados"
-    ]
+    "applications": ["Automotriz, metalmecánica y ensambles seriados"]
   },
   {
     "path": "/services?categoria=DosificadoRivetStud",
-    "title": "Dosificado y Manipulación con Robot ABB",
+    "title": "Dosificadoras",
     "subtitle": "Dosificado de rivet y stud, pick and place para forkbolt y detent",
     "overview": "Celdas de dosificado y manipulación con integración de robot ABB para manejo preciso de elementos de fijación.",
     "offerings": [
@@ -111,13 +104,11 @@
       "Precisión y repetitividad en aplicaciones de fijación",
       "Incremento de velocidad y trazabilidad"
     ],
-    "applications": [
-      "Líneas de ensamble con alta repetitividad"
-    ]
+    "applications": ["Líneas de ensamble con alta repetitividad"]
   },
   {
     "path": "/services?categoria=AtornilladorasDispensadoAutomatico",
-    "title": "Atornilladoras con Dispensado Automático",
+    "title": "Atornilladoras",
     "subtitle": "Atornillado con control de par/ángulo y alimentación automática",
     "overview": "Sistemas de atornillado automatizados con alimentadores y control de parámetros críticos para calidad constante.",
     "offerings": [
@@ -128,13 +119,11 @@
       "Reducción de errores y mejora de calidad",
       "Tiempos de ciclo competitivos"
     ],
-    "applications": [
-      "Ensambles automotrices y electrónicos"
-    ]
+    "applications": ["Ensambles automotrices y electrónicos"]
   },
   {
     "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
-    "title": "Engrasadoras Automáticas con Bowl Feeder",
+    "title": "Engrasadoras",
     "subtitle": "Dosificación precisa de lubricante con alimentación automática",
     "overview": "Estaciones de lubricación con dosificación controlada y alimentación por bowl feeder.",
     "offerings": [
@@ -145,13 +134,11 @@
       "Uniformidad en aplicación de lubricante",
       "Menor desperdicio y mejor mantenimiento preventivo"
     ],
-    "applications": [
-      "Líneas de ensamble y estaciones de preparación"
-    ]
+    "applications": ["Líneas de ensamble y estaciones de preparación"]
   },
   {
     "path": "/services?categoria=EstacionesDescargaAutomatica",
-    "title": "Estaciones de Descarga Automáticas",
+    "title": "Descarga",
     "subtitle": "Flujo eficiente, seguridad y continuidad operativa",
     "overview": "Estaciones automáticas para extraer piezas o productos sin intervención manual, manteniendo velocidad y orden en la línea.",
     "offerings": [
@@ -170,7 +157,7 @@
   },
   {
     "path": "/services?categoria=EscaneoAutomatico",
-    "title": "Escaneo Automático",
+    "title": "Escaneo",
     "subtitle": "Verificación por visión para control de calidad",
     "overview": "Estaciones de escaneo y verificación por visión artificial para asegurar la calidad del proceso.",
     "offerings": [
@@ -181,34 +168,11 @@
       "Detección temprana de defectos",
       "Trazabilidad de inspecciones"
     ],
-    "applications": [
-      "Inspección en línea y validaciones finales"
-    ]
-  },
-  {
-    "path": "/services?categoria=EstacionesManuales",
-    "title": "Estaciones Manuales",
-    "subtitle": "Equilibrio entre control humano y eficiencia operativa",
-    "overview": "Estaciones manuales inteligentes que combinan precisión técnica y ergonomía para procesos flexibles y de alta calidad.",
-    "offerings": [
-      "Diseño ergonómico adaptado a la tarea",
-      "Estructuras modulares y ajustables",
-      "Micro‑automatización, señalización y controles básicos",
-      "Materiales resistentes para durabilidad y seguridad"
-    ],
-    "benefits": [
-      "Mejora del desempeño operativo sin perder flexibilidad",
-      "Reducción de fatiga y riesgos ergonómicos",
-      "Entornos organizados que aumentan eficiencia y calidad"
-    ],
-    "applications": [
-      "Ensamble manual, verificación visual, embalaje",
-      "Operaciones híbridas hombre‑máquina"
-    ]
+    "applications": ["Inspección en línea y validaciones finales"]
   },
   {
     "path": "/services?categoria=PickAndPlace",
-    "title": "Sistemas Pick and Place",
+    "title": "Pick and Place",
     "subtitle": "Velocidad y precisión en el manejo automático de piezas",
     "overview": "Sistemas personalizados para tomar, posicionar y colocar piezas con movimientos rápidos y precisos, incrementando productividad y eliminando errores.",
     "offerings": [
@@ -228,30 +192,8 @@
     ]
   },
   {
-    "path": "/services?categoria=BowlFeederVibradorLineal",
-    "title": "Bowl Feeder / Vibrador Lineal",
-    "subtitle": "Alimentación automática eficiente para piezas pequeñas",
-    "overview": "Sistemas de alimentación automática (bowl feeder y vibradores lineales) para garantizar flujo continuo y ordenado en montaje y clasificación.",
-    "offerings": [
-      "Orientación de piezas con fuerzas vibratorias, canaletas y rampas",
-      "Vibradores lineales para transporte fluido de piezas",
-      "Ajustes rápidos por tipo de pieza y velocidad",
-      "Integración con PLC, sensores y sistemas de rechazo/selección"
-    ],
-    "benefits": [
-      "Aporte constante y ordenado de piezas",
-      "Aumento de tasa de producción y menor supervisión",
-      "Reducción de tiempos de preparación",
-      "Mejor trazabilidad y control"
-    ],
-    "applications": [
-      "Ensamble automatizado/semiautomático en electrónica, automotriz y farmacéutica",
-      "Procesos que requieren orientación y sincronización de piezas"
-    ]
-  },
-  {
     "path": "/services?categoria=MaquinadosRectificadosTratamientosTermicos",
-    "title": "Maquinados, Rectificados y Tratamientos Térmicos",
+    "title": "Maquinados de piezas industriales",
     "subtitle": "Precisión mecánica, acabado superior y durabilidad mejorada",
     "overview": "Servicio integral de maquinado CNC, rectificado de precisión y tratamientos térmicos para obtener acabados exactos y propiedades mecánicas superiores.",
     "offerings": [

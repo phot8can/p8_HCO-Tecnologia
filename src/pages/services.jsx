@@ -18,6 +18,7 @@ function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
   const location = useLocation();
   const [queryParams, setQueryParams] = useState("");
+  const [videoSrc, setVideoSrc] = useState(testVideo);
 
   const [title, setTitle] = useState("Cargando Titulo...");
   const [description, setDescription] = useState("Cargando Descripción...");
@@ -39,7 +40,7 @@ function Services() {
         Object.values(obj).some(
           (val) =>
             typeof val === "string" &&
-            val.toLowerCase().includes(key.toLowerCase())
+            val.toLowerCase().includes(key.toLowerCase()),
         )
       ) {
         return obj;
@@ -70,8 +71,31 @@ function Services() {
       setOferta(matchedService?.offerings || ["Oferta no disponible"]);
       setBeneficios(matchedService?.benefits || ["Beneficios no disponibles"]);
       setAplicaciones(
-        matchedService?.applications || ["Aplicaciones no disponibles"]
+        matchedService?.applications || ["Aplicaciones no disponibles"],
       );
+
+      // 2. NUEVA LÓGICA PARA CARGAR EL VIDEO DINÁMICO
+
+      if (matchedService?.video) {
+        // Transformamos el alias "@assets" a la ruta real absoluta que Vite necesita leer
+        const realPath = matchedService.video.replace("@assets", "/src/assets");
+        // Obtenemos todos los videos posibles. Vite compila esto en tiempo de build.
+        const videoModules = import.meta.glob("/src/assets/**/*.mp4");
+
+        if (videoModules[realPath]) {
+          // Si el archivo existe, lo importamos asíncronamente
+          videoModules[realPath]()
+            .then((mod) => setVideoSrc(mod.default))
+            .catch((err) => {
+              console.error("Error cargando video dinámico:", err);
+              setVideoSrc(testVideo); // Fallback en caso de error
+            });
+        } else {
+          setVideoSrc(testVideo); // Fallback si la ruta en el JSON es incorrecta
+        }
+      } else {
+        setVideoSrc(testVideo); // Fallback normal si el JSON no tiene el parámetro "video"
+      }
     } else {
       setTitle("Cargando Titulo...");
       setDescription("Cargando Descripción...");
@@ -81,6 +105,7 @@ function Services() {
       setOferta("Oferta no disponible");
       setBeneficios("Beneficios no disponibles");
       setAplicaciones("Aplicaciones no disponibles");
+      setVideoSrc(testVideo); // Reset del video si no hay match
     }
   }, [location]);
 
@@ -104,11 +129,11 @@ function Services() {
         });
 
         const filteredImporters = Object.entries(importers).filter(([path]) =>
-          path.includes(`/src/assets/images/servicios/${ruta}/`)
+          path.includes(`/src/assets/images/servicios/${ruta}/`),
         );
 
         const images = await Promise.all(
-          filteredImporters.map(([_, importFn]) => importFn())
+          filteredImporters.map(([_, importFn]) => importFn()),
         );
 
         const formattedImages = images.map((mod, index) => ({
@@ -198,7 +223,8 @@ function Services() {
               <div className="flex items-center justify-center px-4">
                 <div className="w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-black/10">
                   <video
-                    src={testVideo}
+                    key={videoSrc}
+                    src={videoSrc}
                     autoPlay
                     muted
                     loop

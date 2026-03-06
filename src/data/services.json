@@ -23,7 +23,7 @@
   },
   {
     "path": "/services?categoria=IndexadorasDiversasPosiciones",
-    "video": "@assets/img_services/Indexadoras/104.mp4",
+    "video": "@assets/services_vid/Indexadoras/104.mp4",
     "title": "Indexadoras de Diversas Posiciones",
     "subtitle": "Precisión, sincronización y eficiencia para procesos repetitivos",
     "overview": "Sistemas de indexado rotativo multiposición para automatizar secuencias repetitivas con exactitud milimétrica y alto rendimiento.",
@@ -43,7 +43,7 @@
   },
   {
     "path": "/services?categoria=PrensasAutomaticas",
-    "video": "@assets/img_services/Prensadoras/149_072.mp4",
+    "video": "@assets/services_vid/Prensadoras/149_072.mp4",
     "title": "Prensdoras",
     "subtitle": "Fuerza controlada y precisión repetible para procesos exigentes",
     "overview": "Prensas automáticas personalizadas con integración de control para garantizar fuerza controlada, repetitividad y sincronización con tu línea.",
@@ -62,7 +62,7 @@
   },
   {
     "path": "/services?categoria=EnsambleFoilAPCBRobot",
-    "video": "@assets/img_services/Ensambladoras/130.mp4",
+    "video": "@assets/services_vid/Ensambladoras/130.mp4",
     "title": "Ensambladoras",
     "subtitle": "Integración robotizada de foil a PCB con visión y trazabilidad",
     "overview": "Celdas robotizadas para ensamble de foil a PCB con control de visión y registro de proceso.",
@@ -108,6 +108,7 @@
   },
   {
     "path": "/services?categoria=AtornilladorasDispensadoAutomatico",
+    "video": "@assets/services_vid/Atornilladoras/132.mp4",
     "title": "Atornilladoras",
     "subtitle": "Atornillado con control de par/ángulo y alimentación automática",
     "overview": "Sistemas de atornillado automatizados con alimentadores y control de parámetros críticos para calidad constante.",
@@ -123,6 +124,7 @@
   },
   {
     "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
+    "video": "@assets/services_vid/Engrasadoras/81_141.mp4",
     "title": "Engrasadoras",
     "subtitle": "Dosificación precisa de lubricante con alimentación automática",
     "overview": "Estaciones de lubricación con dosificación controlada y alimentación por bowl feeder.",
@@ -138,6 +140,7 @@
   },
   {
     "path": "/services?categoria=EstacionesDescargaAutomatica",
+    "video": "@assets/services_vid/Descarga/106.mp4",
     "title": "Descarga",
     "subtitle": "Flujo eficiente, seguridad y continuidad operativa",
     "overview": "Estaciones automáticas para extraer piezas o productos sin intervención manual, manteniendo velocidad y orden en la línea.",
@@ -157,6 +160,7 @@
   },
   {
     "path": "/services?categoria=EscaneoAutomatico",
+    "video": "@assets/services_vid/Escaneo/142.mp4",
     "title": "Escaneo",
     "subtitle": "Verificación por visión para control de calidad",
     "overview": "Estaciones de escaneo y verificación por visión artificial para asegurar la calidad del proceso.",
@@ -172,6 +176,7 @@
   },
   {
     "path": "/services?categoria=PickAndPlace",
+    "video": "@assets/services_vid/PickNPlace/88.mp4",
     "title": "Pick and Place",
     "subtitle": "Velocidad y precisión en el manejo automático de piezas",
     "overview": "Sistemas personalizados para tomar, posicionar y colocar piezas con movimientos rápidos y precisos, incrementando productividad y eliminando errores.",
@@ -193,6 +198,7 @@
   },
   {
     "path": "/services?categoria=MaquinadosRectificadosTratamientosTermicos",
+    "video": "@assets/services_vid/MaquinadoDePiezas/168.mp4",
     "title": "Maquinados de piezas industriales",
     "subtitle": "Precisión mecánica, acabado superior y durabilidad mejorada",
     "overview": "Servicio integral de maquinado CNC, rectificado de precisión y tratamientos térmicos para obtener acabados exactos y propiedades mecánicas superiores.",

@@ -38,6 +38,7 @@ function enterprice_values() {
                 src={valoresImg.equipo}
                 alt="Equipo"
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain select-none rounded-t-md"
                 style={{
                   WebkitUserDrag: "none",
@@ -66,6 +67,7 @@ function enterprice_values() {
                 src={valoresImg.innovacion}
                 alt="Innovación"
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain select-none rounded-t-md"
                 style={{
                   WebkitUserDrag: "none",
@@ -96,6 +98,7 @@ function enterprice_values() {
                 src={valoresImg.integridad}
                 alt="Integridad"
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain select-none rounded-t-md"
                 style={{
                   WebkitUserDrag: "none",

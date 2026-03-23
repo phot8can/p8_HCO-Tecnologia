@@ -80,7 +80,7 @@ function Services() {
         // Transformamos el alias "@assets" a la ruta real absoluta que Vite necesita leer
         const realPath = matchedService.video.replace("@assets", "/src/assets");
         // Obtenemos todos los videos posibles. Vite compila esto en tiempo de build.
-        const videoModules = import.meta.glob("/src/assets/**/*.mp4");
+        const videoModules = import.meta.glob("/src/assets/**/*.{mp4,webm}");
 
         if (videoModules[realPath]) {
           // Si el archivo existe, lo importamos asíncronamente

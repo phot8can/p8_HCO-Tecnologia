@@ -32,6 +32,7 @@ function contactus() {
             decoding="async"
             draggable="false"
             onContextMenu={(e) => e.preventDefault()}
+            loading="lazy"
           />
         </div>
 
@@ -47,6 +48,8 @@ function contactus() {
             lg:w-3/4 lg:-left-64 lg:top-[-8rem]"
           draggable="false"
           onContextMenu={(e) => e.preventDefault()}
+          loading="lazy"
+          decoding="async"
         />
         {/* Noise layer on top */}
         <img
@@ -57,6 +60,7 @@ function contactus() {
           decoding="async"
           draggable="false"
           onContextMenu={(e) => e.preventDefault()}
+          loading="lazy"
         />
       </div>
       <div className="relative z-10 py-24 md:py-40">

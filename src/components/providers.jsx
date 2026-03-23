@@ -52,6 +52,8 @@ function Providers({ colorFondo }) {
                 key={index}
                 src={img.route}
                 alt={img.title}
+                loading="lazy"
+                decoding="async"
                 className="w-40 h-24 object-contain select-none"
                 style={{
                   WebkitUserDrag: "none",

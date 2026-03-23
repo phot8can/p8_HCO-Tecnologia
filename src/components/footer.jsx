@@ -18,14 +18,14 @@ function Footer() {
           aria-hidden="true"
         >
           {/* Noise layer on top */}
-          <div
-            className="absolute inset-0 w-full h-full bg-no-repeat bg-top bg-[length:100%_auto] z-10 opacity-50"
-            style={{
-              backgroundImage: `url(${NoiseGradiant})`,
-            }}
+          <img
+            src={NoiseGradiant}
+            className="absolute inset-0 w-full h-full object-cover z-10 opacity-50"
             draggable="false"
             onContextMenu={(e) => e.preventDefault()}
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
@@ -147,6 +147,7 @@ function Footer() {
                   className="w-full h-auto object-contain"
                   alt="P8 Logo"
                   loading="lazy"
+                  decoding="async"
                 />
               </button>
               <span className="text-xs text-white/75">2025</span>

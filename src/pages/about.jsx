@@ -6,7 +6,6 @@ import Enterprice_Values from "../components/enterprice_values";
 import FotoMision from "@assets/images/valores/5.png";
 import FotoVision from "@assets/images/valores/8.png";
 import BG_Gradient from "@assets/images/fx/BG_Grradient.webp";
-import Noise from "@assets/images/fx/Ruido.webp";
 
 function about() {
   useEffect(() => {
@@ -29,6 +28,8 @@ function about() {
               className="absolute inset-0 w-full h-full object-cover [filter:blur(54px)] [transform:scale(1.06)]"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>
@@ -64,6 +65,8 @@ function about() {
           <img
             src={FotoMision}
             alt="Mision"
+            loading="lazy"
+            decoding="async"
             className="object-contain select-none w-full h-auto max-w-[28rem] sm:max-w-[32rem]"
             style={{
               WebkitUserDrag: "none",
@@ -112,6 +115,8 @@ function about() {
           <img
             src={FotoVision}
             alt="Vision"
+            loading="lazy"
+            decoding="async"
             className="object-contain select-none"
             style={{
               WebkitUserDrag: "none",

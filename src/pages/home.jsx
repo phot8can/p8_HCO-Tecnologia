@@ -172,6 +172,8 @@ function Home() {
                 src={NoiseGradiant}
                 alt="Texture"
                 className="w-full h-full"
+                loading="eager"
+                decoding="async"
               />
             </picture>
             <Showreel imagenes={showreelImg} duration={1500} intervalo={2.5} />
@@ -180,8 +182,9 @@ function Home() {
           <div className="z-0 relative flex flex-col items-center justify-center gap-6 px-4 text-center w-full">
             <img
               src={HCO_new}
-              alt="aaa"
+              alt="Logo HCO"
               className="h-24 md:h-40 lg:h-52 w-auto max-w-full text-red-500"
+              loading="eager"
             />
             {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
             <p className="text-lg max-w-xl text-white">
@@ -335,6 +338,7 @@ function Home() {
             alt=""
             aria-hidden="true"
             decoding="async"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </picture>

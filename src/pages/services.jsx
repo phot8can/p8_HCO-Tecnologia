@@ -12,7 +12,7 @@ import {
 } from "react-icons/hi";
 import { HiOutlineBolt } from "react-icons/hi2";
 import { FaChevronDown } from "react-icons/fa";
-import testVideo from "@assets/video/test.mp4";
+import testVideo from "@assets/video/test.webm";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
@@ -80,7 +80,7 @@ function Services() {
         // Transformamos el alias "@assets" a la ruta real absoluta que Vite necesita leer
         const realPath = matchedService.video.replace("@assets", "/src/assets");
         // Obtenemos todos los videos posibles. Vite compila esto en tiempo de build.
-        const videoModules = import.meta.glob("/src/assets/**/*.mp4");
+        const videoModules = import.meta.glob("/src/assets/**/*.{mp4,webm}");
 
         if (videoModules[realPath]) {
           // Si el archivo existe, lo importamos asíncronamente
@@ -293,7 +293,9 @@ function Services() {
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
               {subtitulo || "Resumen del servicio"}
             </h2>
-            <p className="text-slate-500 font-semibold mb-6">Overview</p>
+            <p className="text-slate-500 font-semibold mb-6">
+              Descripción general
+            </p>
             <p className="text-lg leading-relaxed text-slate-700">
               {descripcion}
             </p>

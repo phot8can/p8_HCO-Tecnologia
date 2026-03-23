@@ -91,21 +91,20 @@ function contactUs_form({ textColor = "text-white" }) {
   return (
     <>
       <div className="max-w-7xl mx-auto ">
-        <h2 className={`text-5xl font-bold mb-2 ${textColor} text-center`}>
+        <h2 className={`text-6xl font-bold mb-10 ${textColor} text-center`}>
           Contáctanos
         </h2>
-        <p className={`text-xl mb-12 ${textColor}  text-center`}>Contact Us</p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className={`space-y-4 ${textColor}`}>
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-3xl font-bold">
               ¿Tienes un proyecto en mente?
             </h3>
-            <p className={`text-gray-400`}>
+            <p className={`text-gray-400 text-xl`}>
               Estamos listos para ayudarte a automatizar tus procesos
               industriales. Completa el formulario o envíanos un mensaje
               directo.
             </p>
-            <ul className="text-gray-400 text-sm space-y-2">
+            <ul className="text-gray-400 text-lg space-y-2">
               <li>
                 <strong>Email:</strong>{" "}
                 <a

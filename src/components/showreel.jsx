@@ -21,18 +21,29 @@ function Showreel({ imagenes, duration = 4000, intervalo = 0 }) {
     transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
   };
 
+  if (!imagenes || imagenes.length === 0) return null;
+
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
       {imagenes.map((imagen, i) => {
-        const isVisible = imagenes.length === 1 || i === index;
+        // Only render the current image and the next one to optimize performance
+        // This prevents the browser from trying to load all images in the showreel at once
+        const isCurrent = i === index;
+        const isNext = i === (index + 1) % imagenes.length;
+        const isPrev = i === (index - 1 + imagenes.length) % imagenes.length;
+
+        // Render current, next (for preloading and transition), and prev (for transition out)
+        if (!isCurrent && !isNext && !isPrev && imagenes.length > 3) return null;
+
         return (
           <img
             key={i}
-            loading="lazy"
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
             src={imagen.route}
             alt={imagen.title}
             className={`h-full w-full object-cover absolute ${
-              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              isCurrent ? "opacity-100 scale-100" : "opacity-0 scale-105"
             }`}
             style={transitionStyle}
           />

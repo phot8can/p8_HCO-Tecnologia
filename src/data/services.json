@@ -23,7 +23,7 @@
   },
   {
     "path": "/services?categoria=IndexadorasDiversasPosiciones",
-    "video": "@assets/services_vid/Indexadoras/104.mp4",
+    "video": "@assets/services_vid/Indexadoras/104.webm",
     "title": "Indexadoras de Diversas Posiciones",
     "subtitle": "Precisión, sincronización y eficiencia para procesos repetitivos",
     "overview": "Sistemas de indexado rotativo multiposición para automatizar secuencias repetitivas con exactitud milimétrica y alto rendimiento.",
@@ -39,7 +39,9 @@
       "Ahorro en tiempo de ciclo y menor intervención manual",
       "Mayor control, seguridad y trazabilidad"
     ],
-    "applications": ["Ensamble, inspección, marcado, operaciones secuenciales"]
+    "applications": [
+      "Ensamble, inspección, marcado, operaciones secuenciales"
+    ]
   },
   {
     "path": "/services?categoria=PrensasAutomaticas",
@@ -58,7 +60,9 @@
       "Mayor eficiencia y velocidad",
       "Ahorro operativo al reducir intervención manual"
     ],
-    "applications": ["Prensado, remachado y ensamblaje en líneas automatizadas"]
+    "applications": [
+      "Prensado, remachado y ensamblaje en líneas automatizadas"
+    ]
   },
   {
     "path": "/services?categoria=EnsambleFoilAPCBRobot",
@@ -74,7 +78,9 @@
       "Calidad constante y reducción de retrabajos",
       "Automatización segura y repetible"
     ],
-    "applications": ["Electrónica y subensambles de PCB"]
+    "applications": [
+      "Electrónica y subensambles de PCB"
+    ]
   },
   {
     "path": "/services?categoria=CargaAutomaticaElementosFijacion",
@@ -90,7 +96,9 @@
       "Menor intervención manual y mayor ritmo de producción",
       "Disminución de errores y paros por falta de suministro"
     ],
-    "applications": ["Automotriz, metalmecánica y ensambles seriados"]
+    "applications": [
+      "Automotriz, metalmecánica y ensambles seriados"
+    ]
   },
   {
     "path": "/services?categoria=DosificadoRivetStud",
@@ -106,7 +114,9 @@
       "Precisión y repetitividad en aplicaciones de fijación",
       "Incremento de velocidad y trazabilidad"
     ],
-    "applications": ["Líneas de ensamble con alta repetitividad"]
+    "applications": [
+      "Líneas de ensamble con alta repetitividad"
+    ]
   },
   {
     "path": "/services?categoria=AtornilladorasDispensadoAutomatico",
@@ -122,7 +132,9 @@
       "Reducción de errores y mejora de calidad",
       "Tiempos de ciclo competitivos"
     ],
-    "applications": ["Ensambles automotrices y electrónicos"]
+    "applications": [
+      "Ensambles automotrices y electrónicos"
+    ]
   },
   {
     "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
@@ -138,7 +150,9 @@
       "Uniformidad en aplicación de lubricante",
       "Menor desperdicio y mejor mantenimiento preventivo"
     ],
-    "applications": ["Líneas de ensamble y estaciones de preparación"]
+    "applications": [
+      "Líneas de ensamble y estaciones de preparación"
+    ]
   },
   {
     "path": "/services?categoria=EstacionesDescargaAutomatica",
@@ -174,7 +188,9 @@
       "Detección temprana de defectos",
       "Trazabilidad de inspecciones"
     ],
-    "applications": ["Inspección en línea y validaciones finales"]
+    "applications": [
+      "Inspección en línea y validaciones finales"
+    ]
   },
   {
     "path": "/services?categoria=PickAndPlace",

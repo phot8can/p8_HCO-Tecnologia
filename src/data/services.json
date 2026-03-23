@@ -78,6 +78,7 @@
   },
   {
     "path": "/services?categoria=CargaAutomaticaElementosFijacion",
+    "video": "@assets/services_vid/Carga/1_35_a_1_42_whatsapp.mp4",
     "title": "Carga",
     "subtitle": "Alimentación y carga automática de elementos de fijación",
     "overview": "Sistemas de alimentación y carga automática para studs, remaches, forkbolts y detents, integrables a líneas existentes.",
@@ -93,6 +94,7 @@
   },
   {
     "path": "/services?categoria=DosificadoRivetStud",
+    "video": "@assets/services_vid/Dosificadoras/1_12_a_1_26_whatsapp.mp4",
     "title": "Dosificadoras",
     "subtitle": "Dosificado de rivet y stud, pick and place para forkbolt y detent",
     "overview": "Celdas de dosificado y manipulación con integración de robot ABB para manejo preciso de elementos de fijación.",
@@ -124,7 +126,7 @@
   },
   {
     "path": "/services?categoria=EngrasadorasAutomaticasBowlFeeder",
-    "video": "@assets/services_vid/Engrasadoras/81_141.mp4",
+    "video": "@assets/services_vid/Engrasadoras/141.mp4",
     "title": "Engrasadoras",
     "subtitle": "Dosificación precisa de lubricante con alimentación automática",
     "overview": "Estaciones de lubricación con dosificación controlada y alimentación por bowl feeder.",

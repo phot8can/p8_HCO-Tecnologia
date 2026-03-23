@@ -75,7 +75,7 @@ function contactus() {
           role="region"
           aria-label="Mapa y dirección"
         >
-          <h2 className="text-2xl font-semibold text-center mb-6 text-white">
+          <h2 className="text-5xl font-semibold text-center mb-6 text-white">
             Ubicación
           </h2>
           <div className="w-full max-w-7xl mx-auto justify-center flex flex-col gap-4 sm:gap-5">
@@ -91,7 +91,7 @@ function contactus() {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <div className="flex align-middle justify-center text-white text-center text-sm sm:text-base">
+            <div className="flex align-middle justify-center text-white text-center text-lg sm:text-xl">
               <p>
                 <strong>Dirección:</strong> Hacienda Quinta Real, H. Matamoros,
                 Tam. MX. CP 87345

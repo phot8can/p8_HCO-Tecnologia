@@ -26,8 +26,7 @@ function enterprice_values() {
         className=" lg:px-16 max-w-7xl mx-auto  text-center"
         data-aos="fade-up"
       >
-        <h2 className="text-5xl font-bold text-blue mb-2 ">Nuestros valores</h2>
-        <p className="text-xl text-gray-700 mb-12">Our values</p>
+        <h2 className="text-6xl font-bold text-blue mb-10 ">Nuestros valores</h2>
         <div
           className="grid md:grid-cols-3 gap-12"
           onContextMenu={(e) => e.preventDefault()}
@@ -120,7 +119,7 @@ function enterprice_values() {
           </div>
         </div>
 
-        <p className="text-center text-gray-600 mt-14 max-w-3xl text-xl mx-auto">
+        <p className="text-center text-gray-600 mt-14 max-w-6xl text-2xl mx-auto">
           Estos valores nos impulsan a ofrecer lo mejor en cada proyecto,
           asegurando cumplir con las expectativas de nuestros clientes.
         </p>

@@ -293,7 +293,9 @@ function Services() {
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
               {subtitulo || "Resumen del servicio"}
             </h2>
-            <p className="text-slate-500 font-semibold mb-6">Overview</p>
+            <p className="text-slate-500 font-semibold mb-6">
+              Descripción general
+            </p>
             <p className="text-lg leading-relaxed text-slate-700">
               {descripcion}
             </p>

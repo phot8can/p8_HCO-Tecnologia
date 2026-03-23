@@ -39,12 +39,11 @@ function about() {
         >
           <div className="my-8 sm:my-10 px-4 sm:px-6 md:px-8 lg:px-10 max-w-7xl mx-auto text-white">
             <div className="flex gap-2 flex-col justify-center items-center mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center ">
+              <h1 className="text-6xl font-bold text-center ">
                 ¿Quiénes somos?
               </h1>
-              <p className="text-xl text-white mb-12">About Us</p>
             </div>
-            <p className="text-gray-300 text-base sm:text-2xl text-center font-semibold mx-auto">
+            <p className="text-gray-300 text-base sm:text-2xl text-center font-medium mx-auto">
               Somos una empresa orgullosamente mexicana, de Ingeniería
               especializada en automatización industrial, enfocada en el diseño
               y fabricación de estaciones automatizadas.
@@ -76,10 +75,9 @@ function about() {
         </div>
         <div>
           <div className="flex gap-2 flex-col">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+            <h2 className="text-5xl font-bold text-black mb-4">
               Nuestra misión
             </h2>
-            <p className="text-xl text-black/50 mb-5">Our Mission</p>
           </div>
           <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
             Nuestra misión es impulsar la competitividad industrial mediante
@@ -96,10 +94,9 @@ function about() {
       >
         <div>
           <div className="flex gap-2 flex-col">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+            <h2 className="text-5xl font-bold text-black mb-4">
               Nuestra visión
             </h2>
-            <p className="text-xl text-black/50 mb-5">Our Vision</p>
           </div>
           <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
             En HCO, buscamos expandir nuestra presencia en el mercado,

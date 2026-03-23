@@ -223,10 +223,9 @@ function Home() {
         </div>
 
         <div className=" mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold text-blue mb-2 ">
+          <h2 className="text-6xl font-bold text-blue mb-4 ">
             Soluciones Integrales
           </h2>
-          <p className="text-xl text-gray-700 mb-12">Integral solutions</p>
           <p className="text-lg text-center mx-auto mb-8 max-w-7xl">
             Ofrecemos un servicio completo que abarca desde el diseño,
             fabricación de líneas de producción, hasta la integración de
@@ -313,11 +312,10 @@ function Home() {
                 <button
                   key={i}
                   type="button"
-                  className={`h-2 rounded-full transition-all ${
-                    currentSolution === i
-                      ? "w-20 bg-blue"
-                      : "w-10 bg-blue/40 hover:bg-blue/70"
-                  }`}
+                  className={`h-2 rounded-full transition-all ${currentSolution === i
+                    ? "w-20 bg-blue"
+                    : "w-10 bg-blue/40 hover:bg-blue/70"
+                    }`}
                   aria-label={`Ir a la solución ${i + 1}`}
                   aria-current={currentSolution === i}
                   onClick={() => setCurrentSolution(i)}
@@ -342,10 +340,9 @@ function Home() {
         </picture>
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-10">
           <div className="justify-center text-center flex gap-2 flex-col">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-white">
+            <h2 className="text-6xl font-bold text-center text-white">
               Nuestros Clientes
             </h2>
-            <p className="text-xl text-white mb-12">Our Clients</p>
           </div>
           <p className="text-base md:text-lg text-white/90 max-w-7xl text-center">
             En HCO hemos desarrollado soluciones integrales que impactan de
@@ -438,18 +435,16 @@ function Home() {
           <div className="h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
         </div>
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl font-bold text-blue mb-2">
+          <h2 className="text-6xl font-bold text-blue mb-8">
             Capacidad de fabricación
           </h2>
-          <p className="text-xl text-gray-700 mb-12">Manufacturing capacity</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 md:auto-rows-[220px] lg:auto-rows-[260px]">
             {capacity.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative overflow-hidden rounded-xl shadow group flex ${
-                  idx === 1 ? "md:col-span-4 md:row-span-2" : "md:col-span-2"
-                } bg-blue/90`}
+                className={`relative overflow-hidden rounded-xl shadow group flex ${idx === 1 ? "md:col-span-4 md:row-span-2" : "md:col-span-2"
+                  } bg-blue/90`}
               >
                 {/* Background icon as texture */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 text-white text-8xl md:text-9xl lg:text-[10rem] transition-transform duration-300 group-hover:scale-105">
@@ -474,10 +469,9 @@ function Home() {
       <hr className="text-[#d6d6d6]" />
       <section className="py-32 flex gap-10 flex-col" data-aos="fade-up">
         <div className="justify-center text-center flex gap-2 flex-col">
-          <h2 className="text-5xl font-bold text-center text-black ">
+          <h2 className="text-6xl font-bold text-center text-black ">
             Nuestros Proveedores
           </h2>
-          <p className="text-xl text-black mb-12">Our Providers</p>
         </div>
         <Providers colorFondo="rgba(255, 255, 255, 1)" />
       </section>

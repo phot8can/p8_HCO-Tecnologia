@@ -12,7 +12,7 @@ import {
 } from "react-icons/hi";
 import { HiOutlineBolt } from "react-icons/hi2";
 import { FaChevronDown } from "react-icons/fa";
-import testVideo from "@assets/video/test.mp4";
+import testVideo from "@assets/video/test.webm";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);

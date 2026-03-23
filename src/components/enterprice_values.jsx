@@ -22,24 +22,19 @@ function enterprice_values() {
   return (
     <>
       {/* Valores */}
-      <section
-        className=" lg:px-16 max-w-7xl mx-auto  text-center"
-        data-aos="fade-up"
-      >
-        <h2 className="text-6xl font-bold text-blue mb-10 ">Nuestros valores</h2>
-        <div
-          className="grid md:grid-cols-3 gap-12"
-          onContextMenu={(e) => e.preventDefault()}
-        >
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16" data-aos="fade-up">
+        <h2 className="text-6xl font-bold text-center text-blue mb-20">Nuestros valores</h2>
+
+        <div className="flex flex-col gap-24 md:gap-32">
           {/* Equipo */}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
-            <div className="max-h-1/4 overflow-hidden bg-blue-900">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="flex justify-center items-center">
               <img
                 src={valoresImg.equipo}
                 alt="Equipo"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-contain select-none rounded-t-md"
+                className="object-contain select-none w-full h-auto max-w-[28rem] sm:max-w-[32rem]"
                 style={{
                   WebkitUserDrag: "none",
                   KhtmlUserDrag: "none",
@@ -48,10 +43,13 @@ function enterprice_values() {
                 }}
               />
             </div>
-            <div className="p-6">
-              <h3 className="text-3xl font-semibold text-gray-900">Equipo</h3>
-              <p className="text-xl text-black/50 mb-5">Team</p>
-              <p className="text-gray-700 text-lg leading-relaxed">
+            <div>
+              <div className="flex gap-2 flex-col">
+                <h3 className="text-5xl font-bold text-black mb-4">
+                  Equipo
+                </h3>
+              </div>
+              <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
                 El trabajo en equipo es la base sobre la cual trabajamos con
                 comunicación abierta y respeto, sumando nuestras fortalezas para
                 aprovechar al máximo las habilidades individuales y alcanzar
@@ -61,45 +59,27 @@ function enterprice_values() {
           </div>
 
           {/* Innovación */}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
-            <div className="max-h-1/2 overflow-hidden bg-blue-900">
-              <img
-                src={valoresImg.innovacion}
-                alt="Innovación"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-contain select-none rounded-t-md"
-                style={{
-                  WebkitUserDrag: "none",
-                  KhtmlUserDrag: "none",
-                  MozUserDrag: "none",
-                  OUserDrag: "none",
-                }}
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-3xl font-semibold text-gray-900">
-                Innovación
-              </h3>
-              <p className="text-xl text-black/50 mb-5">Innovation</p>
-              <p className="text-gray-700 text-lg leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <div className="flex gap-2 flex-col">
+                <h3 className="text-5xl font-bold text-black mb-4">
+                  Innovación
+                </h3>
+              </div>
+              <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
                 La innovación es nuestro motor para explorar tecnologías
                 emergentes y metodologías creativas, transformando ideas en
                 soluciones eficientes que anticipan y satisfacen las necesidades
                 de nuestros clientes.
               </p>
             </div>
-          </div>
-
-          {/* Integridad*/}
-          <div className="rounded-md shadow-lg flex flex-col items-center overflow-hidden transform transition duration-300">
-            <div className="max-h-1/4 overflow-hidden bg-blue-900">
+            <div className="order-1 md:order-2 flex justify-center items-center">
               <img
-                src={valoresImg.integridad}
-                alt="Integridad"
+                src={valoresImg.innovacion}
+                alt="Innovación"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-contain select-none rounded-t-md"
+                className="object-contain select-none w-full h-auto max-w-[28rem] sm:max-w-[32rem]"
                 style={{
                   WebkitUserDrag: "none",
                   KhtmlUserDrag: "none",
@@ -108,12 +88,32 @@ function enterprice_values() {
                 }}
               />
             </div>
-            <div className="p-6">
-              <h3 className="text-3xl font-semibold text-gray-900">
-                Integridad
-              </h3>
-              <p className="text-xl text-black/50 mb-5">Integrity</p>
-              <p className="text-gray-700 text-lg leading-relaxed">
+          </div>
+
+          {/* Integridad */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="flex justify-center items-center">
+              <img
+                src={valoresImg.integridad}
+                alt="Integridad"
+                loading="lazy"
+                decoding="async"
+                className="object-contain select-none w-full h-auto max-w-[28rem] sm:max-w-[32rem]"
+                style={{
+                  WebkitUserDrag: "none",
+                  KhtmlUserDrag: "none",
+                  MozUserDrag: "none",
+                  OUserDrag: "none",
+                }}
+              />
+            </div>
+            <div>
+              <div className="flex gap-2 flex-col">
+                <h3 className="text-5xl font-bold text-black mb-4">
+                  Integridad
+                </h3>
+              </div>
+              <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
                 La integridad es el principio que guía todas nuestras acciones,
                 asegurando honestidad, transparencia y coherencia en cada
                 acción.
@@ -122,7 +122,7 @@ function enterprice_values() {
           </div>
         </div>
 
-        <p className="text-center text-gray-600 mt-14 max-w-6xl text-2xl mx-auto">
+        <p className="text-center text-gray-600 mt-20 max-w-6xl text-2xl mx-auto">
           Estos valores nos impulsan a ofrecer lo mejor en cada proyecto,
           asegurando cumplir con las expectativas de nuestros clientes.
         </p>

@@ -41,50 +41,50 @@ function Home() {
   const enterpriseSolutions = [
     {
       titleEs: "Ingeniería y diseño mecánico 3D (SolidWorks)",
-      titleEn:
-        "Engineering and design focused on SolidWorks 3D mechanical systems.",
+      subTitle:
+        "Ingeniería y diseño enfocados en sistemas mecánicos 3D con SolidWorks.",
       icon: <FaCubes />,
     },
     {
       titleEs: "Ingeniería eléctrica y neumática 2D (AutoCAD)",
-      titleEn:
-        "Engineering and design of electrical and pneumatic systems in AutoCAD 2D.",
+      subTitle:
+        "Ingeniería y diseño enfocados en sistemas eléctricos y neumáticos con AutoCAD 2D.",
       icon: <FaDraftingCompass />,
     },
     {
       titleEs: "Sistemas de control y programación HMI",
-      titleEn:
-        "Engineering and design of control systems and HMI screen programming.",
+      subTitle:
+        "Ingeniería y diseño enfocados en sistemas de control y programación HMI.",
       icon: <FaDesktop />,
     },
     {
       titleEs: "Programación de robots",
-      titleEn: "Robot programming.",
+      subTitle: "Programación de robots.",
       icon: <FaRobot />,
     },
     {
       titleEs: "Programación de robocilindros",
-      titleEn: "Robocylinders programming.",
+      subTitle: "Programación de robocilindros.",
       icon: <GiGears />,
     },
     {
       titleEs: "Sistemas de visión",
-      titleEn: "Programming and detection of vision systems.",
+      subTitle: "Programación y detección de sistemas de visión.",
       icon: <FaEye />,
     },
     {
       titleEs: "Programación de escáneres",
-      titleEn: "Scanners programming.",
+      subTitle: "Programación de escáneres.",
       icon: <FaBarcode />,
     },
     {
       titleEs: "Programación de controladores PLC",
-      titleEn: "PLC controller programming.",
+      subTitle: "Programación de controladores PLC.",
       icon: <FaMicrochip />,
     },
     {
       titleEs: "Programación de escalera (Ladder)",
-      titleEn: "Ladder programming.",
+      subTitle: "Programación de escalera (Ladder).",
       icon: <FaStream />,
     },
   ];
@@ -92,26 +92,22 @@ function Home() {
   const capacity = [
     {
       titleEs: "Maquina Fresadora",
-      titleEn: "Milling Machine",
       icon: <FaCogs />,
     },
-    { titleEs: "Maquina CNC", titleEn: "CNC Machine", icon: <FaMicrochip /> },
+    { titleEs: "Maquina CNC", icon: <FaMicrochip /> },
     {
       titleEs: "Maquina de Soldado",
-      titleEn: "Welding Machine",
       icon: <FaBolt />,
     },
     {
       titleEs: "Maquina Cortadora",
-      titleEn: "Cutting Machine",
       icon: <FaScissors />,
     },
-    { titleEs: "Torno", titleEn: "Lathe", icon: <FaIndustry /> },
-    { titleEs: "Rectificadora", titleEn: "Grinding Machine", icon: <FaCog /> },
+    { titleEs: "Torno", icon: <FaIndustry /> },
+    { titleEs: "Rectificadora", icon: <FaCog /> },
   ];
 
   const [showreelImg, setShowreelImg] = useState([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentSolution, setCurrentSolution] = useState(0);
   const [isSolutionPaused, setIsSolutionPaused] = useState(false);
 
@@ -119,18 +115,18 @@ function Home() {
     const loadImages = async () => {
       const importers = import.meta.glob(
         "@assets/images/general/*.{jpg,jpeg,png,svg,webp}",
-        { eager: false }
+        { eager: false },
       );
 
       const images = await Promise.all(
-        Object.values(importers).map((importFn) => importFn())
+        Object.values(importers).map((importFn) => importFn()),
       );
 
       setShowreelImg(
         images.map((mod, index) => ({
           title: `Imagen ${index + 1}`,
           route: mod.default,
-        }))
+        })),
       );
     };
 
@@ -140,13 +136,6 @@ function Home() {
       duration: 1000,
       once: true,
     });
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 2); // 2 slides
-    }, 5000);
-    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -270,7 +259,7 @@ function Home() {
                       {s.titleEs}
                     </h3>
                     <p className="text-gray-700 text-lg leading-relaxed">
-                      {s.titleEn}
+                      {s.subTitle}
                     </p>
                   </div>
                 </div>
@@ -286,7 +275,7 @@ function Home() {
                     setCurrentSolution(
                       (prev) =>
                         (prev - 1 + enterpriseSolutions.length) %
-                        enterpriseSolutions.length
+                        enterpriseSolutions.length,
                     );
                   }}
                 >
@@ -298,7 +287,7 @@ function Home() {
                   aria-label="Siguiente"
                   onClick={() => {
                     setCurrentSolution(
-                      (prev) => (prev + 1) % enterpriseSolutions.length
+                      (prev) => (prev + 1) % enterpriseSolutions.length,
                     );
                   }}
                 >
@@ -315,10 +304,11 @@ function Home() {
                 <button
                   key={i}
                   type="button"
-                  className={`h-2 rounded-full transition-all ${currentSolution === i
-                    ? "w-20 bg-blue"
-                    : "w-10 bg-blue/40 hover:bg-blue/70"
-                    }`}
+                  className={`h-2 rounded-full transition-all ${
+                    currentSolution === i
+                      ? "w-20 bg-blue"
+                      : "w-10 bg-blue/40 hover:bg-blue/70"
+                  }`}
                   aria-label={`Ir a la solución ${i + 1}`}
                   aria-current={currentSolution === i}
                   onClick={() => setCurrentSolution(i)}
@@ -447,8 +437,9 @@ function Home() {
             {capacity.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative overflow-hidden rounded-xl shadow group flex ${idx === 1 ? "md:col-span-4 md:row-span-2" : "md:col-span-2"
-                  } bg-blue/90`}
+                className={`relative overflow-hidden rounded-xl shadow group flex ${
+                  idx === 1 ? "md:col-span-4 md:row-span-2" : "md:col-span-2"
+                } bg-blue/90`}
               >
                 {/* Background icon as texture */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 text-white text-8xl md:text-9xl lg:text-[10rem] transition-transform duration-300 group-hover:scale-105">
@@ -461,9 +452,6 @@ function Home() {
                   <h3 className="text-2xl md:text-3xl font-semibold mb-1">
                     {item.titleEs}
                   </h3>
-                  <p className="text-sm md:text-base text-white/80">
-                    {item.titleEn}
-                  </p>
                 </div>
               </div>
             ))}

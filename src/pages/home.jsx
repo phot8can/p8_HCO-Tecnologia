@@ -40,74 +40,74 @@ function Home() {
       titleEs: "Ingeniería y diseño mecánico 3D (SolidWorks)",
       subTitle:
         "Desarrollo de maquinaria y componentes en 3D, optimizados para fabricación, ensamblaje y simulación en entornos industriales.",
-      icon: <Boxes />,
+      icon: <Boxes size={100} />,
     },
     {
       titleEs: "Ingeniería eléctrica y neumática 2D (AutoCAD)",
       subTitle:
         "Diseño de diagramas eléctricos y neumáticos con documentación técnica precisa para integración y mantenimiento industrial.",
-      icon: <Compass />,
+      icon: <Compass size={100} />,
     },
     {
       titleEs: "Sistemas de control y programación HMI",
       subTitle:
         "Desarrollo de interfaces HMI intuitivas para monitoreo, control y automatización eficiente de procesos industriales.",
-      icon: <Monitor />,
+      icon: <Monitor size={100} />,
     },
     {
       titleEs: "Programación de robots",
       subTitle:
         "Configuración y programación de robots industriales para optimizar procesos de producción, precisión y repetibilidad.",
-      icon: <Bot />,
+      icon: <Bot size={100} />,
     },
     {
       titleEs: "Programación de robocilindros",
       subTitle:
         "Control y parametrización de robocilindros para movimientos automatizados precisos en líneas de producción.",
-      icon: <Settings />,
+      icon: <Settings size={100} />,
     },
     {
       titleEs: "Sistemas de visión",
       subTitle:
         "Implementación de sistemas de visión artificial para inspección, detección y control de calidad en tiempo real.",
-      icon: <Eye />,
+      icon: <Eye size={100} />,
     },
     {
       titleEs: "Programación de escáneres",
       subTitle:
         "Integración y programación de escáneres para identificación, trazabilidad y control de productos en procesos industriales.",
-      icon: <Barcode />,
+      icon: <Barcode size={100} />,
     },
     {
       titleEs: "Programación de controladores PLC",
       subTitle:
         "Desarrollo de lógica de control en PLC para automatización confiable, escalable y segura de maquinaria industrial.",
-      icon: <Cpu />,
+      icon: <Cpu size={100} />,
     },
     {
       titleEs: "Programación de escalera (Ladder)",
       subTitle:
         "Implementación de lógica Ladder para control secuencial eficiente en sistemas automatizados industriales.",
-      icon: <Layers />,
+      icon: <Layers size={100} />,
     },
   ];
 
   const capacity = [
     {
       titleEs: "Maquina Fresadora",
-      icon: <Settings />,
+      icon: <Settings size={75} />,
     },
-    { titleEs: "Maquina CNC", icon: <Cpu /> },
+    { titleEs: "Maquina CNC", icon: <Cpu size={150} /> },
     {
       titleEs: "Maquina de Soldado",
-      icon: <Zap />,
+      icon: <Zap size={65} />,
     },
     {
       titleEs: "Maquina Cortadora",
-      icon: <Scissors />,
+      icon: <Scissors size={65} />,
     },
-    { titleEs: "Torno", icon: <Factory /> },
-    { titleEs: "Rectificadora", icon: <Cog /> },
+    { titleEs: "Torno", icon: <Factory size={80} /> },
+    { titleEs: "Rectificadora", icon: <Cog size={80} /> },
   ];
 
   const [showreelImg, setShowreelImg] = useState([]);
@@ -457,8 +457,8 @@ function Home() {
                 </div>
 
                 {/* Background ID number */}
-                <div className="absolute bottom-4 right-6 font-mono text-[10px] text-white/5 tracking-tighter">
-                  0{idx + 1}-CLIENT-REF
+                <div className="absolute bottom-4 right-6 font-mono text-[10px] text-white/25 tracking-tighter">
+                  0{idx + 1}
                 </div>
               </div>
             ))}
@@ -503,7 +503,7 @@ function Home() {
                 {/* Tech styling items */}
                 <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 group-hover:border-white/80 transition-colors"></div>
                 <div className="absolute top-4 right-4 text-[10px] font-mono text-white/30 tracking-widest uppercase hidden group-hover:block transition-all">
-                  Process OK
+                  Contamos con
                 </div>
 
                 {/* Content */}

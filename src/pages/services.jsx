@@ -226,7 +226,7 @@ function Services() {
               className="group flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-bold transition-all hover:bg-blue hover:text-white shadow-xl hover:shadow-blue/50 transform-gpu hover:-translate-y-1"
             >
               <span>Ver Ficha Técnica</span>
-              <ChevronDown className="h-5 w-5 transition-transform group-hover:translate-y-1" />
+              <ChevronDown className="h-5 w-5" />
             </button>
           </div>
 
@@ -235,6 +235,7 @@ function Services() {
             className="relative order-1 lg:order-2 z-20 w-full transform-gpu"
             data-aos="zoom-in"
             data-aos-delay="200"
+            onContextMenu={(e) => e.preventDefault()}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] industrial-border bg-slate-900 p-1 group">
               <div className="absolute top-4 left-4 z-30 flex items-center gap-2 px-3 py-1 bg-white/60 backdrop-blur-md rounded border border-white/10 text-[10px] font-mono text-blue uppercase tracking-tighter">
@@ -268,7 +269,7 @@ function Services() {
           <div className="flex flex-col md:flex-row items-end gap-6 mb-20">
             <div className="w-full md:w-auto flex items-center gap-4 px-6 py-3 bg-slate-900 text-white rounded-tr-3xl industrial-border shadow-2xl skew-x-[-10deg]">
               <div className="skew-x-[10deg] flex items-center gap-3">
-                <Layers className="h-6 w-6 text-blue" />
+                <Layers className="h-6 w-6 text-white" />
                 <h2 className="text-xl font-bold tracking-widest uppercase">
                   Ficha Técnica
                 </h2>
@@ -278,7 +279,10 @@ function Services() {
           </div>
 
           {/* Content Block 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-32">
+          <div
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-32"
+            onContextMenu={(e) => e.preventDefault()}
+          >
             <div className="lg:col-span-7" data-aos="fade-right">
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl bg-slate-200 transition-transform duration-500 hover:scale-[1.02]">
                 <div

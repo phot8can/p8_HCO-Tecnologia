@@ -22,13 +22,21 @@ function EnterpriseValues() {
   return (
     <>
       {/* Valores */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16" data-aos="fade-up">
-        <h2 className="text-6xl font-bold text-center text-blue mb-20">Nuestros valores</h2>
+      <section
+        className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16"
+        data-aos="fade-up"
+      >
+        <h2 className="text-6xl font-bold text-center text-blue mb-20">
+          Nuestros valores
+        </h2>
 
         <div className="flex flex-col gap-24 md:gap-32">
           {/* Equipo */}
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="flex justify-center items-center">
+            <div
+              className="flex justify-center items-center"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <img
                 src={valoresImg.equipo}
                 alt="Equipo"
@@ -45,9 +53,7 @@ function EnterpriseValues() {
             </div>
             <div>
               <div className="flex gap-2 flex-col">
-                <h3 className="text-5xl font-bold text-black mb-4">
-                  Equipo
-                </h3>
+                <h3 className="text-5xl font-bold text-black mb-4">Equipo</h3>
               </div>
               <p className="text-black text-base sm:text-lg leading-relaxed mb-4">
                 El trabajo en equipo es la base sobre la cual trabajamos con
@@ -73,7 +79,10 @@ function EnterpriseValues() {
                 de nuestros clientes.
               </p>
             </div>
-            <div className="order-1 md:order-2 flex justify-center items-center">
+            <div
+              className="order-1 md:order-2 flex justify-center items-center"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <img
                 src={valoresImg.innovacion}
                 alt="Innovación"
@@ -92,7 +101,10 @@ function EnterpriseValues() {
 
           {/* Integridad */}
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="flex justify-center items-center">
+            <div
+              className="flex justify-center items-center"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <img
                 src={valoresImg.integridad}
                 alt="Integridad"

@@ -1,56 +1,92 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 
-function Showreel({ imagenes, duration = 4000, intervalo = 0 }) {
+const Showreel = memo(({ imagenes, duration = 1500, intervalo = 2.5 }) => {
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const [loadedIndices, setLoadedIndices] = useState(new Set());
+  const [targetIndex, setTargetIndex] = useState(0); // El índice que queríamos mostrar
+  const [isInitialFadeDone, setIsInitialFadeDone] = useState(false);
+
+  const imagesCount = imagenes?.length || 0;
+  const slideTimeTotal = Number(duration) + Number(intervalo * 1000);
+
+  const handleLoad = useCallback(
+    (idx) => {
+      setLoadedIndices((prev) => {
+        if (prev.has(idx)) return prev;
+        const next = new Set(prev);
+        next.add(idx);
+        return next;
+      });
+
+      if (idx === 0) {
+        setIsInitialFadeDone(true);
+      }
+    },
+    [],
+  );
+
+  // Efecto reactivo: Cuando cambian los cargados o el objetivo, si ya está listo → transitar
+  useEffect(() => {
+    if (targetIndex !== index && loadedIndices.has(targetIndex)) {
+      setPrevIndex(index);
+      setIndex(targetIndex);
+    }
+  }, [targetIndex, index, loadedIndices]);
 
   useEffect(() => {
-    if (!imagenes || imagenes.length === 0) return;
-
-    setIndex(0); // Reset index when images change
-
-    if (imagenes.length === 1) return; // No need for slideshow
+    if (imagesCount <= 1) return;
 
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % imagenes.length);
-    }, Number(duration) + Number(intervalo * 1000));
+      setTargetIndex((prev) => (prev + 1) % imagesCount);
+    }, slideTimeTotal);
 
     return () => clearInterval(interval);
-  }, [imagenes, duration, intervalo]);
+  }, [imagesCount, slideTimeTotal]);
+
+  if (imagesCount === 0) return null;
 
   const transitionStyle = {
-    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
+    transition: `opacity ${duration}ms cubic-bezier(0.4, 0, 0.2, 1), transform ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
   };
 
-  if (!imagenes || imagenes.length === 0) return null;
-
   return (
-    <div className="absolute inset-0 h-full w-full overflow-hidden">
+    <div className="absolute inset-0 h-full w-full overflow-hidden bg-black transform-gpu">
       {imagenes.map((imagen, i) => {
-        // Only render the current image and the next one to optimize performance
-        // This prevents the browser from trying to load all images in the showreel at once
         const isCurrent = i === index;
-        const isNext = i === (index + 1) % imagenes.length;
-        const isPrev = i === (index - 1 + imagenes.length) % imagenes.length;
+        const isPrev = i === prevIndex;
+        const isPreparing = i === (targetIndex % imagesCount);
 
-        // Render current, next (for preloading and transition), and prev (for transition out)
-        if (!isCurrent && !isNext && !isPrev && imagenes.length > 3) return null;
+        // Renderizamos actual, previa (para el crossfade), y la que estamos esperando/preparando
+        const shouldRender = isCurrent || isPrev || isPreparing;
+
+        if (!shouldRender) return null;
+
+        const opacityClass =
+          isCurrent && (i !== 0 || isInitialFadeDone)
+            ? "opacity-100 scale-100 z-20"
+            : isPrev
+              ? "opacity-0 scale-105 z-10"
+              : "opacity-0 scale-105 z-0";
 
         return (
           <img
             key={i}
             loading={i === 0 ? "eager" : "lazy"}
+            {...(isPreparing ? { loading: "eager" } : {})}
             decoding="async"
             src={imagen.route}
-            alt={imagen.title}
-            className={`h-full w-full object-cover absolute ${
-              isCurrent ? "opacity-100 scale-100" : "opacity-0 scale-105"
-            }`}
+            alt={imagen.title || "Showreel Industrial"}
+            onLoad={() => handleLoad(i)}
+            className={`h-full w-full object-cover absolute top-0 left-0 transition-all ${opacityClass}`}
             style={transitionStyle}
           />
         );
       })}
     </div>
   );
-}
+});
+
+Showreel.displayName = "Showreel";
 
 export default Showreel;

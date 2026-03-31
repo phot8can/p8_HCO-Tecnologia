@@ -3,7 +3,7 @@ const imageModules = import.meta.glob("@assets/images/valores/*.webp", {
 });
 import { useEffect, useState } from "react";
 
-function enterprice_values() {
+function EnterpriseValues() {
   const [valoresImg, setValoresImg] = useState({});
 
   useEffect(() => {
@@ -131,4 +131,4 @@ function enterprice_values() {
   );
 }
 
-export default enterprice_values;
+export default EnterpriseValues;

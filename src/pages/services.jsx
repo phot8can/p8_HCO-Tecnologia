@@ -5,19 +5,12 @@ import services from "@data/services.json";
 import Showreel from "@components/showreel";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {
-  HiOutlineClipboardList,
-  HiOutlineBadgeCheck,
-  HiOutlineCube,
-} from "react-icons/hi";
-import { HiOutlineBolt } from "react-icons/hi2";
-import { FaChevronDown } from "react-icons/fa";
+import { BadgeCheck, Box, Zap, ChevronDown } from "lucide-react";
 import testVideo from "@assets/video/test.webm";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
   const location = useLocation();
-  const [queryParams, setQueryParams] = useState("");
   const [videoSrc, setVideoSrc] = useState(testVideo);
 
   const [title, setTitle] = useState("Cargando Titulo...");
@@ -32,7 +25,6 @@ function Services() {
   useEffect(() => {
     const categoriaParam =
       new URLSearchParams(location.search).get("categoria") || "";
-    setQueryParams(categoriaParam);
 
     function deepSearch(obj, key) {
       if (typeof obj !== "object" || obj === null) return null;
@@ -133,7 +125,7 @@ function Services() {
         );
 
         const images = await Promise.all(
-          filteredImporters.map(([_, importFn]) => importFn()),
+          filteredImporters.map(([, importFn]) => importFn()),
         );
 
         const formattedImages = images.map((mod, index) => ({
@@ -248,7 +240,7 @@ function Services() {
                 onClick={() => scrollToInfo(140)}
                 title="Subir ligeramente más"
               >
-                <FaChevronDown /> Ver más
+                <ChevronDown /> Ver más
               </button>
             </div>
           </div>
@@ -263,7 +255,7 @@ function Services() {
         <div className="relative mb-12">
           <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
           <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-blue text-slate-100 rounded-md shadow">
-            <HiOutlineBolt className="h-5 w-5" />
+            <Zap className="h-5 w-5" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               Ficha técnica
             </span>
@@ -325,7 +317,7 @@ function Services() {
                   {!showreelImg?.[2]?.route && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineBolt className="h-10 w-10 text-slate-700" />
+                        <Zap className="h-10 w-10 text-slate-700" />
                       </div>
                     </div>
                   )}
@@ -334,7 +326,7 @@ function Services() {
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineBolt className="h-4 w-4 text-slate-700" />
+                      <Zap className="h-4 w-4 text-slate-700" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900">
                       Oferta
@@ -362,7 +354,7 @@ function Services() {
                   {!showreelImg?.[3]?.route && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineBadgeCheck className="h-10 w-10 text-slate-700" />
+                        <BadgeCheck className="h-10 w-10 text-slate-700" />
                       </div>
                     </div>
                   )}
@@ -371,7 +363,7 @@ function Services() {
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineBadgeCheck className="h-4 w-4 text-slate-700" />
+                      <BadgeCheck className="h-4 w-4 text-slate-700" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900">
                       Beneficios
@@ -399,7 +391,7 @@ function Services() {
                   {!showreelImg?.[4]?.route && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineCube className="h-10 w-10 text-slate-700" />
+                        <Box className="h-10 w-10 text-slate-700" />
                       </div>
                     </div>
                   )}
@@ -408,7 +400,7 @@ function Services() {
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineCube className="h-4 w-4 text-slate-700" />
+                      <Box className="h-4 w-4 text-slate-700" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900">
                       Aplicaciones

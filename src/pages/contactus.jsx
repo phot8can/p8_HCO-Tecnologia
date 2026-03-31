@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import ContactUs_form from "../components/contactUs_form";
+import ContactUsForm from "../components/contactUs_form";
 import BG_Gradient from "@assets/images/fx/BG_Grradient.webp";
 import Noise from "@assets/images/fx/Ruido.webp";
 import Mapa from "@assets/images/fx/Mapa.webp";
@@ -7,7 +7,7 @@ import Mapa from "@assets/images/fx/Mapa.webp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function contactus() {
+function ContactUs() {
   useEffect(() => {
     const reduceMotion =
       typeof window !== "undefined" &&
@@ -71,7 +71,7 @@ function contactus() {
           data-aos="fade-up"
           aria-label="Formulario de contacto"
         >
-          <ContactUs_form />
+          <ContactUsForm />
         </section>
         {/* Map Section */}
         <section
@@ -119,4 +119,4 @@ function contactus() {
   );
 }
 
-export default contactus;
+export default ContactUs;

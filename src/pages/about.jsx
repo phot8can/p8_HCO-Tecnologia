@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Enterprice_Values from "../components/enterprice_values";
+import EnterpriseValues from "../components/enterprice_values";
 import FotoMision from "@assets/images/valores/5.png";
 import FotoVision from "@assets/images/valores/8.png";
 import BG_Gradient from "@assets/images/fx/BG_Grradient.webp";
 
-function about() {
+function About() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -132,11 +132,11 @@ function about() {
 
       {location.pathname === "/about" && (
         <div className="my-16 sm:my-24 md:my-32 ">
-          <Enterprice_Values />
+          <EnterpriseValues />
         </div>
       )}
     </>
   );
 }
 
-export default about;
+export default About;

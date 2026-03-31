@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 
-function contactUs_form({ textColor = "text-white" }) {
+function ContactUsForm({ textColor = "text-white" }) {
   const apiFormKey = import.meta.env.VITE_API_FORM;
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE; // v2 Checkbox
   const [submitting, setSubmitting] = useState(false);
@@ -30,7 +30,6 @@ function contactUs_form({ textColor = "text-white" }) {
     return () => clearInterval(checkIntervalId);
   }, []);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // 1) Clave de API presente
@@ -46,7 +45,7 @@ function contactUs_form({ textColor = "text-white" }) {
     // 3) reCAPTCHA renderizado (el widget añade g-recaptcha-response automáticamente)
     if (!window.grecaptcha || !document.querySelector(".g-recaptcha")) {
       alert(
-        "No se pudo cargar reCAPTCHA. Revisa tu conexión o tu clave de sitio."
+        "No se pudo cargar reCAPTCHA. Revisa tu conexión o tu clave de sitio.",
       );
       return;
     }
@@ -226,7 +225,7 @@ function contactUs_form({ textColor = "text-white" }) {
         </div>
         {success && (
           <div className="mt-4 p-4 bg-green border border-green text-white rounded flex items-center space-x-2">
-            <FaCheckCircle className="text-white text-xl" />
+            <CheckCircle className="text-white text-xl" />
             <span>¡Tu mensaje ha sido enviado con éxito!</span>
           </div>
         )}
@@ -235,4 +234,4 @@ function contactUs_form({ textColor = "text-white" }) {
   );
 }
 
-export default contactUs_form;
+export default ContactUsForm;

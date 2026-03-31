@@ -1,11 +1,5 @@
 import p8_logo from "@assets/p8_logo.webp";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaPhone,
-} from "react-icons/fa";
+import { MapPin, Mail } from "lucide-react";
 
 import NoiseGradiant from "@assets/images/fx/Ruido_degradado.webp";
 
@@ -30,7 +24,7 @@ function Footer() {
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
           {/* Top grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-sm">
             {/* About */}
             <div>
               <h4 className="text-base font-semibold mb-3 tracking-wide">
@@ -49,7 +43,7 @@ function Footer() {
               </h4>
               <ul className="space-y-2 text-white/80">
                 <li className="flex items-start gap-3">
-                  <FaEnvelope className="mt-1 shrink-0" />{" "}
+                  <Mail className="mt-1 shrink-0" />{" "}
                   <a
                     href="mailto:tecnologiaindustrial.hco@gmail.com"
                     className={`hover:underline`}
@@ -58,7 +52,7 @@ function Footer() {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FaMapMarkerAlt className="mt-1 shrink-0" />{" "}
+                  <MapPin className="mt-1 shrink-0" />{" "}
                   <a
                     href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
                     target="_blank"
@@ -86,15 +80,15 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/contacto" className="hover:text-blue-200">
-                    Contacto
+                  <a href="/info" className="hover:text-blue-200">
+                    Información
                   </a>
                 </li>
               </ul>
             </div>
 
             {/* Social */}
-            <div>
+            {/* <div>
               <h4 className="text-base font-semibold mb-3 tracking-wide">
                 Síguenos
               </h4>
@@ -106,7 +100,7 @@ function Footer() {
                   aria-label="Facebook"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
                 >
-                  <FaFacebookF />
+                  Facebook
                 </a>
                 <a
                   href="https://www.linkedin.com/company/phot8can/"
@@ -115,10 +109,10 @@ function Footer() {
                   aria-label="LinkedIn"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
                 >
-                  <FaLinkedinIn />
+                  Linkedin
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Divider */}
@@ -127,8 +121,8 @@ function Footer() {
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-md text-white/80">
             <p className="order-2 md:order-1">
-              &copy; {new Date().getFullYear()} HCO Tecnología Industrial. Todos los
-              derechos reservados.
+              &copy; {new Date().getFullYear()} HCO Tecnología Industrial. Todos
+              los derechos reservados.
             </p>
             <div className="order-1 md:order-2 flex items-center gap-1">
               <span className="text-xs tracking-wide text-white/75">

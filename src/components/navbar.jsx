@@ -1,7 +1,6 @@
-
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import LogoNew from "/LogoHCO_new.svg";
 import navbar from "@data/navbar.json";
 
@@ -14,7 +13,7 @@ function Navbar() {
   const obj_nav = navbar;
 
   return (
-    <nav className="bg-blue/95 backdrop-blur supports-[backdrop-filter]:backdrop-blur text-white p-4 md:px-6 shadow-sm sticky top-0 z-50 border-b border-blue scroll overflow-visible">
+    <nav className="bg-blue/95 backdrop-blur-sm text-white p-4 md:px-6 shadow-sm sticky top-0 z-50 border-b border-blue scroll overflow-visible">
       <div className="flex justify-between items-center gap-5">
         {/* md:justify-center  */}
         {location.pathname !== "/" ? (
@@ -39,7 +38,7 @@ function Navbar() {
           className="md:hidden text-white text-2xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
         <div className="hidden md:flex items-center gap-2">
           {obj_nav.map((item, idx) => (
@@ -127,9 +126,7 @@ function Navbar() {
             <div key={idx}>
               {Array.isArray(item.index) ? (
                 <details className="cursor-pointer">
-                  <summary className="text-white py-5">
-                    {item.title}
-                  </summary>
+                  <summary className="text-white py-5">{item.title}</summary>
                   <div className="ml-4 mt-2 flex flex-col divide-y divide-slate-200">
                     {item.index.map((subItem, subIdx) =>
                       Array.isArray(subItem.index) ? (
@@ -166,7 +163,7 @@ function Navbar() {
                         >
                           {subItem.title}
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 </details>

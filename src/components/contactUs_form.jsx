@@ -24,6 +24,7 @@ function ContactUsForm({ textColor = "text-white" }) {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     checkIntervalId = setInterval(() => {
       ensureRecaptcha();
     }, 1000);

@@ -51,7 +51,7 @@ const Showreel = memo(({ imagenes, duration = 1500, intervalo = 2.5 }) => {
   };
 
   return (
-    <div className="absolute inset-0 h-full w-full overflow-hidden bg-black transform-gpu">
+    <div className="absolute inset-0 h-full w-full overflow-hidden bg-slate-900 transform-gpu">
       {imagenes.map((imagen, i) => {
         const isCurrent = i === index;
         const isPrev = i === prevIndex;

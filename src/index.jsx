@@ -2,7 +2,7 @@ import NavBar from "./components/navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/footer";
 
-function index() {
+function IndexLayout() {
   return (
     <div className="bg-bg">
       <NavBar />
@@ -12,4 +12,4 @@ function index() {
   );
 }
 
-export default index;
+export default IndexLayout;

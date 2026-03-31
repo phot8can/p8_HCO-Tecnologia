@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { useLocation } from "react-router-dom";
 import navbar from "@data/navbar.json";
 import services from "@data/services.json";
@@ -6,18 +6,60 @@ import Showreel from "@components/showreel";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
-  HiOutlineClipboardList,
-  HiOutlineBadgeCheck,
-  HiOutlineCube,
-} from "react-icons/hi";
-import { HiOutlineBolt } from "react-icons/hi2";
-import { FaChevronDown } from "react-icons/fa";
+  BadgeCheck,
+  Box,
+  Zap,
+  ChevronDown,
+  Activity,
+  Layers,
+  Terminal,
+} from "lucide-react";
 import testVideo from "@assets/video/test.webm";
+
+// Componente de lista optimizado
+const RenderList = memo(
+  ({ items, className = "text-gray-700", dotClassName = "bg-blue" }) => {
+    const listItems = useMemo(() => {
+      if (Array.isArray(items)) return items;
+      const s = (items ?? "").toString();
+      const byNewline = s
+        .split(/\r?\n/)
+        .map((t) => t.trim())
+        .filter(Boolean);
+      if (byNewline.length > 1) return byNewline;
+      const byComma = s
+        .split(/\s*,\s*/)
+        .map((t) => t.trim())
+        .filter(Boolean);
+      if (byComma.length > 1) return byComma;
+      return s ? [s] : [];
+    }, [items]);
+
+    return (
+      <ul className="mt-4 space-y-3">
+        {listItems.map((it, i) => (
+          <li key={i} className="flex items-start gap-3 group">
+            <span
+              className={`mt-2 h-1.5 w-1.5 rounded-full flex-shrink-0 transition-all group-hover:scale-125 ${dotClassName}`}
+            />
+            <span
+              className={`${className} text-sm md:text-base transition-colors group-hover:text-slate-900`}
+            >
+              {it}
+            </span>
+          </li>
+        ))}
+      </ul>
+    );
+  },
+);
+
+RenderList.displayName = "RenderList";
 
 function Services() {
   const [showreelImg, setShowreelImg] = useState([]);
   const location = useLocation();
-  const [queryParams, setQueryParams] = useState("");
+  const [isFading, setIsFading] = useState(false);
   const [videoSrc, setVideoSrc] = useState(testVideo);
 
   const [title, setTitle] = useState("Cargando Titulo...");
@@ -32,7 +74,6 @@ function Services() {
   useEffect(() => {
     const categoriaParam =
       new URLSearchParams(location.search).get("categoria") || "";
-    setQueryParams(categoriaParam);
 
     function deepSearch(obj, key) {
       if (typeof obj !== "object" || obj === null) return null;
@@ -66,55 +107,49 @@ function Services() {
       setTitle(matchedItem.title);
       setDescription(matchedItem.description);
       setRuta(matchedItem.sources);
-      setSubtitulo(matchedService?.subtitle || "Subtitulo no disponible");
-      setDescripcion(matchedService?.overview || "Descripción no disponible");
-      setOferta(matchedService?.offerings || ["Oferta no disponible"]);
-      setBeneficios(matchedService?.benefits || ["Beneficios no disponibles"]);
-      setAplicaciones(
-        matchedService?.applications || ["Aplicaciones no disponibles"],
+      setSubtitulo(matchedService?.subtitle || "Especificación Técnica");
+      setDescripcion(
+        matchedService?.overview || "Información del proceso detallada.",
       );
-
-      // 2. NUEVA LÓGICA PARA CARGAR EL VIDEO DINÁMICO
+      setOferta(matchedService?.offerings || []);
+      setBeneficios(matchedService?.benefits || []);
+      setAplicaciones(matchedService?.applications || []);
 
       if (matchedService?.video) {
-        // Transformamos el alias "@assets" a la ruta real absoluta que Vite necesita leer
         const realPath = matchedService.video.replace("@assets", "/src/assets");
-        // Obtenemos todos los videos posibles. Vite compila esto en tiempo de build.
         const videoModules = import.meta.glob("/src/assets/**/*.{mp4,webm}");
-
         if (videoModules[realPath]) {
-          // Si el archivo existe, lo importamos asíncronamente
           videoModules[realPath]()
             .then((mod) => setVideoSrc(mod.default))
-            .catch((err) => {
-              console.error("Error cargando video dinámico:", err);
-              setVideoSrc(testVideo); // Fallback en caso de error
-            });
-        } else {
-          setVideoSrc(testVideo); // Fallback si la ruta en el JSON es incorrecta
-        }
-      } else {
-        setVideoSrc(testVideo); // Fallback normal si el JSON no tiene el parámetro "video"
-      }
-    } else {
-      setTitle("Cargando Titulo...");
-      setDescription("Cargando Descripción...");
-      setRuta("");
-      setSubtitulo("Subtitulo no disponible");
-      setDescripcion("Descripción no disponible");
-      setOferta("Oferta no disponible");
-      setBeneficios("Beneficios no disponibles");
-      setAplicaciones("Aplicaciones no disponibles");
-      setVideoSrc(testVideo); // Reset del video si no hay match
+            .catch(() => setVideoSrc(testVideo));
+        } else setVideoSrc(testVideo);
+      } else setVideoSrc(testVideo);
     }
-  }, [location]);
+  }, [location.search]);
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
+      easing: "ease-out",
+      mirror: false,
     });
   }, []);
+
+  useEffect(() => {
+    // Iniciar desvanecimiento al cambiar de ruta
+    setIsFading(true);
+    const timerFade = setTimeout(() => setIsFading(false), 150);
+
+    // Refrescar AOS para detectar nuevos elementos después de un pequeño retraso
+    const timerAos = setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+    return () => {
+      clearTimeout(timerFade);
+      clearTimeout(timerAos);
+    };
+  }, [location.search, title]);
 
   useEffect(() => {
     if (!ruta) {
@@ -127,306 +162,212 @@ function Services() {
         const importers = import.meta.glob("/src/assets/images/servicios/**", {
           eager: false,
         });
-
         const filteredImporters = Object.entries(importers).filter(([path]) =>
           path.includes(`/src/assets/images/servicios/${ruta}/`),
         );
-
         const images = await Promise.all(
-          filteredImporters.map(([_, importFn]) => importFn()),
+          filteredImporters.map(([, importFn]) => importFn()),
         );
-
-        const formattedImages = images.map((mod, index) => ({
-          title: `Imagen ${index + 1}`,
-          route: mod.default,
-        }));
-        setShowreelImg(formattedImages);
-      } catch (error) {
-        console.error("Error loading images:", error);
+        setShowreelImg(
+          images.map((mod, index) => ({
+            title: `ID-${index + 1}`,
+            route: mod.default,
+          })),
+        );
+      } catch {
         setShowreelImg([]);
       }
     };
-
     loadImages();
   }, [ruta]);
 
-  const toLines = (val) => {
-    if (Array.isArray(val)) return val;
-    const s = (val ?? "").toString();
-    // Primero intenta detectar saltos de línea reales "\n"
-    const byNewline = s
-      .split(/\r?\n/)
-      .map((t) => t.trim())
-      .filter(Boolean);
-    if (byNewline.length > 1) return byNewline;
-    // Si no hay, intenta separar por comas
-    const byComma = s
-      .split(/\s*,\s*/)
-      .map((t) => t.trim())
-      .filter(Boolean);
-    if (byComma.length > 1) return byComma;
-    // Retorna el string tal cual en un arreglo para render uniforme
-    return s ? [s] : [];
-  };
-
-  const RenderList = ({
-    items,
-    className = "text-gray-700",
-    dotClassName = "bg-blue-600",
-  }) => (
-    <ul className="mt-3 space-y-2">
-      {toLines(items).map((it, i) => (
-        <li key={i} className="flex items-start gap-3">
-          <span
-            className={`mt-2 h-2 w-2 rounded-full flex-shrink-0 ${dotClassName}`}
-          />
-          <span className={className}>{it}</span>
-        </li>
-      ))}
-    </ul>
-  );
-
-  const scrollToInfo = (offset = 0) => {
+  const scrollToInfo = () => {
     const el = document.getElementById("info");
-    if (!el) return;
-    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({ top: y, behavior: "smooth" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <>
-      <div className="relative h-screen text-white">
-        <header
-          className=" flex h-full"
+    <main
+      className={`relative min-h-screen bg-white overflow-x-hidden transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100 animate-fade-in"}`}
+    >
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        {/* Background / Showreel Layer */}
+        <div
+          className="absolute inset-0 bg-slate-900 transform-gpu"
           onContextMenu={(e) => e.preventDefault()}
         >
-          <div>
-            <div className="absolute inset-0 -z-9 max-h-56" data-aos="fade-up">
-              <Showreel imagenes={showreelImg} duration={1500} intervalo={2} />
-              <div className="absolute inset-0 bg-blue opacity-40" />
-            </div>
-            <div
-              className="grid grid-cols-1 md:grid-cols-2 w-full h-full items-center gap-8 px-10"
-              data-aos="fade-up"
-            >
-              <div className="block">
-                <div className="mb-8">
-                  <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
-                </div>
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-black">
-                  {title}
-                </h1>
-                <p className="text-base md:text-lg drop-shadow-sm break-words text-black/50">
-                  {description}
-                </p>
-              </div>
-              <div className="flex items-center justify-center px-4">
-                <div className="w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-black/10">
-                  <video
-                    key={videoSrc}
-                    src={videoSrc}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    // controls
-                    preload="metadata"
-                    className="h-full w-full object-cover"
-                    controlsList="nodownload noplaybackrate"
-                  >
-                    Tu navegador no soporta la etiqueta de video.
-                  </video>
-                </div>
-              </div>
-            </div>
+          <div className="absolute inset-0 h-full w-full">
+            <Showreel imagenes={showreelImg} duration={2000} intervalo={3} />
           </div>
-          {/* <HCOLogo className="h-24 md:h-40 w-auto max-w-full text-red-500" /> */}
-          <div className="bottom-32 absolute w-full flex justify-center items-center">
-            <div className="flex items-center gap-3">
-              <button
-                className="bg-white/90 border px-5 py-2 rounded-full font-semibold text-blue transition text-center flex items-center justify-center gap-2 hover:bg-white"
-                onClick={() => scrollToInfo(140)}
-                title="Subir ligeramente más"
-              >
-                <FaChevronDown /> Ver más
-              </button>
-            </div>
-          </div>
-        </header>
-      </div>
-      <hr className="text-[#d6d6d6]" />
-      <section
-        className="mx-auto max-w-7xl px-6 md:px-8 my-24 scroll-mt-24"
-        id="info"
-      >
-        {/* Industrial header strip */}
-        <div className="relative mb-12">
-          <div className="h-2 w-full bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full" />
-          <div className="absolute -top-3 left-0 flex items-center gap-2 px-3 py-1 bg-blue text-slate-100 rounded-md shadow">
-            <HiOutlineBolt className="h-5 w-5" />
-            <span className="text-sm font-semibold tracking-wide uppercase">
-              Ficha técnica
-            </span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-transparent" />
+          <div className="absolute inset-0 industrial-grid opacity-20" />
         </div>
 
-        {/* Bloque 1: Imagen izquierda / texto derecha */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20">
-          {/* Imagen */}
-          <div className="lg:col-span-6 order-1">
-            <div
-              className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 bg-slate-800/40 bg-center bg-cover"
-              style={{
-                backgroundImage: showreelImg?.[0]?.route
-                  ? `url(${showreelImg[0].route})`
-                  : undefined,
-              }}
+        <div
+          className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20 "
+          data-aos="fade-up"
+        >
+          {/* Hero Content */}
+          <div className="relative text-white z-20 space-y-8 animate-fade-in order-2 lg:order-1">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] drop-shadow-lg">
+                {title}
+              </h1>
+              <div className="h-1 w-24 bg-blue rounded-full shadow-glow" />
+            </div>
+
+            <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed font-medium">
+              {description}
+            </p>
+
+            <button
+              onClick={scrollToInfo}
+              className="group flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-bold transition-all hover:bg-blue hover:text-white shadow-xl hover:shadow-blue/50 transform-gpu hover:-translate-y-1"
             >
-              {!showreelImg?.[0]?.route && (
-                <div className="h-full w-full bg-[radial-gradient(60%_40%_at_30%_10%,rgba(148,163,184,0.12),transparent)]" />
-              )}
+              <span>Ver Ficha Técnica</span>
+              <ChevronDown className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Video Section / Technical Monitor */}
+          <div
+            className="relative order-1 lg:order-2 z-20 w-full transform-gpu"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            onContextMenu={(e) => e.preventDefault()}
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] industrial-border bg-slate-900 p-1 group">
+              <div className="absolute top-4 left-4 z-30 flex items-center gap-2 px-3 py-1 bg-white/60 backdrop-blur-md rounded border border-white/10 text-[10px] font-mono text-blue uppercase tracking-tighter">
+                <Activity className="h-3 w-3 animate-pulse" />
+                <span>Video Demo</span>
+              </div>
+              <video
+                key={videoSrc}
+                src={videoSrc}
+                autoPlay
+                muted
+                disablePictureInPicture
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full aspect-[16/9] object-cover scale-105"
+                controlsList="nodownload"
+              />
+              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-2xl" />
+            </div>
+            {/* Technical Detail Corner */}
+            <div className="absolute -bottom-6 -right-6 h-32 w-32 industrial-grid opacity-20 -z-10" />
+          </div>
+        </div>
+      </section>
+
+      {/* Main Details Section */}
+      <section id="info" className="relative py-24 sm:py-32 scroll-mt-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Header Strip */}
+          <div className="flex flex-col md:flex-row items-end gap-6 mb-20">
+            <div className="w-full md:w-auto flex items-center gap-4 px-6 py-3 bg-slate-900 text-white rounded-tr-3xl industrial-border shadow-2xl skew-x-[-10deg]">
+              <div className="skew-x-[10deg] flex items-center gap-3">
+                <Layers className="h-6 w-6 text-white" />
+                <h2 className="text-xl font-bold tracking-widest uppercase">
+                  Ficha Técnica
+                </h2>
+              </div>
+            </div>
+            <div className="h-px flex-grow bg-slate-200 mb-4" />
+          </div>
+
+          {/* Content Block 1 */}
+          <div
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-32"
+            onContextMenu={(e) => e.preventDefault()}
+          >
+            <div className="lg:col-span-7" data-aos="fade-right">
+              <div className="relative group rounded-3xl overflow-hidden shadow-2xl bg-slate-200 transition-transform duration-500 hover:scale-[1.02]">
+                <div
+                  className="aspect-video bg-center bg-cover scale-105 transition-transform duration-1000 group-hover:scale-100"
+                  style={{
+                    backgroundImage: showreelImg?.[0]?.route
+                      ? `url(${showreelImg[0].route})`
+                      : undefined,
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white font-mono text-xs tracking-widest opacity-60">
+                  VISTA DETALLADA
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-6" data-aos="fade-left">
+              <div className="space-y-4">
+                <span className="text-blue font-bold tracking-widest text-sm uppercase">
+                  Resumen de Ingeniería
+                </span>
+                <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                  {subtitulo}
+                </h3>
+              </div>
+              <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                {descripcion}
+              </p>
             </div>
           </div>
 
-          {/* Texto */}
-          <div className="lg:col-span-6 order-2 flex flex-col items-start justify-start text-left">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
-              {subtitulo || "Resumen del servicio"}
-            </h2>
-            <p className="text-slate-500 font-semibold mb-6">
-              Descripción general
-            </p>
-            <p className="text-lg leading-relaxed text-slate-700">
-              {descripcion}
-            </p>
-          </div>
-        </div>
+          {/* Details Grid */}
+          <div className="space-y-12">
+            <div className="flex items-center gap-4">
+              <div className="h-8 w-1 bg-blue rounded-full" />
+              <h4 className="text-3xl font-bold text-slate-900">
+                Especificaciones detalladas
+              </h4>
+            </div>
 
-        {/* Bloque 2: Texto izquierda / imagen derecha */}
-        <div className="block gap-10 items-start mb-8">
-          {/* Texto */}
-          <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-start text-left">
-            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-6">
-              Detalles del servicio
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {/* Oferta */}
-              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
-                <div className="relative aspect-[4/3] bg-slate-100">
-                  <div
-                    className="absolute inset-0 bg-center bg-cover"
-                    style={{
-                      backgroundImage: showreelImg?.[2]?.route
-                        ? `url(${showreelImg[2].route})`
-                        : undefined,
-                    }}
-                  />
-                  {!showreelImg?.[2]?.route && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineBolt className="h-10 w-10 text-slate-700" />
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { title: "Oferta", data: oferta, icon: Zap, color: "emerald" },
+                {
+                  title: "Beneficios",
+                  data: beneficios,
+                  icon: BadgeCheck,
+                  color: "sky",
+                },
+                {
+                  title: "Aplicaciones",
+                  data: aplicaciones,
+                  icon: Box,
+                  color: "amber",
+                },
+              ].map((card, i) => (
+                <article
+                  key={card.title}
+                  className="relative group bg-white rounded-3xl p-8 border border-slate-100 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-blue/20 transform-gpu hover:-translate-y-2"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 100}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="h-12 w-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center transition-all group-hover:bg-blue group-hover:border-blue">
+                      <card.icon className="h-6 w-6 text-slate-700 transition-colors group-hover:text-white" />
                     </div>
-                  )}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineBolt className="h-4 w-4 text-slate-700" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-slate-900">
-                      Oferta
-                    </h4>
+                    <h5 className="text-xl font-bold text-slate-900">
+                      {card.title}
+                    </h5>
                   </div>
                   <RenderList
-                    items={oferta}
-                    className="text-slate-700"
-                    dotClassName="bg-emerald-500"
+                    items={card.data}
+                    dotClassName={`bg-${card.color}-500`}
                   />
-                </div>
-              </article>
-
-              {/* Beneficios */}
-              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
-                <div className="relative aspect-[4/3] bg-slate-100">
-                  <div
-                    className="absolute inset-0 bg-center bg-cover"
-                    style={{
-                      backgroundImage: showreelImg?.[3]?.route
-                        ? `url(${showreelImg[3].route})`
-                        : undefined,
-                    }}
-                  />
-                  {!showreelImg?.[3]?.route && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineBadgeCheck className="h-10 w-10 text-slate-700" />
-                      </div>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineBadgeCheck className="h-4 w-4 text-slate-700" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-slate-900">
-                      Beneficios
-                    </h4>
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-10 font-mono text-4xl font-black transition-opacity pointer-events-none">
+                    0{i + 1}
                   </div>
-                  <RenderList
-                    items={beneficios}
-                    className="text-slate-700"
-                    dotClassName="bg-sky-500"
-                  />
-                </div>
-              </article>
-
-              {/* Aplicaciones */}
-              <article className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-lg">
-                <div className="relative aspect-[4/3] bg-slate-100">
-                  <div
-                    className="absolute inset-0 bg-center bg-cover"
-                    style={{
-                      backgroundImage: showreelImg?.[4]?.route
-                        ? `url(${showreelImg[4].route})`
-                        : undefined,
-                    }}
-                  />
-                  {!showreelImg?.[4]?.route && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-16 w-16 rounded-xl border border-slate-300 bg-white/90 shadow-md flex items-center justify-center">
-                        <HiOutlineCube className="h-10 w-10 text-slate-700" />
-                      </div>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white">
-                      <HiOutlineCube className="h-4 w-4 text-slate-700" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-slate-900">
-                      Aplicaciones
-                    </h4>
-                  </div>
-                  <RenderList
-                    items={aplicaciones}
-                    className="text-slate-700"
-                    dotClassName="bg-amber-500"
-                  />
-                </div>
-              </article>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
-      {/* <hr className="my-10"/> */}
-    </>
+    </main>
   );
 }
 

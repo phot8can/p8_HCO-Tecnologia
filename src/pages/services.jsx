@@ -198,7 +198,16 @@ function Services() {
           onContextMenu={(e) => e.preventDefault()}
         >
           <div className="absolute inset-0 h-full w-full">
-            <Showreel imagenes={showreelImg} duration={2000} intervalo={3} />
+            {showreelImg.length === 1 ? (
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${showreelImg[0].route})`,
+                }}
+              />
+            ) : (
+              <Showreel imagenes={showreelImg} duration={2000} intervalo={3} />
+            )}
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-transparent" />
           <div className="absolute inset-0 industrial-grid opacity-20" />

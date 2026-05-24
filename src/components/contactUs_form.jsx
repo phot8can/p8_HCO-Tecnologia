@@ -114,7 +114,7 @@ function ContactUsForm({ textColor = "text-white" }) {
                   tecnologiaindustrial.hco@gmail.com
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <strong>Dirección:</strong>{" "}
                 <a
                   href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
@@ -124,7 +124,7 @@ function ContactUsForm({ textColor = "text-white" }) {
                 >
                   Hacienda Quinta Real, H. Matamoros, Tam. MX. CP 87345
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <form

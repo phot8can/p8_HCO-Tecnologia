@@ -82,7 +82,7 @@ function ContactUs() {
           </Suspense>
         </section>
         {/* Map Section */}
-        <section
+        {/* <section
           className="mt-12 sm:mt-16 md:mt-20 z-20 px-4 sm:px-6 md:px-8 lg:px-10"
           role="region"
           aria-label="Mapa y dirección"
@@ -146,7 +146,7 @@ function ContactUs() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );

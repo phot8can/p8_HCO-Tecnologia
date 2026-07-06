@@ -51,7 +51,7 @@ function Footer() {
                     tecnologiaindustrial.hco@gmail.com
                   </a>
                 </li>
-                {/* <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3">
                   <MapPin className="mt-1 shrink-0" />{" "}
                   <a
                     href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
@@ -61,7 +61,7 @@ function Footer() {
                   >
                     H. Matamoros, Tam. MX.
                   </a>
-                </li> */}
+                </li>
               </ul>
             </div>
 

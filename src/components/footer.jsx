@@ -1,5 +1,5 @@
 import p8_logo from "@assets/p8_logo.webp";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 import NoiseGradiant from "@assets/images/fx/Ruido_degradado.webp";
 
@@ -51,7 +51,7 @@ function Footer() {
                     tecnologiaindustrial.hco@gmail.com
                   </a>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-center gap-3">
                   <MapPin className="mt-1 shrink-0" />{" "}
                   <a
                     href="https://maps.app.goo.gl/Mr7fNbYmEyJzAEiU7"
@@ -60,6 +60,17 @@ function Footer() {
                     className={` hover:underline`}
                   >
                     H. Matamoros, Tam. MX.
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="mt-1 shrink-0" />{" "}
+                  <a
+                    href="tel:+528681619773"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={` hover:underline`}
+                  >
+                    +52 (868) 161-9773
                   </a>
                 </li>
               </ul>

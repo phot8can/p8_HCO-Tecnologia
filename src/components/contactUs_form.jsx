@@ -125,6 +125,15 @@ function ContactUsForm({ textColor = "text-white" }) {
                   Hacienda Quinta Real, H. Matamoros, Tam. MX. CP 87345
                 </a>
               </li>
+              <li>
+                <strong>Telefono:</strong>{" "}
+                <a
+                  href="tel:+528681619773"
+                  className={`${textColor} hover:underline`}
+                >
+                  +52 (868) 161-9773
+                </a>
+              </li>
             </ul>
           </div>
           <form
